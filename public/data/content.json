@@ -1,6 +1,22 @@
 {
-  "work": [],
-  "sideProjects": [],
+  "work": [
+    {
+      "id": "w1775915807316",
+      "title": "Business Development Executive",
+      "company": "Tailwebs Technologies",
+      "year": "2024 - Present",
+      "slug": "business-development-executive"
+    }
+  ],
+  "sideProjects": [
+    {
+      "id": "sp1775915826484",
+      "title": "Where In India",
+      "category": "Travel Directory",
+      "year": "2025",
+      "slug": "where-in-india"
+    }
+  ],
   "photography": [
     {
       "id": "ph1",
