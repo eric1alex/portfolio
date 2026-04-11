@@ -1,19 +1,31 @@
 {
-  "work": [
-    { "id": "w1", "title": "Principal Systems Architect", "company": "Vanguard Media", "year": "2021 — 2024", "slug": "principal-systems-architect" },
-    { "id": "w2", "title": "Senior Product Designer", "company": "Linear Logistics", "year": "2018 — 2021", "slug": "senior-product-designer" },
-    { "id": "w3", "title": "Visual Researcher", "company": "The Monastic Studio", "year": "2016 — 2018", "slug": "visual-researcher" },
-    { "id": "w4", "title": "Interface Apprentice", "company": "Null Point Agency", "year": "2014 — 2016", "slug": "interface-apprentice" }
-  ],
-  "sideProjects": [
-    { "id": "sp1", "title": "Kinetic Typography Engine", "category": "Open Source / WebGL", "year": "2024", "slug": "kinetic-typography-engine" },
-    { "id": "sp2", "title": "Monospatial Design System", "category": "Personal Project", "year": "2023 — 2024", "slug": "monospatial-design-system" },
-    { "id": "sp3", "title": "Minimalist RSS Reader", "category": "Product Design", "year": "2023", "slug": "minimalist-rss-reader" }
-  ],
+  "work": [],
+  "sideProjects": [],
   "photography": [
-    { "id": "ph1", "plateNo": "001-A", "caption": "Stairwell Transition / London", "aspect": "4/5", "colSpan": "md:col-span-8 md:col-start-1", "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" },
-    { "id": "ph2", "plateNo": "002-C", "caption": "Surface Detail / Tokyo", "aspect": "square", "colSpan": "md:col-span-3 md:col-start-10 md:mt-32", "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBRmmmnzGUy8Q1nUaQPXJmOFzDzjWqucH8WNGf-CKxpggUXsv_4z9QmfmjSXbZKL6ueHGC-ivrjPSQL_Ty81VSLpfkSqPo0ZAlpqbdKAc_TiEFDBs0_xG2wa1j1lzX4MtziqxjFjRoFzltQoGuEdCH9wW-l8G_Us1SaqnhajR2iOCfgG6-8Ow25V0UEUZp-xeSWKeqnXs-yy4rOYMohAwENcCmQYe9sGX9WTj1u5bPJ4d5D5c2c47UoCMsK2e5r3kIVa8ZJSn2IigY" },
-    { "id": "ph3", "plateNo": "003-B", "caption": "Monolith Study / Berlin", "aspect": "21/9", "colSpan": "md:col-span-12", "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCqkFArRGAjYQxRq4GWda3j76yTUYwekMXRIgddJGJ4ues9qJJ24O-7kvMcrhoRwHZ8LP8jZs9g1iwMmnJpMpdRXXSImyrkTRaGpS9hswcWwuqgn3smvdexJsUtuvJy0ZgOsPm4G01khm7lBRZHq3AHEkGzyjEvA-oxXg3Wg1vrjf7cmlUMqYXOatKGg-q5dDqnwxFtpbBWkJq2tc5S_PVTRSZKr5hxSSHwBuXfeCichLB4A-DQMO_nUjcNVY_KtyMn5dlG4BQm9bI" }
+    {
+      "id": "ph1",
+      "plateNo": "001-A",
+      "caption": "Stairwell Transition / London",
+      "aspect": "4/5",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA"
+    },
+    {
+      "id": "ph2",
+      "plateNo": "002-C",
+      "caption": "Surface Detail / Tokyo",
+      "aspect": "square",
+      "colSpan": "md:col-span-3 md:col-start-10 md:mt-32",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBRmmmnzGUy8Q1nUaQPXJmOFzDzjWqucH8WNGf-CKxpggUXsv_4z9QmfmjSXbZKL6ueHGC-ivrjPSQL_Ty81VSLpfkSqPo0ZAlpqbdKAc_TiEFDBs0_xG2wa1j1lzX4MtziqxjFjRoFzltQoGuEdCH9wW-l8G_Us1SaqnhajR2iOCfgG6-8Ow25V0UEUZp-xeSWKeqnXs-yy4rOYMohAwENcCmQYe9sGX9WTj1u5bPJ4d5D5c2c47UoCMsK2e5r3kIVa8ZJSn2IigY"
+    },
+    {
+      "id": "ph3",
+      "plateNo": "003-B",
+      "caption": "Monolith Study / Berlin",
+      "aspect": "21/9",
+      "colSpan": "md:col-span-12",
+      "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCqkFArRGAjYQxRq4GWda3j76yTUYwekMXRIgddJGJ4ues9qJJ24O-7kvMcrhoRwHZ8LP8jZs9g1iwMmnJpMpdRXXSImyrkTRaGpS9hswcWwuqgn3smvdexJsUtuvJy0ZgOsPm4G01khm7lBRZHq3AHEkGzyjEvA-oxXg3Wg1vrjf7cmlUMqYXOatKGg-q5dDqnwxFtpbBWkJq2tc5S_PVTRSZKr5hxSSHwBuXfeCichLB4A-DQMO_nUjcNVY_KtyMn5dlG4BQm9bI"
+    }
   ],
   "videography": [],
   "design": []
