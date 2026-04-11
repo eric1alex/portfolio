@@ -14,6 +14,8 @@ export default defineConfig({
         photography: resolve(__dirname, 'creative/photography.html'),
         videography: resolve(__dirname, 'creative/videography.html'),
         design: resolve(__dirname, 'creative/design.html'),
+        adminLogin: resolve(__dirname, 'admin/index.html'),
+        adminDashboard: resolve(__dirname, 'admin/dashboard.html'),
       },
     },
     outDir: 'dist',
