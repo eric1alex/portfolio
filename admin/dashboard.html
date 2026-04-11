@@ -350,6 +350,42 @@
         }
         .banner strong { font-weight: 700; }
 
+        /* Publish button */
+        .btn-publish {
+            width: 100%;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 2px;
+            padding: 0.75rem 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .btn-publish:hover { opacity: 0.85; }
+        .btn-publish:disabled { opacity: 0.4; cursor: not-allowed; }
+        .btn-publish.clean { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); }
+        .publish-badge {
+            background: #ff6b35;
+            color: #fff;
+            font-size: 0.5rem;
+            font-weight: 700;
+            border-radius: 99px;
+            padding: 0.1rem 0.4rem;
+            min-width: 1.2rem;
+            text-align: center;
+        }
+        .toast.success { background: var(--accent); }
+
         @media (max-width: 768px) {
             .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; }
             .main { margin-left: 0; padding: 1.5rem; }
@@ -388,6 +424,9 @@
         </button>
 
         <div class="sidebar-footer">
+            <button class="btn-publish clean" id="publish-btn" onclick="publishChanges()" disabled>
+                ↑ Publish
+            </button>
             <a href="../index.html" style="display:block;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.3;color:#fff;text-decoration:none;margin-bottom:0.75rem;" target="_blank">↗ View Site</a>
             <button class="btn-logout" onclick="logout()">Sign Out</button>
         </div>
@@ -409,8 +448,11 @@
                 <div class="stat-card"><p class="stat-label">Side Projects</p><p class="stat-value" id="stat-projects">—</p></div>
                 <div class="stat-card"><p class="stat-label">Photo Plates</p><p class="stat-value" id="stat-photos">—</p></div>
             </div>
-            <div class="banner">
-                <strong>GitHub Sync Required.</strong> Changes made here are saved locally in <code>data/content.json</code>. To publish changes to your live site, commit and push the file to GitHub — Vercel will rebuild automatically.
+            <div class="banner" id="overview-banner" style="display:none;">
+                <strong>Unpublished changes.</strong> You have pending edits. Click <strong>Publish</strong> in the sidebar to deploy them to your live site.
+            </div>
+            <div class="banner" style="background:var(--accent-light);border-color:#9ecdb0;color:#2d5a3f;" id="clean-banner">
+                <strong>All up to date.</strong> Your published site matches the current content.
             </div>
         </div>
 
@@ -634,13 +676,15 @@
 
         // ── State ──
         let data = { work: [], sideProjects: [], photography: [], videography: [], design: [] };
-        let unsaved = false;
+        let pendingChanges = 0;
 
         // ── Load Data ──
         async function loadData() {
             try {
                 const res = await fetch('/data/content.json?t=' + Date.now());
                 data = await res.json();
+                pendingChanges = 0;
+                updatePublishBtn();
                 renderAll();
             } catch(e) {
                 showToast('Could not load content.json', true);
@@ -697,19 +741,19 @@
             if (!title || !company || !year) { showToast('Fill all fields', true); return; }
             data.work.unshift({ id: 'w' + Date.now(), title, company, year, slug: slugify(title) });
             clearFields(['w-title','w-company','w-year']);
-            saveData(); renderWork();
+            markDirty(); renderWork();
         }
 
         function deleteWork(i) {
             if (!confirm('Delete "' + data.work[i].title + '"?')) return;
             data.work.splice(i, 1);
-            saveData(); renderWork();
+            markDirty(); renderWork();
         }
 
         function moveWork(i, dir) {
             const arr = data.work;
             const tmp = arr[i]; arr[i] = arr[i+dir]; arr[i+dir] = tmp;
-            saveData(); renderWork();
+            markDirty(); renderWork();
         }
 
         // ── Side Projects ──
@@ -737,19 +781,19 @@
             if (!title || !category || !year) { showToast('Fill all fields', true); return; }
             data.sideProjects.unshift({ id: 'sp' + Date.now(), title, category, year, slug: slugify(title) });
             clearFields(['sp-title','sp-category','sp-year']);
-            saveData(); renderProjects();
+            markDirty(); renderProjects();
         }
 
         function deleteProject(i) {
             if (!confirm('Delete "' + data.sideProjects[i].title + '"?')) return;
             data.sideProjects.splice(i, 1);
-            saveData(); renderProjects();
+            markDirty(); renderProjects();
         }
 
         function moveProject(i, dir) {
             const arr = data.sideProjects;
             const tmp = arr[i]; arr[i] = arr[i+dir]; arr[i+dir] = tmp;
-            saveData(); renderProjects();
+            markDirty(); renderProjects();
         }
 
         // ── Photography ──
@@ -776,13 +820,13 @@
             if (!data.photography) data.photography = [];
             data.photography.push({ id: 'ph' + Date.now(), plateNo: plateNo || (data.photography.length + 1).toString().padStart(3,'0'), caption, aspect, colSpan: 'md:col-span-8 md:col-start-1', url });
             clearFields(['ph-url','ph-caption','ph-plate']);
-            saveData(); renderPhotos();
+            markDirty(); renderPhotos();
         }
 
         function deletePhoto(i) {
             if (!confirm('Remove this plate?')) return;
             data.photography.splice(i, 1);
-            saveData(); renderPhotos();
+            markDirty(); renderPhotos();
         }
 
         // ── Videography ──
@@ -813,13 +857,13 @@
             if (!data.videography) data.videography = [];
             data.videography.push({ id: 'v' + Date.now(), title, url, year, duration });
             clearFields(['vid-title','vid-url','vid-year','vid-duration']);
-            saveData(); renderVideos();
+            markDirty(); renderVideos();
         }
 
         function deleteVideo(i) {
             if (!confirm('Delete this video?')) return;
             data.videography.splice(i, 1);
-            saveData(); renderVideos();
+            markDirty(); renderVideos();
         }
 
         // ── Design ──
@@ -850,38 +894,64 @@
             if (!data.design) data.design = [];
             data.design.push({ id: 'd' + Date.now(), title, url, year, category });
             clearFields(['des-title','des-url','des-year','des-cat']);
-            saveData(); renderDesign();
+            markDirty(); renderDesign();
         }
 
         function deleteDesign(i) {
             if (!confirm('Delete this entry?')) return;
             data.design.splice(i, 1);
-            saveData(); renderDesign();
+            markDirty(); renderDesign();
         }
 
-        // ── Save (downloads updated JSON for manual commit) ──
-        function saveData() {
-            const json = JSON.stringify(data, null, 2);
-            // Save to localStorage as buffer
-            localStorage.setItem('portfolio_content', json);
-            showToast('Saved locally. Download to publish →');
-            // Auto-download the updated JSON after a moment
-            if (!window._downloadTimer) {
-                window._downloadTimer = setTimeout(() => {
-                    downloadJSON();
-                    window._downloadTimer = null;
-                }, 1500);
-            }
+        // ── Dirty tracking & Publish ──
+        function markDirty() {
+            pendingChanges++;
+            updatePublishBtn();
             renderStats();
         }
 
-        function downloadJSON() {
-            const json = JSON.stringify(data, null, 2);
-            const blob = new Blob([json], { type: 'application/json' });
-            const a = document.createElement('a');
-            a.href = URL.createObjectURL(blob);
-            a.download = 'content.json';
-            a.click();
+        function updatePublishBtn() {
+            const btn = document.getElementById('publish-btn');
+            const overviewBanner = document.getElementById('overview-banner');
+            const cleanBanner = document.getElementById('clean-banner');
+            if (pendingChanges > 0) {
+                btn.className = 'btn-publish';
+                btn.disabled = false;
+                btn.innerHTML = `↑ Publish <span class="publish-badge">${pendingChanges}</span>`;
+                if (overviewBanner) overviewBanner.style.display = 'block';
+                if (cleanBanner) cleanBanner.style.display = 'none';
+            } else {
+                btn.className = 'btn-publish clean';
+                btn.disabled = true;
+                btn.innerHTML = '↑ Publish';
+                if (overviewBanner) overviewBanner.style.display = 'none';
+                if (cleanBanner) cleanBanner.style.display = 'block';
+            }
+        }
+
+        async function publishChanges() {
+            const btn = document.getElementById('publish-btn');
+            btn.disabled = true;
+            btn.innerHTML = '↑ Publishing...';
+            try {
+                const res = await fetch('/api/publish', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ content: data })
+                });
+                const json = await res.json();
+                if (res.ok) {
+                    pendingChanges = 0;
+                    updatePublishBtn();
+                    showToast('✓ Published! Site is rebuilding…', false, true);
+                } else {
+                    throw new Error(json.error || 'Unknown error');
+                }
+            } catch (e) {
+                showToast('Publish failed: ' + e.message, true);
+                btn.disabled = false;
+                updatePublishBtn();
+            }
         }
 
         function renderStats() {
@@ -899,11 +969,11 @@
             ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
         }
 
-        function showToast(msg, isError = false) {
+        function showToast(msg, isError = false, isSuccess = false) {
             const t = document.getElementById('toast');
             t.textContent = msg;
-            t.className = 'toast' + (isError ? ' error' : '') + ' show';
-            setTimeout(() => t.classList.remove('show'), 3000);
+            t.className = 'toast' + (isError ? ' error' : isSuccess ? ' success' : '') + ' show';
+            setTimeout(() => t.classList.remove('show'), 4000);
         }
 
         function logout() {
