@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="/src/js/theme-config.js"></script>
+    <link rel="stylesheet" href="/src/css/global.css">
+</head>
+<body class="font-body text-on-surface selection:bg-primary selection:text-on-primary min-h-screen">
+    <nav class="fixed top-12 left-12 z-50">
+        <a class="flex items-center gap-2 text-[#1a1c19] text-style-label transition-colors duration-200 hover:text-secondary" href="../index.html">
+            <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+            <span>Back</span>
+        </a>
+    </nav>
+    <main class="max-w-7xl mx-auto px-6 py-20 lg:py-48 min-h-screen flex flex-col justify-center relative">
+        <!-- Creative Navigation -->
+        <nav class="flex flex-col space-y-8 lg:space-y-32 z-10 items-center lg:items-stretch">
+            <!-- 01 Photography -->
+            <a href="photography.html" class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-8 border-b border-outline-variant/20 pb-6 lg:pb-12 transition-all hover:bg-surface-container-low/30 lg:hover:pl-8 text-center lg:text-left">
+                <span class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity">01</span>
+                <h1 class="text-3xl md:text-[6.5rem] lg:text-[8rem] font-bold tracking-tighter leading-none group-hover:text-primary transition-colors lowercase">
+                    photography.
+                </h1>
+                <p class="lg:ml-auto max-w-sm text-[0.6875rem] uppercase tracking-wider text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
+                    Architectural fragments in high contrast.
+                </p>
+            </a>
+            
+            <!-- 02 Videography -->
+            <a href="videography.html" class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-8 border-b border-outline-variant/20 pb-6 lg:pb-12 transition-all hover:bg-surface-container-low/30 lg:hover:pl-8 text-center lg:text-left">
+                <span class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity">02</span>
+                <h1 class="text-3xl md:text-[6.5rem] lg:text-[8rem] font-bold tracking-tighter leading-none group-hover:text-primary transition-colors lowercase">
+                    videography.
+                </h1>
+                <p class="lg:ml-auto max-w-sm text-[0.6875rem] uppercase tracking-wider text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
+                    Moving image archives and process studies.
+                </p>
+            </a>
+
+            <!-- 03 Design -->
+            <a href="design.html" class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-8 border-b border-outline-variant/20 pb-6 lg:pb-12 transition-all hover:bg-surface-container-low/30 lg:hover:pl-8 text-center lg:text-left">
+                <span class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity">03</span>
+                <h1 class="text-3xl md:text-[6.5rem] lg:text-[8rem] font-bold tracking-tighter leading-none group-hover:text-primary transition-colors lowercase">
+                    design.
+                </h1>
+                <p class="lg:ml-auto max-w-sm text-[0.6875rem] uppercase tracking-wider text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
+                    Visual research and system architecture.
+                </p>
+            </a>
+        </nav>
+    </main>
+
+    <!-- Sticky/Fixed Elements using Size Variant 1 -->
+    <footer class="fixed bottom-12 right-12 pointer-events-none opacity-20 hidden lg:block">
+        <div class="text-[0.625rem] font-medium tracking-[0.3em] uppercase rotate-90 origin-right">
+            The Monastic Editorial © MMXXIV
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="/src/js/theme-config.js"></script>
+    <link rel="stylesheet" href="/src/css/global.css">
+</head>
+
+<body class="bg-background font-body overflow-x-hidden">
+    <main class="min-h-screen w-full flex items-center justify-center p-6 lg:p-24 animate-in fade-in duration-1000">
+        <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
+            <!-- Left Side: Large Clean Image Container -->
+            <div class="relative group order-2 lg:order-1 max-w-xl mx-auto lg:mx-0">
+                <div class="aspect-[4/5] w-full bg-surface-container overflow-hidden">
+                    <img alt="Minimalist architectural detail"
+                        class="w-full h-full object-cover grayscale brightness-110 contrast-110 group-hover:scale-105 transition-transform duration-1000"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" />
+                </div>
+                <!-- Metadata: Size Variant 1 (Label style) -->
+                <div class="mt-6 flex justify-between items-baseline opacity-30 text-[0.625rem] font-medium tracking-[0.2em] uppercase">
+                    <span>PLATE NO. 042 / ARCHIVAL</span>
+                    <span>EST. MMXXIV</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Text & Navigation -->
+            <div class="flex flex-col justify-center h-full pt-4 lg:pt-12 order-1 lg:order-2 text-left items-start">
+                <section class="mb-12 lg:mb-24">
+                    <!-- Title: Size Variant 2 (Large Headline) -->
+                    <h1 class="text-[2.75rem] lg:text-[5rem] font-bold leading-[1] tracking-tighter text-primary lowercase mb-8 lg:mb-12">
+                        my work,<br />everything.
+                    </h1>
+                    <nav class="flex flex-col items-start space-y-2 lg:space-y-6">
+                        <!-- Nav Items -->
+                        <a class="group/work group flex items-center gap-4 py-2 transition-all duration-300" href="work/index.html">
+                            <span class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">01</span>
+                            <span class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">professional work</span>
+                        </a>
+                        <a class="group/projects group flex items-center gap-4 py-2 transition-all duration-300" href="side-projects/index.html">
+                            <span class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">02</span>
+                            <span class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">side projects</span>
+                        </a>
+                        <a class="group/creative group flex items-center gap-4 py-2 transition-all duration-300" href="creative/index.html">
+                            <span class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">03</span>
+                            <span class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">creative archive</span>
+                        </a>
+                        <a class="group flex items-center gap-4 py-2 transition-all duration-300 opacity-40 hover:opacity-100" href="work/index.html">
+                            <span class="text-[0.625rem] font-medium tracking-widest">04</span>
+                            <span class="text-xl lg:text-2xl font-medium lowercase">resume</span>
+                        </a>
+                    </nav>
+                </section>
+            </div>
+        </div>
+    </main>
+    <!-- Sticky/Fixed Elements -->
+    <footer class="fixed bottom-12 right-12 pointer-events-none opacity-20 hidden lg:block">
+        <div class="text-[0.625rem] font-medium tracking-[0.3em] uppercase rotate-90 origin-right">
+            The Monastic Editorial © MMXXIV
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="/src/js/theme-config.js"></script>
+    <link rel="stylesheet" href="/src/css/global.css">
+</head>
+<body class="font-body selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+    <nav class="fixed top-12 left-12 z-50">
+        <a class="flex items-center gap-2 text-[#1a1c19] text-style-label transition-colors duration-200 hover:text-secondary" href="index.html">
+            <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+            <span>Back</span>
+        </a>
+    </nav>
+    <div class="flex-grow">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 min-h-screen border-t border-outline-variant/20">
+            <aside class="md:col-span-5 bg-surface-container-low border-r border-outline-variant/30 px-8 py-10 lg:py-20 relative">
+                <div class="md:sticky md:top-20">
+                    <header class="mb-16 lg:mb-32">
+                        <div class="flex justify-between items-end mb-8">
+                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline">PLATE NO. 001</span>
+                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline">SIDE PROJECT / 2024</span>
+                        </div>
+                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight mb-12">
+                            Kinetic Typography Engine.
+                        </h1>
+                        <div class="grid grid-cols-2 gap-y-8 pt-12 border-t border-outline-variant/30">
+                            <div>
+                                <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">Category</p>
+                                <p class="text-xs font-bold uppercase tracking-wider">Experimental Web</p>
+                            </div>
+                            <div>
+                                <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">Tech</p>
+                                <p class="text-xs font-bold uppercase tracking-wider">Three.js / GLSL</p>
+                            </div>
+                            <div>
+                                <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">Status</p>
+                                <p class="text-xs font-bold uppercase tracking-wider">v1.2 Deployed</p>
+                            </div>
+                        </div>
+                    </header>
+                    <nav class="hidden md:flex flex-col gap-8 opacity-40 hover:opacity-100 transition-opacity duration-500">
+                        <a class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary flex items-center gap-4 group" href="#overview">
+                            <span class="w-8 h-px bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform"></span>
+                            01 / Concept
+                        </a>
+                        <a class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary flex items-center gap-4 group" href="#technical">
+                            <span class="w-8 h-px bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform"></span>
+                            02 / Technical
+                        </a>
+                    </nav>
+                </div>
+            </aside>
+            <main class="md:col-span-7 bg-surface px-8 md:px-16 lg:px-24 py-10 lg:py-20">
+                <figure class="mb-16 lg:mb-32">
+                    <div class="aspect-[16/9] bg-surface-container overflow-hidden">
+                        <img alt="Abstract typographic art" class="w-full h-full object-cover mix-blend-multiply grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA"/>
+                    </div>
+                    <figcaption class="mt-4 text-[0.6rem] uppercase tracking-[0.2em] text-outline flex justify-between">
+                        <span>Figure 1.1 — Motion Study</span>
+                        <span>(Archival Fragment)</span>
+                    </figcaption>
+                </figure>
+                <div class="space-y-20 lg:space-y-40">
+                    <section class="scroll-mt-20" id="overview">
+                        <div class="md:hidden mb-8">
+                            <h2 class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary">01 / Concept</h2>
+                        </div>
+                        <p class="text-xl md:text-2xl leading-relaxed text-on-surface tracking-tight">
+                            An exploration into the intersection of traditional typography and dynamic motion. This engine was built to test how variable fonts can respond to environmental audio data in real-time, creating a physical sense of weight within digital text.
+                        </p>
+                    </section>
+                    <section class="scroll-mt-20" id="technical">
+                        <div class="md:hidden mb-8">
+                            <h2 class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary">02 / Technical</h2>
+                        </div>
+                        <p class="text-xl md:text-2xl leading-relaxed text-on-surface tracking-tight">
+                            Built using a custom WebGL pipeline. Each character is rendered as a signed distance field (SDF), allowing for infinitely sharp scaling and complex GPU-based distortions without sacrificing performance.
+                        </p>
+                    </section>
+                    <footer class="pt-12 border-t border-primary/10">
+                        <a class="group inline-flex items-center gap-4 text-[0.625rem] uppercase tracking-[0.3em] font-bold hover:text-primary transition-colors" href="index.html">
+                            <span class="material-symbols-outlined text-sm">arrow_back</span>
+                            Back to Projects
+                        </a>
+                    </footer>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- Sticky/Fixed Elements using Size Variant 1 -->
+    <footer class="fixed bottom-12 right-12 pointer-events-none opacity-20">
+        <div class="text-[0.625rem] font-medium tracking-[0.3em] uppercase rotate-90 origin-right">
+            The Monastic Editorial © MMXXIV
+        </div>
+    </footer>
+</body>
+</html>

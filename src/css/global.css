@@ -1,0 +1,37 @@
+/* Global Styles */
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+body {
+    background-color: #fafaf5;
+    color: #1a1c19;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom rounded utilities (from homepage.html) */
+.rounded-xl { border-radius: 0px !important; }
+
+/* Refined Typography Constraints for Ultra-Minimal Aesthetic (from worklist.html) */
+.text-style-title { 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-weight: 400; 
+    text-transform: lowercase; 
+}
+.text-style-body { 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-weight: 300; 
+}
+.text-style-label { 
+    font-family: 'Space Grotesk', sans-serif; 
+    font-weight: 400; 
+    text-transform: uppercase; 
+    font-size: 0.6875rem; 
+    letter-spacing: 0.15em; 
+}
+
+/* Work Details specific material symbols enhancement */
+.material-symbols-outlined.text-sm {
+    font-size: 0.875rem;
+}

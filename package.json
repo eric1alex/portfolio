@@ -1,14 +1,25 @@
 {
   "name": "portfolio-website",
-  "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-  "dependencies": {
-    "astro": "^5.14.6"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eric1alex/portfolio-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eric1alex/portfolio-website/issues"
+  },
+  "homepage": "https://github.com/eric1alex/portfolio-website#readme",
+  "description": "",
+  "devDependencies": {
+    "vite": "^8.0.8"
   }
 }
