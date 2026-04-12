@@ -30,39 +30,50 @@
         </header>
 
         <!-- Video Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-64 items-start">
-            
-            <!-- Video Plate 001 -->
-            <div class="md:col-span-10 md:col-start-1 group">
-                <div class="aspect-video bg-surface-container overflow-hidden relative">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" 
-                         alt="Video thumbnail" class="w-full h-full object-cover grayscale brightness-50 group-hover:brightness-75 transition-all duration-700"/>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-[4rem] text-white/40 group-hover:text-white/80 group-hover:scale-110 transition-all duration-300">play_circle</span>
-                    </div>
-                </div>
-                <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. V-001</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">SPATIAL RESONANCE / DOCUMENTARY</span>
-                </div>
-            </div>
-
-            <!-- Video Plate 002 -->
-            <div class="md:col-span-10 md:col-start-3 group">
-                <div class="aspect-video bg-surface-container overflow-hidden relative">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqkFArRGAjYQxRq4GWda3j76yTUYwekMXRIgddJGJ4ues9qJJ24O-7kvMcrhoRwHZ8LP8jZs9g1iwMmnJpMpdRXXSImyrkTRaGpS9hswcWwuqgn3smvdexJsUtuvJy0ZgOsPm4G01khm7lBRZHq3AHEkGzyjEvA-oxXg3Wg1vrjf7cmlUMqYXOatKGg-q5dDqnwxFtpbBWkJq2tc5S_PVTRSZKr5hxSSHwBuXfeCichLB4A-DQMO_nUjcNVY_KtyMn5dlG4BQm9bI" 
-                         alt="Video thumbnail" class="w-full h-full object-cover grayscale brightness-50 group-hover:brightness-75 transition-all duration-700"/>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-[4rem] text-white/40 group-hover:text-white/80 group-hover:scale-110 transition-all duration-300">play_circle</span>
-                    </div>
-                </div>
-                <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity text-right">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. V-002</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">ARCHITECTURAL SILENCE / EXPERIMENTAL</span>
-                </div>
-            </div>
-
+        <div id="videography-grid-container" class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-64 items-start">
+            <!-- Content will be injected here -->
         </div>
+
+        <script>
+            async function loadVideography() {
+                const container = document.getElementById('videography-grid-container');
+                try {
+                    const response = await fetch('/data/content.json');
+                    const data = await response.json();
+                    
+                    if (data.videography && data.videography.length > 0) {
+                        container.innerHTML = data.videography.map((item, index) => {
+                            const isEven = index % 2 === 0;
+                            const colStart = isEven ? 'md:col-start-1' : 'md:col-start-3';
+                            const textAlign = isEven ? '' : 'text-right';
+                            
+                            return `
+                                <div class="md:col-span-10 ${colStart} group">
+                                    <div class="aspect-video bg-surface-container overflow-hidden relative">
+                                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" 
+                                             alt="${item.title}" class="w-full h-full object-cover grayscale brightness-50 group-hover:brightness-75 transition-all duration-700"/>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="material-symbols-outlined text-[4rem] text-white/40 group-hover:text-white/80 group-hover:scale-110 transition-all duration-300">play_circle</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity ${textAlign}">
+                                        <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. V-${(index + 1).toString().padStart(3, '0')}</span>
+                                        <span class="text-[0.6rem] font-medium tracking-widest uppercase">${item.title}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    } else {
+                        container.innerHTML = '<p class="col-span-12 py-8 text-secondary opacity-40">No video entries found.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error loading videography records:', error);
+                    container.innerHTML = '<p class="col-span-12 py-8 text-error">Error loading videography records.</p>';
+                }
+            }
+            
+            loadVideography();
+        </script>
     </main>
 
     <!-- Sticky/Fixed Elements using Size Variant 1 -->

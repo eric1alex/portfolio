@@ -30,45 +30,57 @@
         </header>
 
         <!-- Asymmetric Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-48 items-start">
-            
-            <!-- Design Plate 001: Tall Vertical -->
-            <div class="md:col-span-5 md:col-start-2 group">
-                <div class="aspect-[2/3] bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3GipTzBJRwmxfwnL2cZjxBUjCwWWAliNKi873jVCUXyIa95Mgyzzya0ma7z_XVUcTEgg37coggUYVz_6tzjPHKg9ehU3ZWzqaCBSZrnVbWjqwHyxwojLnLDsd-uEguCto-9FuZal9km_hYIm6OU6MF3LnC8d_6nJ2Ohd4aKdQtPmKwgb9jRicncHypKhTVfGS0-Od6ojyipioxsp2qt93e0Zo_AtSGOYEGJnW0dlr3Ik_NyTOcSdQBrMnq5Kgc_QTXdtTKf2-57Y" 
-                         alt="Typographic poster" class="w-full h-full object-cover grayscale group-hover:invert transition-all duration-700"/>
-                </div>
-                <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. D-001</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">TYPOGRAPHIC SYSTEM / VER. 4</span>
-                </div>
-            </div>
-
-            <!-- Design Plate 002: Offset Box -->
-            <div class="md:col-span-4 md:col-start-8 md:mt-48 group">
-                <div class="aspect-square bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOjLryCOEYdKvcn59wvzLePvo38nYTGkZtF2fggVuLgPsiPbu6mnIXbiBYp2_PffxyECt_dkuErvT7cycIup9CXtzUve3Ke6H80qGC1saHfJ7otR6x1-VFtpKV6EHREyW7Yi_A_l0mbkec8V4lwQTH41dQbwFXhFi8j_7YNHDw5GPs0RDDGX_xvWMdL68qAMy1W52eDHJxWONmGrXxUM6o57-QApCa17WhUs_swDUxDxuTlLdfXkqkatU85gizatqCIM3IZDpz_Ak" 
-                         alt="Layout scan" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-95 transition-transform duration-700"/>
-                </div>
-                <div class="mt-4 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. D-002</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">GRID CONSTRAINTS / EXPLORATION</span>
-                </div>
-            </div>
-
-            <!-- Design Plate 003: Wide Span -->
-            <div class="md:col-span-12 group">
-                <div class="aspect-[16/7] bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" 
-                         alt="Full layout review" class="w-full h-full object-cover grayscale brightness-110 group-hover:brightness-90 transition-all duration-700"/>
-                </div>
-                <div class="mt-6 flex justify-between items-baseline opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. D-003</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">EDITORIAL FLOW ARCHIVE</span>
-                </div>
-            </div>
-
+        <div id="design-grid-container" class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-48 items-start">
+            <!-- Content will be injected here -->
         </div>
+
+        <script>
+            async function loadDesign() {
+                const container = document.getElementById('design-grid-container');
+                try {
+                    const response = await fetch('/data/content.json');
+                    const data = await response.json();
+                    
+                    if (data.design && data.design.length > 0) {
+                        container.innerHTML = data.design.map((item, index) => {
+                            // Simplified layout logic for design items
+                            // item 1: md:col-span-5 md:col-start-2
+                            // item 2: md:col-span-4 md:col-start-8 md:mt-48
+                            // item 3: md:col-span-12
+                            
+                            let layoutClass = '';
+                            if (index % 3 === 0) {
+                                layoutClass = 'md:col-span-5 md:col-start-2';
+                            } else if (index % 3 === 1) {
+                                layoutClass = 'md:col-span-4 md:col-start-8 md:mt-48';
+                            } else {
+                                layoutClass = 'md:col-span-12';
+                            }
+                            
+                            return `
+                                <div class="${layoutClass} group">
+                                    <div class="aspect-[${index % 3 === 0 ? '2/3' : index % 3 === 1 ? 'square' : '16/7'}] bg-surface-container overflow-hidden">
+                                        <img src="${item.url || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3GipTzBJRwmxfwnL2cZjxBUjCwWWAliNKi873jVCUXyIa95Mgyzzya0ma7z_XVUcTEgg37coggUYVz_6tzjPHKg9ehU3ZWzqaCBSZrnVbWjqwHyxwojLnLDsd-uEguCto-9FuZal9km_hYIm6OU6MF3LnC8d_6nJ2Ohd4aKdQtPmKwgb9jRicncHypKhTVfGS0-Od6ojyipioxsp2qt93e0Zo_AtSGOYEGJnW0dlr3Ik_NyTOcSdQBrMnq5Kgc_QTXdtTKf2-57Y'}" 
+                                             alt="${item.title}" class="w-full h-full object-cover grayscale group-hover:invert transition-all duration-700"/>
+                                    </div>
+                                    <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
+                                        <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. D-${(index + 1).toString().padStart(3, '0')}</span>
+                                        <span class="text-[0.6rem] font-medium tracking-widest uppercase">${item.title}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    } else {
+                        container.innerHTML = '<p class="col-span-12 py-8 text-secondary opacity-40">No design entries found.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error loading design records:', error);
+                    container.innerHTML = '<p class="col-span-12 py-8 text-error">Error loading design records.</p>';
+                }
+            }
+            
+            loadDesign();
+        </script>
     </main>
 
     <!-- Sticky/Fixed Elements using Size Variant 1 -->

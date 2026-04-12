@@ -27,43 +27,46 @@
             </p>
         </div>
         <!-- Experience List -->
-        <section class="space-y-0">
-            <!-- Row 1 -->
-            <a href="detail.html" class="block group border-t border-outline-variant/30 py-4 lg:py-8 flex flex-col md:flex-row md:items-baseline md:justify-between transition-colors duration-200 hover:bg-surface-container-low/30">
-                <div class="flex flex-col space-y-2">
-                    <span class="text-style-label text-outline opacity-40">01</span>
-                    <h2 class="text-[1.75rem] text-style-title tracking-tight text-primary">Kinetic Typography Engine</h2>
-                    <span class="text-style-label text-secondary opacity-60">Open Source / WebGL</span>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <span class="text-style-body text-[1rem] tabular-nums text-on-surface">2024</span>
-                </div>
-            </a>
-            <!-- Row 2 -->
-            <a href="detail.html" class="block group border-t border-outline-variant/30 py-4 lg:py-8 flex flex-col md:flex-row md:items-baseline md:justify-between transition-colors duration-200 hover:bg-surface-container-low/30">
-                <div class="flex flex-col space-y-2">
-                    <span class="text-style-label text-outline opacity-40">02</span>
-                    <h2 class="text-[1.75rem] text-style-title tracking-tight text-primary">Monospatial Design System</h2>
-                    <span class="text-style-label text-secondary opacity-60">Personal Project</span>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <span class="text-style-body text-[1rem] tabular-nums text-on-surface">2023 — 2024</span>
-                </div>
-            </a>
-            <!-- Row 3 -->
-            <a href="detail.html" class="block group border-t border-outline-variant/30 py-4 lg:py-8 flex flex-col md:flex-row md:items-baseline md:justify-between transition-colors duration-200 hover:bg-surface-container-low/30">
-                <div class="flex flex-col space-y-2">
-                    <span class="text-style-label text-outline opacity-40">03</span>
-                    <h2 class="text-[1.75rem] text-style-title tracking-tight text-primary">Minimalist RSS Reader</h2>
-                    <span class="text-style-label text-secondary opacity-60">Product Design</span>
-                </div>
-                <div class="mt-4 md:mt-0">
-                    <span class="text-style-body text-[1rem] tabular-nums text-on-surface">2023</span>
-                </div>
-            </a>
-            <!-- Closing Boundary -->
-            <div class="border-t border-outline-variant/30"></div>
+        <section id="projects-list-container" class="space-y-0">
+            <!-- Content will be injected here -->
         </section>
+
+        <script>
+            async function loadProjects() {
+                const container = document.getElementById('projects-list-container');
+                try {
+                    const response = await fetch('/data/content.json');
+                    const data = await response.json();
+                    
+                    if (data.sideProjects && data.sideProjects.length > 0) {
+                        const html = data.sideProjects.map((item, index) => {
+                            const paddedIndex = (index + 1).toString().padStart(2, '0');
+                            return `
+                                <a href="detail.html?id=${item.id}" class="block group border-t border-outline-variant/30 py-4 lg:py-8 flex flex-col md:flex-row md:items-baseline md:justify-between transition-colors duration-200 hover:bg-surface-container-low/30">
+                                    <div class="flex flex-col space-y-2">
+                                        <span class="text-style-label text-outline opacity-40">${paddedIndex}</span>
+                                        <h2 class="text-[1.75rem] text-style-title tracking-tight text-primary">${item.title}</h2>
+                                        <span class="text-style-label text-secondary opacity-60">${item.category}</span>
+                                    </div>
+                                    <div class="mt-4 md:mt-0">
+                                        <span class="text-style-body text-[1rem] tabular-nums text-on-surface">${item.year}</span>
+                                    </div>
+                                </a>
+                            `;
+                        }).join('');
+                        
+                        container.innerHTML = html + '<div class="border-t border-outline-variant/30"></div>';
+                    } else {
+                        container.innerHTML = '<p class="py-8 text-secondary opacity-40">No side projects found.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error loading side projects:', error);
+                    container.innerHTML = '<p class="py-8 text-error">Error loading side projects.</p>';
+                }
+            }
+            
+            loadProjects();
+        </script>
         <!-- Technical Metadata -->
         <div class="mt-8 lg:mt-16 max-w-md">
             <p class="text-style-label text-outline leading-relaxed tracking-widest opacity-40">

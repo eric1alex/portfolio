@@ -30,78 +30,46 @@
         </header>
 
         <!-- Asymmetric Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-48 items-start">
+        <div id="photography-grid-container" class="grid grid-cols-1 md:grid-cols-12 gap-y-16 md:gap-y-48 items-start">
+            <!-- Content will be injected here -->
+        </div>
+
+        <script>
+            async function loadPhotography() {
+                const container = document.getElementById('photography-grid-container');
+                try {
+                    const response = await fetch('/data/content.json');
+                    const data = await response.json();
+                    
+                    if (data.photography && data.photography.length > 0) {
+                        container.innerHTML = data.photography.map((item, index) => {
+                            const isLast = (index === data.photography.length - 1);
+                            const finalClass = isLast ? 'mt-32' : '';
+                            
+                            return `
+                                <div class="${item.colSpan} ${finalClass} group">
+                                    <div class="aspect-[${item.aspect || '4/5'}] bg-surface-container overflow-hidden">
+                                        <img src="${item.url}" 
+                                             alt="${item.caption}" class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700"/>
+                                    </div>
+                                    <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity ${item.captionRight ? 'text-right' : ''}">
+                                        <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. ${item.plateNo}</span>
+                                        <span class="text-[0.6rem] font-medium tracking-widest uppercase">${item.caption}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('');
+                    } else {
+                        container.innerHTML = '<p class="col-span-12 py-8 text-secondary opacity-40">No photo plates found.</p>';
+                    }
+                } catch (error) {
+                    console.error('Error loading photography records:', error);
+                    container.innerHTML = '<p class="col-span-12 py-8 text-error">Error loading photography records.</p>';
+                }
+            }
             
-            <!-- Plate 001: Large Main Focus -->
-            <div class="md:col-span-8 md:col-start-1 group">
-                <div class="aspect-[4/5] bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" 
-                         alt="Shadows on stairs" class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700"/>
-                </div>
-                <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. 001-A</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">STAIRWELL TRANSITION / LONDON</span>
-                </div>
-            </div>
-
-            <!-- Plate 002: Offset Small Texture -->
-            <div class="md:col-span-3 md:col-start-10 md:mt-32 group">
-                <div class="aspect-square bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRmmmnzGUy8Q1nUaQPXJmOFzDzjWqucH8WNGf-CKxpggUXsv_4z9QmfmjSXbZKL6ueHGC-ivrjPSQL_Ty81VSLpfkSqPo0ZAlpqbdKAc_TiEFDBs0_xG2wa1j1lzX4MtziqxjFjRoFzltQoGuEdCH9wW-l8G_Us1SaqnhajR2iOCfgG6-8Ow25V0UEUZp-xeSWKeqnXs-yy4rOYMohAwENcCmQYe9sGX9WTj1u5bPJ4d5D5c2c47UoCMsK2e5r3kIVa8ZJSn2IigY" 
-                         alt="Concrete texture" class="w-full h-full object-cover grayscale contrast-150 group-hover:scale-110 transition-transform duration-1000"/>
-                </div>
-                <div class="mt-4 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity text-right md:text-left">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. 002-C</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">SURFACE DETAIL / TOKYO</span>
-                </div>
-            </div>
-
-            <!-- Plate 003: Wide Horizontal -->
-            <div class="md:col-span-12 group">
-                <div class="aspect-[21/9] bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqkFArRGAjYQxRq4GWda3j76yTUYwekMXRIgddJGJ4ues9qJJ24O-7kvMcrhoRwHZ8LP8jZs9g1iwMmnJpMpdRXXSImyrkTRaGpS9hswcWwuqgn3smvdexJsUtuvJy0ZgOsPm4G01khm7lBRZHq3AHEkGzyjEvA-oxXg3Wg1vrjf7cmlUMqYXOatKGg-q5dDqnwxFtpbBWkJq2tc5S_PVTRSZKr5hxSSHwBuXfeCichLB4A-DQMO_nUjcNVY_KtyMn5dlG4BQm9bI" 
-                         alt="Brutalist pillar" class="w-full h-full object-cover grayscale group-hover:brightness-110 transition-all duration-700"/>
-                </div>
-                <div class="mt-6 flex justify-between items-baseline opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. 003-B</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">MONOLITH STUDY / BERLIN</span>
-                </div>
-            </div>
-
-            <!-- Plate 004 & 005: Vertical Duo paired asymmetrically -->
-            <div class="md:col-span-4 md:col-start-1 group">
-                <div class="aspect-[3/4] bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3GipTzBJRwmxfwnL2cZjxBUjCwWWAliNKi873jVCUXyIa95Mgyzzya0ma7z_XVUcTEgg37coggUYVz_6tzjPHKg9ehU3ZWzqaCBSZrnVbWjqwHyxwojLnLDsd-uEguCto-9FuZal9km_hYIm6OU6MF3LnC8d_6nJ2Ohd4aKdQtPmKwgb9jRicncHypKhTVfGS0-Od6ojyipioxsp2qt93e0Zo_AtSGOYEGJnW0dlr3Ik_NyTOcSdQBrMnq5Kgc_QTXdtTKf2-57Y" 
-                         alt="Light through window" class="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 transition-transform duration-700"/>
-                </div>
-                <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. 004-F</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">LIGHT INTERFERENCE / SEATTLE</span>
-                </div>
-            </div>
-
-            <div class="md:col-span-6 md:col-start-7 md:mt-64 group">
-                <div class="aspect-[3/4] bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOjLryCOEYdKvcn59wvzLePvo38nYTGkZtF2fggVuLgPsiPbu6mnIXbiBYp2_PffxyECt_dkuErvT7cycIup9CXtzUve3Ke6H80qGC1saHfJ7otR6x1-VFtpKV6EHREyW7Yi_A_l0mbkec8V4lwQTH41dQbwFXhFi8j_7YNHDw5GPs0RDDGX_xvWMdL68qAMy1W52eDHJxWONmGrXxUM6o57-QApCa17WhUs_swDUxDxuTlLdfXkqkatU85gizatqCIM3IZDpz_Ak" 
-                         alt="Minimalist building peak" class="w-full h-full object-cover grayscale brightness-110 group-hover:scale-105 transition-transform duration-700"/>
-                </div>
-                <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity text-right">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. 005-G</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">VERTICAL ASCENT / NEW YORK</span>
-                </div>
-            </div>
-
-            <!-- Plate 006: Hero Banner at bottom -->
-            <div class="md:col-span-10 md:col-start-2 group mt-32">
-                <div class="aspect-video bg-surface-container overflow-hidden">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRmmmnzGUy8Q1nUaQPXJmOFzDzjWqucH8WNGf-CKxpggUXsv_4z9QmfmjSXbZKL6ueHGC-ivrjPSQL_Ty81VSLpfkSqPo0ZAlpqbdKAc_TiEFDBs0_xG2wa1j1lzX4MtziqxjFjRoFzltQoGuEdCH9wW-l8G_Us1SaqnhajR2iOCfgG6-8Ow25V0UEUZp-xeSWKeqnXs-yy4rOYMohAwENcCmQYe9sGX9WTj1u5bPJ4d5D5c2c47UoCMsK2e5r3kIVa8ZJSn2IigY" 
-                         alt="Large hall" class="w-full h-full object-cover grayscale group-hover:contrast-150 transition-all duration-1000"/>
-                </div>
-                <div class="mt-6 flex flex-col gap-1 items-center opacity-40 group-hover:opacity-100 transition-opacity">
-                    <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. 006-FINAL</span>
-                    <span class="text-[0.6rem] font-medium tracking-widest uppercase">THE ENDLESS INTERIOR / PARIS</span>
-                </div>
-            </div>
+            loadPhotography();
+        </script>
 
         </div>
     </main>
