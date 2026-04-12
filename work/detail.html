@@ -10,13 +10,6 @@
     <link rel="stylesheet" href="/src/css/global.css">
 </head>
 <body class="font-body selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
-    <nav class="fixed top-12 left-12 z-50">
-        <a class="flex items-center gap-2 text-[#1a1c19] text-style-label transition-colors duration-200 hover:text-secondary" href="index.html">
-            <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
-            <span>Back</span>
-        </a>
-    </nav>
-
     <div id="loading-overlay" class="fixed inset-0 bg-surface z-[100] flex items-center justify-center">
         <p class="text-[0.6rem] uppercase tracking-[0.3em] animate-pulse">Retreiving Archival Record...</p>
     </div>
@@ -26,6 +19,10 @@
             <aside class="md:col-span-5 bg-surface-container-low border-r border-outline-variant/30 px-8 py-10 lg:py-20 relative">
                 <div class="md:sticky md:top-20">
                     <header class="mb-16 lg:mb-32">
+                        <a class="flex items-center gap-2 text-[#1a1c19] text-[0.6rem] uppercase tracking-[0.2em] font-bold transition-colors duration-200 hover:text-primary mb-12" href="index.html">
+                            <span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+                            <span>Back to Archive</span>
+                        </a>
                         <div class="flex justify-between items-end mb-8">
                             <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline" id="plate-no">PLATE NO. —</span>
                             <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline" id="record-type">RECORD</span>
