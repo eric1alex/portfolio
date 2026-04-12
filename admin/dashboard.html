@@ -410,13 +410,14 @@
         .editor-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); pb-4; }
         .editor-title { font-size: 1.25rem; font-weight: 700; tracking-tighter; }
         
-        .editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .editor-section-title { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
-        .editor-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+        .editor-grid { display: flex; flex-direction: column; gap: 4rem; }
+        .editor-column { width: 100%; }
+        .editor-section-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.25em; color: rgba(255,255,255,0.3); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+        .editor-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.08); }
         
-        .meta-row { display: grid; grid-template-columns: 1fr 1.5fr auto; gap: 0.75rem; margin-bottom: 0.75rem; }
-        .content-block { margin-bottom: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.03); border-radius: 2px; }
-        .block-header { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+        .meta-row { display: grid; grid-template-columns: 1fr 1.5fr auto; gap: 1rem; margin-bottom: 1rem; }
+        .content-block { margin-bottom: 3rem; padding: 2rem; border: 1px solid rgba(255,255,255,0.05); border-radius: 4px; background: rgba(255,255,255,0.01); }
+        .block-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
         
         .btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 0.4rem 0.8rem; font-size: 0.6rem; cursor: pointer; }
         .btn-ghost:hover { background: rgba(255,255,255,0.1); }
@@ -1045,10 +1046,10 @@
             div.className = 'content-block';
             div.innerHTML = `
                 <div class="block-header">
-                    <input class="form-input section-label" style="width:70%;" placeholder="Section Title (e.g. Overview)" value="${label}"/>
+                    <input class="form-input section-label" style="width:70%; font-weight:bold; font-size:0.9rem;" placeholder="Section Title (e.g. Overview)" value="${label}"/>
                     <button class="btn-sm danger" onclick="this.parentElement.parentElement.remove()">Remove Section</button>
                 </div>
-                <textarea class="form-input section-content" rows="4" style="resize:vertical;" placeholder="Write content...">${content}</textarea>
+                <textarea class="form-input section-content" rows="10" style="resize:vertical; line-height:1.6; padding:1rem;" placeholder="Write content...">${content}</textarea>
             `;
             document.getElementById('sections-container').appendChild(div);
         }
