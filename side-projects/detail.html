@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script src="/src/js/theme-config.js"></script>
     <link rel="stylesheet" href="/src/css/global.css">
-    <!-- Google tag (gtag.js) -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMWDY8P9GQ"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -88,8 +88,8 @@
                 }
 
                 const det = item.details || {};
-                
-                document.title = `${item.title} — Eric Alex`;
+                // Title & Headers
+                document.title = `Portfolio of Eric Alex - ${item.title}`;
                 document.getElementById('project-title').innerHTML = item.title.replace(': ', ': <br/>');
                 document.getElementById('plate-no').textContent = `PLATE NO. ${det.plateNo || (item.id.substring(0,6))}`;
                 document.getElementById('record-type').textContent = det.type || (data.sideProjects.includes(item) ? 'SIDE PROJECT' : 'ARCHIVAL RECORD');
