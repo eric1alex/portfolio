@@ -5,7 +5,37 @@
       "title": "Business Development Executive",
       "company": "Tailwebs Technologies",
       "year": "2024 - Present",
-      "slug": "business-development-executive"
+      "slug": "business-development-executive",
+      "details": {
+        "plateNo": "001",
+        "type": "WORK / 2024",
+        "heroImage": {
+          "url": "https://tailwebs.com/wp-content/uploads/2023/03/tw-logo.png"
+        },
+        "metadata": [
+          {
+            "label": "Industry",
+            "value": "Service and Product"
+          }
+        ],
+        "sections": [
+          {
+            "id": "overview",
+            "label": "Overview",
+            "content": "This section gives a clear introduction to the project or subject. It sets the context, explaining what the work is about and why it exists. A good overview helps the reader understand the purpose without going into too much detail. It should briefly cover the idea, the approach, and the outcome you’re aiming for. Think of it as the first impression that prepares someone for everything that follows."
+          },
+          {
+            "id": "work-details",
+            "label": "Work Details",
+            "content": "This is where you break down what actually went into the work. It can include the process, tools used, decisions made, and challenges faced along the way. Instead of being too technical, keep it structured and easy to follow. Highlight the steps that mattered the most and explain why certain choices were made. This section helps others understand not just what you did, but how you did it."
+          },
+          {
+            "id": "outcome",
+            "label": "Outcome",
+            "content": "Here you present the final result and what came out of the work. It could be the finished product, key learnings, or the impact it created. This section should connect back to the overview and show whether the original goal was achieved. You can also mention what you would improve or do differently next time, giving it a more complete and thoughtful ending."
+          }
+        ]
+      }
     }
   ],
   "sideProjects": [
