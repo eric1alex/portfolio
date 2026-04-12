@@ -16,82 +16,133 @@
             <span>Back</span>
         </a>
     </nav>
+
+    <div id="loading-overlay" class="fixed inset-0 bg-surface z-[100] flex items-center justify-center">
+        <p class="text-[0.6rem] uppercase tracking-[0.3em] animate-pulse">Retreiving Archival Record...</p>
+    </div>
+
     <div class="flex-grow">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 min-h-screen border-t border-outline-variant/20">
             <aside class="md:col-span-5 bg-surface-container-low border-r border-outline-variant/30 px-8 py-10 lg:py-20 relative">
                 <div class="md:sticky md:top-20">
                     <header class="mb-16 lg:mb-32">
                         <div class="flex justify-between items-end mb-8">
-                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline">PLATE NO. 001</span>
-                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline">SIDE PROJECT / 2024</span>
+                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline" id="plate-no">PLATE NO. —</span>
+                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline" id="record-type">RECORD</span>
                         </div>
-                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight mb-12">
-                            Kinetic Typography Engine.
+                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight mb-12" id="project-title">
+                            —
                         </h1>
-                        <div class="grid grid-cols-2 gap-y-8 pt-12 border-t border-outline-variant/30">
-                            <div>
-                                <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">Category</p>
-                                <p class="text-xs font-bold uppercase tracking-wider">Experimental Web</p>
-                            </div>
-                            <div>
-                                <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">Tech</p>
-                                <p class="text-xs font-bold uppercase tracking-wider">Three.js / GLSL</p>
-                            </div>
-                            <div>
-                                <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">Status</p>
-                                <p class="text-xs font-bold uppercase tracking-wider">v1.2 Deployed</p>
-                            </div>
+                        <div class="grid grid-cols-2 gap-y-8 pt-12 border-t border-outline-variant/30" id="metadata-grid">
+                            <!-- Metadata Grid -->
                         </div>
                     </header>
-                    <nav class="hidden md:flex flex-col gap-8 opacity-40 hover:opacity-100 transition-opacity duration-500">
-                        <a class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary flex items-center gap-4 group" href="#overview">
-                            <span class="w-8 h-px bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform"></span>
-                            01 / Concept
-                        </a>
-                        <a class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary flex items-center gap-4 group" href="#technical">
-                            <span class="w-8 h-px bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform"></span>
-                            02 / Technical
-                        </a>
+                    <nav class="hidden md:flex flex-col gap-8 opacity-40 hover:opacity-100 transition-opacity duration-500" id="side-nav">
+                        <!-- Navigation -->
                     </nav>
                 </div>
             </aside>
             <main class="md:col-span-7 bg-surface px-8 md:px-16 lg:px-24 py-10 lg:py-20">
-                <figure class="mb-16 lg:mb-32">
+                <figure class="mb-16 lg:mb-32" id="hero-figure">
                     <div class="aspect-[16/9] bg-surface-container overflow-hidden">
-                        <img alt="Abstract typographic art" class="w-full h-full object-cover mix-blend-multiply grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA"/>
+                        <img id="hero-image" alt="Project visual" class="w-full h-full object-cover mix-blend-multiply grayscale contrast-125" src=""/>
                     </div>
                     <figcaption class="mt-4 text-[0.6rem] uppercase tracking-[0.2em] text-outline flex justify-between">
-                        <span>Figure 1.1 — Motion Study</span>
-                        <span>(Archival Fragment)</span>
+                        <span id="img-caption">Figure 1.1 — Spatial Reference</span>
+                        <span id="img-sub-caption">(Project Genesis)</span>
                     </figcaption>
                 </figure>
-                <div class="space-y-20 lg:space-y-40">
-                    <section class="scroll-mt-20" id="overview">
-                        <div class="md:hidden mb-8">
-                            <h2 class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary">01 / Concept</h2>
-                        </div>
-                        <p class="text-xl md:text-2xl leading-relaxed text-on-surface tracking-tight">
-                            An exploration into the intersection of traditional typography and dynamic motion. This engine was built to test how variable fonts can respond to environmental audio data in real-time, creating a physical sense of weight within digital text.
-                        </p>
-                    </section>
-                    <section class="scroll-mt-20" id="technical">
-                        <div class="md:hidden mb-8">
-                            <h2 class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary">02 / Technical</h2>
-                        </div>
-                        <p class="text-xl md:text-2xl leading-relaxed text-on-surface tracking-tight">
-                            Built using a custom WebGL pipeline. Each character is rendered as a signed distance field (SDF), allowing for infinitely sharp scaling and complex GPU-based distortions without sacrificing performance.
-                        </p>
-                    </section>
-                    <footer class="pt-12 border-t border-primary/10">
-                        <a class="group inline-flex items-center gap-4 text-[0.625rem] uppercase tracking-[0.3em] font-bold hover:text-primary transition-colors" href="index.html">
-                            <span class="material-symbols-outlined text-sm">arrow_back</span>
-                            Back to Projects
-                        </a>
-                    </footer>
+                <div class="space-y-20 lg:space-y-40" id="sections-container">
+                    <!-- Sections -->
                 </div>
+                <footer class="pt-12 border-t border-primary/10 mt-20">
+                    <a class="group inline-flex items-center gap-4 text-[0.625rem] uppercase tracking-[0.3em] font-bold hover:text-primary transition-colors" href="index.html">
+                        <span class="material-symbols-outlined text-sm">arrow_back</span>
+                        Back to Projects
+                    </a>
+                </footer>
             </main>
         </div>
     </div>
+
+    <script>
+        async function loadDetail() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (!id) { window.location.href = 'index.html'; return; }
+
+            try {
+                const response = await fetch('/data/content.json');
+                const data = await response.json();
+                
+                const item = data.sideProjects.find(i => i.id === id) || data.work.find(i => i.id === id);
+                
+                if (!item) { 
+                    document.getElementById('loading-overlay').innerHTML = '<p class="text-xs uppercase tracking-widest">Error: Record not found.</p>';
+                    return; 
+                }
+
+                const det = item.details || {};
+                
+                document.title = `${item.title} — Eric Alex`;
+                document.getElementById('project-title').innerHTML = item.title.replace(': ', ': <br/>');
+                document.getElementById('plate-no').textContent = `PLATE NO. ${det.plateNo || (item.id.substring(0,6))}`;
+                document.getElementById('record-type').textContent = det.type || (data.sideProjects.includes(item) ? 'SIDE PROJECT' : 'ARCHIVAL RECORD');
+
+                const metaGrid = document.getElementById('metadata-grid');
+                if (det.metadata && det.metadata.length > 0) {
+                    metaGrid.innerHTML = det.metadata.map(m => `
+                        <div>
+                            <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">${m.label}</p>
+                            <p class="text-xs font-bold uppercase tracking-wider">${m.value}</p>
+                        </div>
+                    `).join('');
+                } else {
+                    metaGrid.style.display = 'none';
+                }
+
+                if (det.heroImage && det.heroImage.url) {
+                    document.getElementById('hero-image').src = det.heroImage.url;
+                } else {
+                    document.getElementById('hero-figure').style.display = 'none';
+                }
+
+                const sideNav = document.getElementById('side-nav');
+                const sectionsContainer = document.getElementById('sections-container');
+                
+                if (det.sections && det.sections.length > 0) {
+                    sideNav.innerHTML = det.sections.map((s, idx) => `
+                        <a class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary flex items-center gap-4 group" href="#${s.id}">
+                            <span class="w-8 h-px bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform"></span>
+                            ${(idx + 1).toString().padStart(2, '0')} / ${s.label}
+                        </a>
+                    `).join('');
+
+                    sectionsContainer.innerHTML = det.sections.map((s, idx) => `
+                        <section class="scroll-mt-20" id="${s.id}">
+                            <div class="md:hidden mb-8">
+                                <h2 class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary">${(idx + 1).toString().padStart(2, '0')} / ${s.label}</h2>
+                            </div>
+                            <p class="text-xl md:text-2xl leading-relaxed text-on-surface tracking-tight">
+                                ${s.content}
+                            </p>
+                        </section>
+                    `).join('');
+                }
+
+                setTimeout(() => {
+                    document.getElementById('loading-overlay').style.opacity = '0';
+                    setTimeout(() => document.getElementById('loading-overlay').style.display = 'none', 500);
+                }, 400);
+
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loading-overlay').innerHTML = '<p class="text-xs uppercase tracking-widest text-error">Critical Engine Failure.</p>';
+            }
+        }
+
+        loadDetail();
+    </script>
     <!-- Sticky/Fixed Elements using Size Variant 1 -->
     <footer class="fixed bottom-12 right-12 pointer-events-none opacity-20">
         <div class="text-[0.625rem] font-medium tracking-[0.3em] uppercase rotate-90 origin-right">

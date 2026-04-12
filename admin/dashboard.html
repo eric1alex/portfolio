@@ -386,6 +386,41 @@
         }
         .toast.success { background: var(--accent); }
 
+        /* Detail Editor Overlay */
+        .editor-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .editor-overlay.active { display: flex; align-items: flex-start; justify-content: center; }
+        .editor-modal {
+            background: #1e1e1e;
+            width: 100%;
+            max-width: 900px;
+            border-radius: 4px;
+            padding: 2.5rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .editor-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); pb-4; }
+        .editor-title { font-size: 1.25rem; font-weight: 700; tracking-tighter; }
+        
+        .editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .editor-section-title { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        .editor-section-title::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+        
+        .meta-row { display: grid; grid-template-columns: 1fr 1.5fr auto; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .content-block { margin-bottom: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.03); border-radius: 2px; }
+        .block-header { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+        
+        .btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 0.4rem 0.8rem; font-size: 0.6rem; cursor: pointer; }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
         @media (max-width: 768px) {
             .sidebar { width: 100%; height: auto; position: relative; flex-direction: row; flex-wrap: wrap; }
             .main { margin-left: 0; padding: 1.5rem; }
@@ -394,7 +429,58 @@
         }
     </style>
 </head>
-<body>
+<body class="selection:bg-primary selection:text-on-primary">
+
+    <!-- Detail Editor Overlay -->
+    <div id="editor-overlay" class="editor-overlay">
+        <div class="editor-modal">
+            <div class="editor-header">
+                <div>
+                    <span class="text-[0.6rem] uppercase tracking-widest opacity-40">Editor</span>
+                    <h2 class="editor-title" id="editor-project-name">Project Name</h2>
+                </div>
+                <button class="btn-ghost" onclick="closeEditor()">Close & Cancel</button>
+            </div>
+
+            <div class="editor-grid">
+                <!-- Left: Metadata -->
+                <div class="editor-column">
+                    <p class="editor-section-title">Header Info</p>
+                    <div class="form-grid" style="margin-bottom: 2rem;">
+                        <div class="form-field">
+                            <label class="form-label">Plate No.</label>
+                            <input class="form-input" id="det-plate" placeholder="e.g. 042"/>
+                        </div>
+                        <div class="form-field">
+                            <label class="form-label">Type / Label</label>
+                            <input class="form-input" id="det-type" placeholder="e.g. ARCHIVAL RECORD / 2024"/>
+                        </div>
+                    </div>
+
+                    <p class="editor-section-title">Key Metadata (Q&A Pairs)</p>
+                    <div id="meta-container"></div>
+                    <button class="btn-ghost" style="width:100%;" onclick="addMetaRow()">+ Add Meta Field</button>
+                    
+                    <p class="editor-section-title" style="margin-top:2.5rem;">Hero Image</p>
+                    <div class="form-field">
+                        <label class="form-label">Image URL</label>
+                        <input class="form-input" id="det-hero-url" placeholder="https://..."/>
+                    </div>
+                </div>
+
+                <!-- Right: Content Sections -->
+                <div class="editor-column">
+                    <p class="editor-section-title">Content Sections</p>
+                    <div id="sections-container"></div>
+                    <button class="btn-ghost" style="width:100%;" onclick="addContentSection()">+ Add Section</button>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; pt-4; border-t: 1px solid rgba(255,255,255,0.1); display:flex; justify-content: flex-end; gap: 1rem;">
+                <button class="btn-add" style="padding: 0.75rem 2rem;" onclick="saveDetails()">Commit Detail Changes</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Sidebar -->
     <aside class="sidebar">
@@ -677,6 +763,8 @@
         // ── State ──
         let data = { work: [], sideProjects: [], photography: [], videography: [], design: [] };
         let pendingChanges = 0;
+        let currentEditItem = null;
+        let currentEditType = null; // 'work' or 'projects'
 
         // ── Load Data ──
         async function loadData() {
@@ -727,8 +815,11 @@
                         <p class="list-card-meta">${item.company} · ${item.year}</p>
                     </div>
                     <div class="list-card-actions">
-                        ${i > 0 ? `<button class="btn-sm" onclick="moveWork(${i}, -1)">↑</button>` : ''}
-                        ${i < data.work.length-1 ? `<button class="btn-sm" onclick="moveWork(${i}, 1)">↓</button>` : ''}
+                        <button class="btn-sm" onclick="openEditor('work', ${i})">Edit Details</button>
+                        <div class="btn-group">
+                            <button class="btn-sm" onclick="moveWork(${i}, -1)" ${i===0?'disabled':''}>↑</button>
+                            <button class="btn-sm" onclick="moveWork(${i}, 1)" ${i===data.work.length-1?'disabled':''}>↓</button>
+                        </div>
                         <button class="btn-sm danger" onclick="deleteWork(${i})">Delete</button>
                     </div>
                 </div>`).join('');
@@ -767,8 +858,11 @@
                         <p class="list-card-meta">${item.category} · ${item.year}</p>
                     </div>
                     <div class="list-card-actions">
-                        ${i > 0 ? `<button class="btn-sm" onclick="moveProject(${i}, -1)">↑</button>` : ''}
-                        ${i < data.sideProjects.length-1 ? `<button class="btn-sm" onclick="moveProject(${i}, 1)">↓</button>` : ''}
+                        <button class="btn-sm" onclick="openEditor('projects', ${i})">Edit Details</button>
+                        <div class="btn-group">
+                            <button class="btn-sm" onclick="moveProject(${i}, -1)" ${i===0?'disabled':''}>↑</button>
+                            <button class="btn-sm" onclick="moveProject(${i}, 1)" ${i===data.sideProjects.length-1?'disabled':''}>↓</button>
+                        </div>
                         <button class="btn-sm danger" onclick="deleteProject(${i})">Delete</button>
                     </div>
                 </div>`).join('');
@@ -901,6 +995,92 @@
             if (!confirm('Delete this entry?')) return;
             data.design.splice(i, 1);
             markDirty(); renderDesign();
+        }
+
+        // ── Detail Editor Logic ──
+        function openEditor(type, index) {
+            currentEditType = type;
+            currentEditItem = index;
+            const item = type === 'work' ? data.work[index] : data.sideProjects[index];
+            
+            document.getElementById('editor-project-name').textContent = item.title;
+            const det = item.details || {};
+            
+            document.getElementById('det-plate').value = det.plateNo || '';
+            document.getElementById('det-type').value = det.type || '';
+            document.getElementById('det-hero-url').value = det.heroImage?.url || '';
+            
+            // Render meta rows
+            const metaContainer = document.getElementById('meta-container');
+            metaContainer.innerHTML = '';
+            (det.metadata || []).forEach(m => addMetaRow(m.label, m.value));
+            if (det.metadata?.length === 0) addMetaRow();
+
+            // Render sections
+            const sectionsContainer = document.getElementById('sections-container');
+            sectionsContainer.innerHTML = '';
+            (det.sections || []).forEach(s => addContentSection(s.label, s.content));
+            if (det.sections?.length === 0) addContentSection();
+
+            document.getElementById('editor-overlay').classList.add('active');
+        }
+
+        function closeEditor() {
+            document.getElementById('editor-overlay').classList.remove('active');
+        }
+
+        function addMetaRow(label = '', value = '') {
+            const div = document.createElement('div');
+            div.className = 'meta-row';
+            div.innerHTML = `
+                <input class="form-input meta-label" placeholder="Label" value="${label}"/>
+                <input class="form-input meta-value" placeholder="Value" value="${value}"/>
+                <button class="btn-sm danger" onclick="this.parentElement.remove()">×</button>
+            `;
+            document.getElementById('meta-container').appendChild(div);
+        }
+
+        function addContentSection(label = '', content = '') {
+            const div = document.createElement('div');
+            div.className = 'content-block';
+            div.innerHTML = `
+                <div class="block-header">
+                    <input class="form-input section-label" style="width:70%;" placeholder="Section Title (e.g. Overview)" value="${label}"/>
+                    <button class="btn-sm danger" onclick="this.parentElement.parentElement.remove()">Remove Section</button>
+                </div>
+                <textarea class="form-input section-content" rows="4" style="resize:vertical;" placeholder="Write content...">${content}</textarea>
+            `;
+            document.getElementById('sections-container').appendChild(div);
+        }
+
+        function saveDetails() {
+            const item = currentEditType === 'work' ? data.work[currentEditItem] : data.sideProjects[currentEditItem];
+            
+            const metadata = [];
+            document.querySelectorAll('.meta-row').forEach(row => {
+                const label = row.querySelector('.meta-label').value.trim();
+                const value = row.querySelector('.meta-value').value.trim();
+                if (label) metadata.push({ label, value });
+            });
+
+            const sections = [];
+            document.querySelectorAll('.content-block').forEach(block => {
+                const label = block.querySelector('.section-label').value.trim();
+                const content = block.querySelector('.section-content').value.trim();
+                if (label) sections.push({ id: label.toLowerCase().replace(/\s+/g, '-'), label, content });
+            });
+
+            item.details = {
+                plateNo: document.getElementById('det-plate').value.trim(),
+                type: document.getElementById('det-type').value.trim(),
+                heroImage: { url: document.getElementById('det-hero-url').value.trim() },
+                metadata,
+                sections
+            };
+
+            markDirty();
+            closeEditor();
+            showToast('✓ Details committed to memory. Don\'t forget to Publish!');
         }
 
         // ── Dirty tracking & Publish ──
