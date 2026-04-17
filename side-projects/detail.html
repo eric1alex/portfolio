@@ -17,58 +17,62 @@
       gtag('config', 'G-QMWDY8P9GQ');
     </script>
 </head>
-<body class="font-body selection:bg-primary selection:text-on-primary min-h-screen flex flex-col">
+<body class="font-body selection:bg-primary selection:text-on-primary min-h-screen bg-surface-container-low flex flex-col md:flex-row">
     <div id="loading-overlay" class="fixed inset-0 bg-surface z-[100] flex items-center justify-center">
-        <p class="text-[0.6rem] uppercase tracking-[0.3em] animate-pulse">Retreiving Archival Record...</p>
+        <p class="text-[0.6rem] uppercase tracking-[0.3em] animate-pulse">Initializing Dashboard...</p>
     </div>
 
-    <div class="flex-grow">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 min-h-screen border-t border-outline-variant/20">
-            <aside class="md:col-span-5 bg-surface-container-low border-r border-outline-variant/30 px-8 py-10 lg:py-20 relative">
-                <div class="md:sticky md:top-20">
-                    <header class="mb-16 lg:mb-32">
-                        <a class="flex items-center gap-2 text-[#1a1c19] text-[0.6rem] uppercase tracking-[0.2em] font-bold transition-colors duration-200 hover:text-primary mb-12" href="index.html">
-                            <span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
-                            <span>Back to Archive</span>
-                        </a>
-                        <div class="flex justify-between items-end mb-8">
-                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline" id="plate-no">PLATE NO. —</span>
-                            <span class="text-[0.625rem] font-bold uppercase tracking-[0.3em] text-outline" id="record-type">RECORD</span>
-                        </div>
-                        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-tight mb-12" id="project-title">
-                            —
-                        </h1>
-                        <div class="grid grid-cols-2 gap-y-8 pt-12 border-t border-outline-variant/30" id="metadata-grid">
-                            <!-- Metadata Grid -->
-                        </div>
-                    </header>
-                    <nav class="hidden md:flex flex-col gap-8 opacity-40 hover:opacity-100 transition-opacity duration-500" id="side-nav">
-                        <!-- Navigation -->
-                    </nav>
-                </div>
-            </aside>
-            <main class="md:col-span-7 bg-surface px-8 md:px-16 lg:px-24 py-10 lg:py-20">
-                <figure class="mb-16 lg:mb-32" id="hero-figure">
-                    <div class="aspect-[16/9] bg-surface-container overflow-hidden">
-                        <img id="hero-image" alt="Project visual" class="w-full h-full object-cover mix-blend-multiply grayscale contrast-125" src=""/>
-                    </div>
-                    <figcaption class="mt-4 text-[0.6rem] uppercase tracking-[0.2em] text-outline flex justify-between">
-                        <span id="img-caption">Figure 1.1 — Spatial Reference</span>
-                        <span id="img-sub-caption">(Project Genesis)</span>
-                    </figcaption>
-                </figure>
-                <div class="space-y-20 lg:space-y-40" id="sections-container">
-                    <!-- Sections -->
-                </div>
-                <footer class="pt-12 border-t border-primary/10 mt-20">
-                    <a class="group inline-flex items-center gap-4 text-[0.625rem] uppercase tracking-[0.3em] font-bold hover:text-primary transition-colors" href="index.html">
-                        <span class="material-symbols-outlined text-sm">arrow_back</span>
-                        Back to Projects
-                    </a>
-                </footer>
-            </main>
+    <!-- Sidebar Navigation (Dashboard Style) -->
+    <aside class="hidden md:flex w-64 bg-surface flex-col border-r border-outline-variant/20 p-8 h-screen sticky top-0 shrink-0 shadow-[4px_0_24px_rgba(0,0,0,0.02)] z-10">
+        <div class="mb-16">
+            <a href="index.html" class="group uppercase tracking-widest text-[0.625rem] font-bold hover:text-primary flex items-center gap-3 text-on-surface transition-colors">
+                <span class="material-symbols-outlined text-sm transition-transform group-hover:-translate-x-1">arrow_back</span>
+                Back to DB
+            </a>
         </div>
-    </div>
+        <div class="text-[0.55rem] uppercase tracking-[0.2em] text-outline mb-6">System Navigation</div>
+        <nav id="dashboard-nav" class="flex flex-col gap-5 text-[0.65rem] uppercase tracking-widest font-bold text-on-surface/50">
+            <!-- Populated via JS -->
+        </nav>
+        <div class="mt-auto">
+            <div class="w-full h-px bg-outline-variant/10 mb-6"></div>
+            <div class="text-[0.55rem] text-outline uppercase tracking-widest flex justify-between items-center">
+                <span>Status</span>
+                <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-primary/80 animate-pulse"></span> Active</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Mobile Topbar -->
+    <nav class="md:hidden bg-surface border-b border-outline-variant/20 py-4 px-6 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+         <a href="index.html" class="uppercase tracking-widest text-[0.625rem] font-bold text-on-surface flex items-center gap-2">
+             <span class="material-symbols-outlined text-sm">arrow_back</span> DB
+         </a>
+         <div class="text-[0.6rem] uppercase tracking-[0.2em] text-primary font-bold animate-pulse">Record View</div>
+    </nav>
+
+    <!-- Main Dashboard Area -->
+    <main class="flex-grow p-4 md:p-8 lg:p-10 overflow-y-auto w-full max-w-[1600px] mx-auto min-h-screen">
+        <!-- Dashboard Header -->
+        <header class="mb-6 flex flex-col lg:flex-row lg:justify-between lg:items-end gap-6 bg-surface p-8 md:p-10 rounded-3xl border border-outline-variant/10 shadow-sm">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="text-[0.6rem] uppercase tracking-[0.3em] font-bold text-surface bg-primary px-2 py-1 rounded-sm" id="record-type">RECORD</span>
+                    <span class="text-[0.6rem] uppercase tracking-[0.3em] font-bold text-outline" id="plate-no-nav">PLATE NO. —</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-on-surface leading-none" id="project-title">—</h1>
+            </div>
+            <!-- Metadata Top Row KPI -->
+            <div class="flex flex-wrap gap-6 border-t lg:border-t-0 lg:border-l border-outline-variant/20 pt-6 lg:pt-0 lg:pl-8" id="metadata-grid">
+                <!-- Data injected here -->
+            </div>
+        </header>
+
+        <!-- Bento Box Layout Engine -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6" id="bento-grid">
+            <!-- Data injected here -->
+        </div>
+    </main>
 
     <script>
         async function loadDetail() {
@@ -83,57 +87,102 @@
                 const item = data.sideProjects.find(i => i.id === id) || data.work.find(i => i.id === id);
                 
                 if (!item) { 
-                    document.getElementById('loading-overlay').innerHTML = '<p class="text-xs uppercase tracking-widest">Error: Record not found.</p>';
+                    document.getElementById('loading-overlay').innerHTML = '<p class="text-xs uppercase tracking-widest text-error">Error: Record not found.</p>';
                     return; 
                 }
 
                 const det = item.details || {};
-                // Title & Headers
+                
+                // Headers Injection
                 document.title = `Portfolio of Eric Alex - ${item.title}`;
-                document.getElementById('project-title').innerHTML = item.title.replace(': ', ': <br/>');
-                document.getElementById('plate-no').textContent = `PLATE NO. ${det.plateNo || (item.id.substring(0,6))}`;
-                document.getElementById('record-type').textContent = det.type || (data.sideProjects.includes(item) ? 'SIDE PROJECT' : 'ARCHIVAL RECORD');
+                document.getElementById('project-title').innerHTML = item.title;
+                document.getElementById('plate-no-nav').textContent = `PLATE NO. ${det.plateNo || (item.id.substring(0,6))}`;
+                document.getElementById('record-type').textContent = det.type || (data.sideProjects.includes(item) ? 'SIDEDECK' : 'ARCHIVE');
 
+                // KPI Metadata Injection
                 const metaGrid = document.getElementById('metadata-grid');
                 if (det.metadata && det.metadata.length > 0) {
                     metaGrid.innerHTML = det.metadata.map(m => `
-                        <div>
-                            <p class="text-[0.6rem] uppercase tracking-widest text-outline mb-2">${m.label}</p>
-                            <p class="text-xs font-bold uppercase tracking-wider">${m.value}</p>
+                        <div class="flex flex-col gap-1 min-w-[80px]">
+                            <span class="text-[0.55rem] uppercase tracking-[0.2em] text-outline">${m.label}</span>
+                            <span class="text-xs font-bold uppercase tracking-widest text-on-surface">${m.value}</span>
                         </div>
                     `).join('');
                 } else {
                     metaGrid.style.display = 'none';
                 }
 
+                // Bento Grid Construction
+                let bentoHtml = '';
+                
+                // Brand Logo Widget
                 if (det.heroImage && det.heroImage.url) {
-                    document.getElementById('hero-image').src = det.heroImage.url;
-                } else {
-                    document.getElementById('hero-figure').style.display = 'none';
+                    bentoHtml += `
+                        <div class="md:col-span-12 lg:col-span-4 bg-surface rounded-3xl border border-outline-variant/10 flex items-center justify-center shadow-sm p-12 min-h-[250px] group relative">
+                            <img src="${det.heroImage.url}" class="max-w-[75%] max-h-[160px] object-contain mix-blend-multiply grayscale contrast-125 group-hover:grayscale-0 transition-all duration-700" alt="Brand visual" />
+                        </div>
+                    `;
                 }
 
-                const sideNav = document.getElementById('side-nav');
-                const sectionsContainer = document.getElementById('sections-container');
-                
+                // Content Widgets
                 if (det.sections && det.sections.length > 0) {
-                    sideNav.innerHTML = det.sections.map((s, idx) => `
-                        <a class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary flex items-center gap-4 group" href="#${s.id}">
-                            <span class="w-8 h-px bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform"></span>
-                            ${(idx + 1).toString().padStart(2, '0')} / ${s.label}
+                    // Populate Sidebar Nav
+                    document.getElementById('dashboard-nav').innerHTML = det.sections.map(s => `
+                        <a href="#${s.id}" class="hover:text-primary transition-colors flex items-center gap-3 group">
+                            <span class="w-0 group-hover:w-2 h-px bg-primary transition-all duration-300"></span>
+                            ${s.label}
                         </a>
                     `).join('');
 
-                    sectionsContainer.innerHTML = det.sections.map((s, idx) => `
-                        <section class="scroll-mt-20" id="${s.id}">
-                            <div class="md:hidden mb-8">
-                                <h2 class="text-[0.625rem] uppercase tracking-[0.3em] font-bold text-primary">${(idx + 1).toString().padStart(2, '0')} / ${s.label}</h2>
-                            </div>
-                            <p class="text-xl md:text-2xl leading-relaxed text-on-surface tracking-tight">
-                                ${s.content}
-                            </p>
-                        </section>
-                    `).join('');
+                    bentoHtml += det.sections.map((s, idx) => {
+                        let contentHtml = s.content.split(/\n\s*\n/).map(p => {
+                            let formattedP = p.replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-primary">$1</strong>');
+                            
+                            if (formattedP.trim().startsWith('-') || formattedP.trim().startsWith('•')) {
+                                let listItems = formattedP.split(/\n/).map(item => {
+                                    let cleanItem = item.replace(/^[-•]\s*/, '').trim();
+                                    return cleanItem ? `<li class="relative pl-5 before:content-[''] before:absolute before:left-0 before:top-[0.4rem] before:w-1.5 before:h-1.5 before:bg-primary before:opacity-50 before:rounded-full">${cleanItem}</li>` : '';
+                                }).join('');
+                                return `<ul class="space-y-3 mt-4 mb-6 text-sm md:text-[0.95rem] leading-relaxed">${listItems}</ul>`;
+                            }
+                            return `<p class="mb-5 text-on-surface/80 leading-relaxed text-sm md:text-[0.95rem]">${formattedP}</p>`;
+                        }).join('');
+
+                        let colSpan = "md:col-span-12 lg:col-span-4";
+                        let cardStyle = "bg-surface";
+                        let headerColor = "text-primary";
+                        let indexColor = "text-outline-variant";
+
+                        // Intelligent span mapping
+                        if (s.id.toLowerCase() === 'overview') {
+                            colSpan = "md:col-span-12 lg:col-span-8";
+                        } else if (s.id.toLowerCase() === 'work-details' || s.id.toLowerCase() === 'details') {
+                            colSpan = "md:col-span-12 lg:col-span-8";
+                        } else if (s.id.toLowerCase() === 'outcome' || s.id.toLowerCase().includes('result')) {
+                            colSpan = "md:col-span-12 lg:col-span-4";
+                            cardStyle = "bg-[#1a1c19] text-[#f4f4f0]";
+                            headerColor = "text-[#f4f4f0]";
+                            indexColor = "text-[#f4f4f0]/30";
+                            contentHtml = contentHtml.replace(/text-on-surface\/80/g, 'text-[#f4f4f0]/80');
+                            contentHtml = contentHtml.replace(/text-primary/g, 'text-[#f4f4f0]');
+                            contentHtml = contentHtml.replace(/bg-primary/g, 'bg-[#f4f4f0]');
+                        }
+
+                        return `
+                            <section id="${s.id}" class="${colSpan} ${cardStyle} rounded-3xl border border-outline-variant/10 shadow-sm p-8 md:p-10 flex flex-col scroll-mt-24 h-full relative overflow-hidden group">
+                                <div class="flex justify-between items-center mb-8 border-b border-outline-variant/10 pb-4">
+                                    <h2 class="text-[0.65rem] uppercase tracking-[0.2em] font-bold ${headerColor}">${s.label}</h2>
+                                    <span class="${indexColor} text-[0.65rem] font-bold tracking-[0.2em]">0${idx + 1}</span>
+                                </div>
+                                <div class="flex-grow">
+                                    ${contentHtml}
+                                </div>
+                            </section>
+                        `;
+                    }).join('');
                 }
+                
+                document.getElementById('bento-grid').innerHTML = bentoHtml;
 
                 setTimeout(() => {
                     document.getElementById('loading-overlay').style.opacity = '0';
@@ -142,17 +191,11 @@
 
             } catch (error) {
                 console.error('Error:', error);
-                document.getElementById('loading-overlay').innerHTML = '<p class="text-xs uppercase tracking-widest text-error">Critical Engine Failure.</p>';
+                document.getElementById('loading-overlay').innerHTML = '<p class="text-xs uppercase tracking-widest text-error">Critical System Failure.</p>';
             }
         }
 
         loadDetail();
     </script>
-    <!-- Sticky/Fixed Elements using Size Variant 1 -->
-    <footer class="fixed bottom-12 right-12 pointer-events-none opacity-20">
-        <div class="text-[0.625rem] font-medium tracking-[0.3em] uppercase rotate-90 origin-right">
-
-        </div>
-    </footer>
 </body>
 </html>
