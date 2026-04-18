@@ -44,7 +44,69 @@
       "title": "Where In India",
       "category": "Travel Directory",
       "year": "2025",
-      "slug": "where-in-india"
+      "slug": "where-in-india",
+      "details": {
+        "plateNo": "001",
+        "type": "WHERE IN INDIA / 2025",
+        "heroImage": {
+          "url": "https://www.whereinindia.online/flag.png"
+        },
+        "metadata": [
+          {
+            "label": "Industry",
+            "value": "Travel"
+          },
+          {
+            "label": "Monthly Users",
+            "value": "2000"
+          },
+          {
+            "label": "Growth Channel",
+            "value": "Reddit"
+          },
+          {
+            "label": "Feedback",
+            "value": "98.7%"
+          }
+        ],
+        "sections": [
+          {
+            "id": "the-problem",
+            "label": "THE PROBLEM",
+            "content": "Planning a trip to Pondicherry, I searched for recommendations and hit a wall — every result was a bloated blog post with too much noise and not enough signal. I wanted a simple list of places with a Google Maps link. That gap was the product idea.\n\nDigging deeper, I spotted a second problem: the internet was flooding with generic, AI-generated travel content. Trust was eroding. Travelers wanted human experiences, not algorithm output."
+          },
+          {
+            "id": "positioning-&-differentiation",
+            "label": "Positioning & Differentiation",
+            "content": "I positioned the product as a community-curated directory — the opposite of AI-generated content. To back this up with real data, I ran a 2-week community research exercise on Reddit across 5–6 cities, collecting genuine local recommendations. This wasn't just market research — it became the product's core differentiator.\n\nKey positioning choice: \"Community-curated\" wasn't a tagline — it was a trust signal the audience immediately connected with. Early users didn't just approve; they started contributing unprompted, reducing my data-collection load organically."
+          },
+          {
+            "id": "go-to-market:-one-channel,-full-focus",
+            "label": "Go-to-Market: One Channel, Full Focus",
+            "content": "With a full-time job, I had limited bandwidth. I made a deliberate GTM call: pick one channel and go deep on it. I chose Reddit — where the audience already was, asking for travel recommendations. I engaged genuinely on existing posts across all the cities on my site. What started as a daily activity scaled down to 2–3 sessions a week as the channel matured.\n\nResult: 60–80 users a day from 30 minutes of weekly effort. 2,000 users in the last 30 days — entirely from one channel, zero paid spend."
+          },
+          {
+            "id": "product-evolution",
+            "label": "Product Evolution",
+            "content": "The MVP was a minimal directory — city pages with place listings and Google Maps links. After launch, I identified two gaps: it felt sparse, and it didn't offer enough value to retain users. I iterated deliberately.\n\nWhat I added: A city dashboard (daily budget, transport, best time to visit, recommended stay) to improve stickiness. Download and share list features for brand distribution. A map view for discoverability. I tracked usage on each and kept features that showed signal — even low usage — over vanity features that added nothing."
+          },
+          {
+            "id": "validation-&-feedback-loop",
+            "label": "Validation & Feedback Loop",
+            "content": "I built a feedback popup directly into the site to close the loop with users. 154 submissions collected. 152 positive, 2 negative. I treated this as the clearest signal that the core value proposition was working — and used it to stay focused on what was already resonating rather than chasing scope creep."
+          },
+          {
+            "id": "monetization-thinking",
+            "label": "Monetization Thinking",
+            "content": "I approached monetization with the same intentionality as the product itself. Google Ads would have been the obvious route — but it conflicted with the clean, trust-first experience I'd built. I ruled it out. Instead, I went with affiliate marketing, integrating it as a native product category within each city page rather than an intrusive popup. The experience stays seamless; the brand integrity stays intact."
+          },
+          {
+            "id": "seo-&-long-term-growth",
+            "label": "SEO & Long-term Growth",
+            "content": "Organic search was the long game. I started SEO activities from day one, knowing results would compound slowly. From near-zero impressions in January to ~30 per day in April, the curve is moving. Direct traffic is also climbing — a potential early signal of Google-driven discovery as authority builds."
+          }
+        ]
+      }
     }
   ],
   "photography": [
