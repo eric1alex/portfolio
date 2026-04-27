@@ -107,6 +107,66 @@
           }
         ]
       }
+    },
+    {
+      "id": "sp1777259241308",
+      "title": "Where In India - Pinterest ( 220k Impressions )",
+      "category": "Travek",
+      "year": "2024",
+      "slug": "where-in-india---pinterest--220k-impressions-",
+      "details": {
+        "plateNo": "002",
+        "type": "From random pins to 10M impressions",
+        "heroImage": {
+          "url": ""
+        },
+        "metadata": [
+          {
+            "label": "Total Impressions",
+            "value": "10M+"
+          },
+          {
+            "label": "Total Engagement",
+            "value": "550K"
+          },
+          {
+            "label": "Current Status",
+            "value": "Merged with whereinindia.online"
+          }
+        ],
+        "sections": [
+          {
+            "id": "overview",
+            "label": "Overview",
+            "content": "What started as an unfocused Pinterest experiment turned into a 10M impression, 550K engagement channel — built without a budget, just iteration and analytics. Over two years, I taught myself Pinterest from scratch, used data to identify a winning niche (Indian travel content for women), A/B tested designs until two formats broke out, and scaled from there. The channel is now merged with Where In India, closing the loop on the one mistake I made early: having an audience with nowhere to go."
+          },
+          {
+            "id": "how-it-started",
+            "label": "How It Started",
+            "content": "I wanted to grow a Pinterest account and did what most people do — followed trends. For the first 5–6 months I used Pinterest Trends to create pins across random categories. No niche, no strategy, no vision. Just post and hope."
+          },
+          {
+            "id": "the-analytics-turning-point",
+            "label": "The Analytics Turning Point",
+            "content": "As I got more comfortable with the platform and its analytics, a clear signal emerged: travel content was significantly outperforming everything else — and specifically resonating with Indian audiences and female users.\n\nThe decision: Stop spreading thin across topics. Double down on Indian travel content for a defined audience. I renamed the account to Travel India Now and fully committed to the niche."
+          },
+          {
+            "id": "creative-iteration-&-what-worked",
+            "label": "Creative Iteration & What Worked",
+            "content": "Pivoting to travel content didn't instantly produce results. The early phase was heavy on experimentation — testing formats, layouts, and design variations to find what drove impressions. Out of many attempts, two pin designs consistently outperformed everything else.\n\nThe learning: Creative is a variable, not a constant. I tested until the data told me what worked, then doubled down on those two formats. That decision is what drove the channel to scale."
+          },
+          {
+            "id": "the-gap-i-missed",
+            "label": "The Gap I Missed",
+            "content": "With growing impressions and engagement, there was one critical thing missing: a destination. I had no website or landing page to send traffic to, which meant zero outbound clicks. An audience was arriving and leaving with nowhere to go.\n\nThe lesson: Distribution without a funnel is just vanity metrics. Impressions mean nothing if there's no next step for the audience."
+          },
+          {
+            "id": "closing-the-loop",
+            "label": "Closing the Loop",
+            "content": "The Pinterest account is now merged under the Where In India brand and pointed to whereinindia.online. Content creation has restarted under the new name, this time with a full funnel in place — impressions convert to site visits rather than dead ends.\n\nWhere it stands now: This is effectively a second learning curve — rebuilding audience trust and momentum under a new brand, but this time with the strategic foundation that was missing the first time around."
+          }
+        ]
+      }
     }
   ],
   "photography": [
