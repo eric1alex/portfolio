@@ -14,6 +14,18 @@
         },
         "metadata": [
           {
+            "label": "Duration",
+            "value": "Jun 2024 to Present"
+          },
+          {
+            "label": "Role",
+            "value": "Business Development Executive"
+          },
+          {
+            "label": "Tools",
+            "value": "HubSpot, Dripify, Apollo.io, Mixpanel"
+          },
+          {
             "label": "Industry",
             "value": "Service and Product"
           }
@@ -22,17 +34,27 @@
           {
             "id": "overview",
             "label": "Overview",
-            "content": "This section gives a clear introduction to the project or subject. It sets the context, explaining what the work is about and why it exists. A good overview helps the reader understand the purpose without going into too much detail. It should briefly cover the idea, the approach, and the outcome you’re aiming for. Think of it as the first impression that prepares someone for everything that follows."
+            "content": "Tailwebs was my first job, and it moved fast. What started as managing a CRM and running outreach campaigns quickly expanded into owning the go-to-market for two internal SaaS products — ShopAR (B2B) and Kaipo (B2C). Across both, I handled messaging, positioning, content, sales channels, user onboarding, feedback loops, and analytics. I learned by doing, iterated quickly, and by the end I was making independent product and growth decisions backed by data."
           },
           {
-            "id": "work-details",
-            "label": "Work Details",
-            "content": "This is where you break down what actually went into the work. It can include the process, tools used, decisions made, and challenges faced along the way. Instead of being too technical, keep it structured and easy to follow. Highlight the steps that mattered the most and explain why certain choices were made. This section helps others understand not just what you did, but how you did it."
+            "id": "foundation:-crm-&-outreach",
+            "label": "Foundation: CRM & Outreach",
+            "content": "My first ownership area was HubSpot. I learned the platform end-to-end and took over lead management — tracking, follow-ups, and pipeline hygiene. This led into outreach, where I was introduced to Dripify for LinkedIn and Apollo.io for email campaigns.\nAfter a few weeks of learning the tools, I owned all campaigns end-to-end: planning, execution, tracking, and lead management. Content and messaging started with CMO sign-off and gradually became fully my responsibility as I got a handle on what worked."
           },
           {
-            "id": "outcome",
-            "label": "Outcome",
-            "content": "Here you present the final result and what came out of the work. It could be the finished product, key learnings, or the impact it created. This section should connect back to the overview and show whether the original goal was achieved. You can also mention what you would improve or do differently next time, giving it a more complete and thoughtful ending."
+            "id": "shopar:-b2b-saas-gtm",
+            "label": "ShopAR: B2B SaaS GTM",
+            "content": "ShopAR was Tailwebs' internal SaaS product — an Augmented Reality tool that let retailers place their products in AR via phone or an Image-to-3D feature. I was handed the marketing and GTM from the ground up.\nMy scope:\n\nPositioning and go-to-market strategy\nContent for website, in-app, email, and push notifications\nMinor contribution to feature ideation\n\n\nOnce the product was ready, I moved into sales. We tested four channels: Email, Cold Calling, Ads, and Door-to-Door.\n\nWhat the data showed: Both Ads and Door-to-Door produced results. I ran 4 weeks of door-to-door sales while the CMO ran ads in parallel. After 4 weeks, ads showed better returns — we cut the other channels and focused there.\nI then owned user onboarding, the feedback loop, and cross-functional conversations with product and tech on what to improve — all running alongside my core Tailwebs responsibilities."
+          },
+          {
+            "id": "kaipo:-b2c-ai-companion",
+            "label": "Kaipo: B2C AI Companion",
+            "content": "Kaipo was an AI companion product — fully B2C, which meant a different muscle. With ShopAR behind me, I came into this one with more confidence and a clearer sense of where to focus.\nWith lower direct user interaction than B2B, I shifted my time toward analytics and product thinking. I went deep on Mixpanel — building funnels, mapping user journeys, identifying drop-offs, and figuring out what to act on.\n\nExample 1 — Onboarding drop-off: Initial sign-up flow had a ~75% drop-off rate. We prioritised Google Sign-In. Drop-off fell to 15%.\n\n\nExample 2 — Retention: We had no hook to bring users back. Beyond improving chat quality, we introduced a \"feelings\" section — a live emotional state indicator for the AI companion. The light gamification element improved return rates.\n\nThe through-line across both products: use cases and decisions had to be grounded in data, not instinct."
+          },
+          {
+            "id": "what-made-it-all-work",
+            "label": "What Made It All Work",
+            "content": "Across both products and the core BDE work, the force multiplier was automation and AI tooling. Removing manual effort from repeatable tasks created the bandwidth to go deeper on strategy, messaging, and analytics — which is where the real impact was."
           }
         ]
       }
