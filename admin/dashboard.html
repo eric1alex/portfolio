@@ -277,7 +277,7 @@
         /* Photo grid preview */
         .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
         .photo-item { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: 2px; background: var(--surface-low); border: 1px solid var(--outline); }
-        .photo-item img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(100%); }
+        .photo-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .photo-item-overlay {
             position: absolute; inset: 0;
             background: rgba(0,0,0,0.5);
@@ -629,7 +629,8 @@
             </div>
 
             <div class="add-form-wrapper" id="photo-form" style="display:none;">
-                <p class="add-form-title">Add New Plate</p>
+                <p class="add-form-title" id="photo-form-title">Add New Plate</p>
+                <input type="hidden" id="ph-index" value="-1"/>
                 <div class="form-grid">
                     <div class="form-field">
                         <label class="form-label">Image URL</label>
@@ -653,10 +654,23 @@
                             <option value="21/9">Wide (21:9)</option>
                         </select>
                     </div>
+                    <div class="form-field full">
+                        <label class="form-label">Grid Layout</label>
+                        <select class="form-input" id="ph-colspan">
+                            <option value="md:col-span-8 md:col-start-1">Large Left (8 Cols)</option>
+                            <option value="md:col-span-8 md:col-start-5">Large Right (8 Cols)</option>
+                            <option value="md:col-span-6 md:col-start-1">Half Left (6 Cols)</option>
+                            <option value="md:col-span-6 md:col-start-7">Half Right (6 Cols)</option>
+                            <option value="md:col-span-4 md:col-start-2">Small Center-Left (4 Cols)</option>
+                            <option value="md:col-span-4 md:col-start-8">Small Center-Right (4 Cols)</option>
+                            <option value="md:col-span-10 md:col-start-2">Wide Center (10 Cols)</option>
+                            <option value="md:col-span-12 md:col-start-1">Full Width (12 Cols)</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-actions">
-                    <button class="btn-add" onclick="addPhoto()">Add Plate</button>
-                    <button class="btn-cancel" onclick="toggleForm('photo-form')">Cancel</button>
+                    <button class="btn-add" onclick="savePhoto()" id="btn-save-photo">Add Plate</button>
+                    <button class="btn-cancel" onclick="closePhotoForm()">Cancel</button>
                 </div>
             </div>
 
@@ -664,7 +678,7 @@
                 <span class="section-label" id="photo-count-label">— plates</span>
                 <div style="display: flex; gap: 0.5rem;">
                     <button class="btn-new" onclick="syncImages()" id="btn-sync-images">Sync Repo Images</button>
-                    <button class="btn-new" onclick="toggleForm('photo-form')">+ Add Plate</button>
+                    <button class="btn-new" onclick="openAddPhoto()">+ Add Plate</button>
                 </div>
             </div>
             <div class="photo-grid" id="photo-grid"></div>
@@ -901,24 +915,80 @@
             document.getElementById('photo-count-label').textContent = photos.length + ' plates';
             grid.innerHTML = photos.map((item, i) => `
                 <div class="photo-item">
-                    <img src="${item.url}" alt="${item.caption}" loading="lazy" onerror="this.style.display='none'"/>
+                    <img src="${item.url}" alt="${item.caption}" loading="lazy" decoding="async" onerror="this.style.display='none'"/>
                     <div class="photo-item-overlay">
                         <span class="photo-caption">${item.plateNo}<br/>${item.caption}</span>
-                        <button class="photo-del" onclick="deletePhoto(${i})">✕ Remove</button>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <button class="photo-del" style="color: #fff;" onclick="editPhoto(${i})">✎ Edit</button>
+                            <button class="photo-del" onclick="deletePhoto(${i})">✕ Remove</button>
+                        </div>
                     </div>
                 </div>`).join('');
         }
 
-        function addPhoto() {
+        function openAddPhoto() {
+            document.getElementById('photo-form-title').textContent = 'Add New Plate';
+            document.getElementById('btn-save-photo').textContent = 'Add Plate';
+            document.getElementById('ph-index').value = '-1';
+            clearFields(['ph-url','ph-caption','ph-plate']);
+            document.getElementById('ph-aspect').value = '4/5';
+            document.getElementById('ph-colspan').value = 'md:col-span-8 md:col-start-1';
+            document.getElementById('photo-form').style.display = 'block';
+        }
+
+        function closePhotoForm() {
+            document.getElementById('photo-form').style.display = 'none';
+        }
+
+        function editPhoto(i) {
+            const item = data.photography[i];
+            document.getElementById('photo-form-title').textContent = 'Edit Plate';
+            document.getElementById('btn-save-photo').textContent = 'Save Changes';
+            document.getElementById('ph-index').value = i;
+            document.getElementById('ph-url').value = item.url;
+            document.getElementById('ph-caption').value = item.caption || '';
+            document.getElementById('ph-plate').value = item.plateNo || '';
+            document.getElementById('ph-aspect').value = item.aspect || '4/5';
+            document.getElementById('ph-colspan').value = item.colSpan || 'md:col-span-8 md:col-start-1';
+            
+            document.getElementById('photo-form').style.display = 'block';
+            document.getElementById('photo-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function savePhoto() {
+            const index = parseInt(document.getElementById('ph-index').value);
             const url = document.getElementById('ph-url').value.trim();
             const caption = document.getElementById('ph-caption').value.trim();
             const plateNo = document.getElementById('ph-plate').value.trim();
             const aspect = document.getElementById('ph-aspect').value;
-            if (!url || !caption) { showToast('URL and caption required', true); return; }
+            const colSpan = document.getElementById('ph-colspan').value;
+            
+            if (!url) { showToast('Image URL required', true); return; }
             if (!data.photography) data.photography = [];
-            data.photography.push({ id: 'ph' + Date.now(), plateNo: plateNo || (data.photography.length + 1).toString().padStart(3,'0'), caption, aspect, colSpan: 'md:col-span-8 md:col-start-1', url });
-            clearFields(['ph-url','ph-caption','ph-plate']);
-            markDirty(); renderPhotos();
+            
+            if (index === -1) {
+                // Add new
+                data.photography.push({ 
+                    id: 'ph' + Date.now(), 
+                    plateNo: plateNo || (data.photography.length + 1).toString().padStart(3,'0'), 
+                    caption: caption || 'Untitled', 
+                    aspect, 
+                    colSpan, 
+                    url 
+                });
+            } else {
+                // Update existing
+                const item = data.photography[index];
+                item.url = url;
+                item.caption = caption;
+                item.plateNo = plateNo;
+                item.aspect = aspect;
+                item.colSpan = colSpan;
+            }
+            
+            closePhotoForm();
+            markDirty(); 
+            renderPhotos();
         }
 
         function deletePhoto(i) {
@@ -939,16 +1009,26 @@
                 if (!data.photography) data.photography = [];
                 const existingUrls = new Set(data.photography.map(p => p.url));
                 
+                const gridClasses = [
+                    'md:col-span-8 md:col-start-1',
+                    'md:col-span-6 md:col-start-7',
+                    'md:col-span-4 md:col-start-2',
+                    'md:col-span-8 md:col-start-5',
+                    'md:col-span-10 md:col-start-2',
+                    'md:col-span-6 md:col-start-1'
+                ];
+                
                 let addedCount = 0;
                 for (const url of images) {
                     if (!existingUrls.has(url)) {
+                        const targetColSpan = gridClasses[data.photography.length % gridClasses.length];
                         addedCount++;
                         data.photography.push({
                             id: 'ph' + Date.now() + Math.floor(Math.random()*1000),
                             plateNo: (data.photography.length + 1).toString().padStart(3, '0'),
                             caption: 'Auto-synced Image',
-                            aspect: 'square',
-                            colSpan: 'md:col-span-8 md:col-start-1',
+                            aspect: '4/5',
+                            colSpan: targetColSpan,
                             url: url
                         });
                     }
