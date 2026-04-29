@@ -56,8 +56,18 @@
                             const isLast = (index === data.photography.length - 1);
                             const finalClass = isLast ? 'mt-32' : '';
                             
+                            const patterns = [
+                                'col-span-1 md:col-span-5 md:col-start-4',           // Center Focus
+                                'col-span-1 md:col-span-4 md:col-start-2 md:mt-24',  // Left Medium
+                                'col-span-1 md:col-span-4 md:col-start-8',           // Right Medium
+                                'col-span-1 md:col-span-6 md:col-start-6 md:-mt-16', // Right Large
+                                'col-span-1 md:col-span-5 md:col-start-1 md:mt-16',  // Left Large
+                                'col-span-1 md:col-span-4 md:col-start-5',           // Center Small
+                            ];
+                            const layoutClass = patterns[index % patterns.length];
+                            
                             return `
-                                <div class="${item.colSpan} ${finalClass} group">
+                                <div class="${layoutClass} ${finalClass} group">
                                     <div class="aspect-[${item.aspect || '4/5'}] bg-surface-container overflow-hidden">
                                         <img src="${item.url}" 
                                              alt="${item.caption}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>

@@ -651,22 +651,6 @@
                             <option value="4/5">Portrait (4:5)</option>
                             <option value="3/4">Portrait (3:4)</option>
                             <option value="16/9">Landscape (16:9)</option>
-                            <option value="21/9">Wide (21:9)</option>
-                        </select>
-                    </div>
-                    <div class="form-field full">
-                        <label class="form-label">Grid Layout</label>
-                        <select class="form-input" id="ph-colspan">
-                            <option value="md:col-span-8 md:col-start-1">Large Left (8 Cols)</option>
-                            <option value="md:col-span-8 md:col-start-5">Large Right (8 Cols)</option>
-                            <option value="md:col-span-6 md:col-start-1">Half Left (6 Cols)</option>
-                            <option value="md:col-span-6 md:col-start-7">Half Right (6 Cols)</option>
-                            <option value="md:col-span-4 md:col-start-2">Small Center-Left (4 Cols)</option>
-                            <option value="md:col-span-4 md:col-start-8">Small Center-Right (4 Cols)</option>
-                            <option value="md:col-span-10 md:col-start-2">Wide Center (10 Cols)</option>
-                            <option value="md:col-span-12 md:col-start-1">Full Width (12 Cols)</option>
-                        </select>
-                    </div>
                 </div>
                 <div class="form-actions">
                     <button class="btn-add" onclick="savePhoto()" id="btn-save-photo">Add Plate</button>
@@ -932,7 +916,6 @@
             document.getElementById('ph-index').value = '-1';
             clearFields(['ph-url','ph-caption','ph-plate']);
             document.getElementById('ph-aspect').value = '4/5';
-            document.getElementById('ph-colspan').value = 'md:col-span-8 md:col-start-1';
             document.getElementById('photo-form').style.display = 'block';
         }
 
@@ -949,7 +932,6 @@
             document.getElementById('ph-caption').value = item.caption || '';
             document.getElementById('ph-plate').value = item.plateNo || '';
             document.getElementById('ph-aspect').value = item.aspect || '4/5';
-            document.getElementById('ph-colspan').value = item.colSpan || 'md:col-span-8 md:col-start-1';
             
             document.getElementById('photo-form').style.display = 'block';
             document.getElementById('photo-form').scrollIntoView({ behavior: 'smooth' });
@@ -961,7 +943,6 @@
             const caption = document.getElementById('ph-caption').value.trim();
             const plateNo = document.getElementById('ph-plate').value.trim();
             const aspect = document.getElementById('ph-aspect').value;
-            const colSpan = document.getElementById('ph-colspan').value;
             
             if (!url) { showToast('Image URL required', true); return; }
             if (!data.photography) data.photography = [];
@@ -973,7 +954,7 @@
                     plateNo: plateNo || (data.photography.length + 1).toString().padStart(3,'0'), 
                     caption: caption || 'Untitled', 
                     aspect, 
-                    colSpan, 
+                    colSpan: 'md:col-span-6 md:col-start-4', 
                     url 
                 });
             } else {
@@ -983,7 +964,6 @@
                 item.caption = caption;
                 item.plateNo = plateNo;
                 item.aspect = aspect;
-                item.colSpan = colSpan;
             }
             
             closePhotoForm();
@@ -1009,26 +989,16 @@
                 if (!data.photography) data.photography = [];
                 const existingUrls = new Set(data.photography.map(p => p.url));
                 
-                const gridClasses = [
-                    'md:col-span-8 md:col-start-1',
-                    'md:col-span-6 md:col-start-7',
-                    'md:col-span-4 md:col-start-2',
-                    'md:col-span-8 md:col-start-5',
-                    'md:col-span-10 md:col-start-2',
-                    'md:col-span-6 md:col-start-1'
-                ];
-                
                 let addedCount = 0;
                 for (const url of images) {
                     if (!existingUrls.has(url)) {
-                        const targetColSpan = gridClasses[data.photography.length % gridClasses.length];
                         addedCount++;
                         data.photography.push({
                             id: 'ph' + Date.now() + Math.floor(Math.random()*1000),
                             plateNo: (data.photography.length + 1).toString().padStart(3, '0'),
                             caption: 'Auto-synced Image',
                             aspect: '4/5',
-                            colSpan: targetColSpan,
+                            colSpan: 'md:col-span-6 md:col-start-4',
                             url: url
                         });
                     }
