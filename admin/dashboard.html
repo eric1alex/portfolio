@@ -662,7 +662,10 @@
 
             <div class="section-header-row">
                 <span class="section-label" id="photo-count-label">— plates</span>
-                <button class="btn-new" onclick="toggleForm('photo-form')">+ Add Plate</button>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-new" onclick="syncImages()" id="btn-sync-images">Sync Repo Images</button>
+                    <button class="btn-new" onclick="toggleForm('photo-form')">+ Add Plate</button>
+                </div>
             </div>
             <div class="photo-grid" id="photo-grid"></div>
         </div>
@@ -922,6 +925,48 @@
             if (!confirm('Remove this plate?')) return;
             data.photography.splice(i, 1);
             markDirty(); renderPhotos();
+        }
+
+        async function syncImages() {
+            const btn = document.getElementById('btn-sync-images');
+            btn.disabled = true;
+            btn.textContent = 'Syncing...';
+            try {
+                const res = await fetch('/api/sync');
+                if (!res.ok) throw new Error('Failed to fetch from /api/sync');
+                const { images } = await res.json();
+                
+                if (!data.photography) data.photography = [];
+                const existingUrls = new Set(data.photography.map(p => p.url));
+                
+                let addedCount = 0;
+                for (const url of images) {
+                    if (!existingUrls.has(url)) {
+                        addedCount++;
+                        data.photography.push({
+                            id: 'ph' + Date.now() + Math.floor(Math.random()*1000),
+                            plateNo: (data.photography.length + 1).toString().padStart(3, '0'),
+                            caption: 'Auto-synced Image',
+                            aspect: 'square',
+                            colSpan: 'md:col-span-8 md:col-start-1',
+                            url: url
+                        });
+                    }
+                }
+                
+                if (addedCount > 0) {
+                    markDirty();
+                    renderPhotos();
+                    showToast(`✓ Synced ${addedCount} new image(s)`, false, true);
+                } else {
+                    showToast('No new images found in repo.');
+                }
+            } catch(e) {
+                showToast('Sync failed: ' + e.message, true);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Sync Repo Images';
+            }
         }
 
         // ── Videography ──
