@@ -288,120 +288,56 @@
       "url": "/images/Image - 9.jpg"
     }
   ],
-  "videography": [],
-  "design": [],
-  "interests": [
+  "videography": [
     {
-      "id": "i1",
-      "title": "Sensor Research & Prototyping",
-      "category": "Electronics / Hobby",
+      "id": "v1777566032456",
+      "title": "Explore South Goal | Travel Film",
+      "url": "https://www.youtube.com/watch?v=S_VY3tySGXs",
+      "year": "2025",
+      "duration": "1:48",
+      "description": ""
+    },
+    {
+      "id": "v1777566055054",
+      "title": "UNDERGROUND 9! | The Pune Car Meet",
+      "url": "https://www.youtube.com/watch?v=K8W96wbsyuk&t=1s",
+      "year": "2025",
+      "duration": "2:31",
+      "description": ""
+    },
+    {
+      "id": "v1777566071571",
+      "title": "BBA A - Class of '24 | St. Joseph's College of Commerce",
+      "url": "https://www.youtube.com/watch?v=e3C1h3oJyIw",
       "year": "2024",
-      "description": "Experimental builds using atmospheric sensors to track structural resonance in urban environments.",
-      "details": {
-        "plateNo": "INT-001",
-        "type": "JOURNAL / LABS",
-        "heroImage": {
-          "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
-        },
-        "metadata": [
-          {
-            "label": "Status",
-            "value": "Active Research"
-          },
-          {
-            "label": "Stack",
-            "value": "ESP32, LoRa, Python"
-          }
-        ],
-        "sections": [
-          {
-            "id": "overview",
-            "label": "Overview",
-            "content": "Led the go-to-market strategy for a high-growth B2B SaaS platform. Focused on building a sustainable outbound sales machine and establishing strategic partnerships with key industry players.",
-            "type": "text",
-            "special": true
-          },
-          {
-            "id": "context-view",
-            "label": "Strategic Context",
-            "imageUrl": "/brain/373ed610-32ec-4926-ad81-ba772bc72ac6/bde_context_image_1777522156694.png",
-            "type": "image"
-          },
-          {
-            "id": "outcomes",
-            "label": "Outcomes",
-            "content": "Achieved a 40% increase in quarterly revenue and successfully onboarded 15 enterprise clients within the first six months.",
-            "type": "text"
-          },
-          {
-            "id": "technical-log",
-            "label": "Technical Log",
-            "content": "Current iteration uses high-precision accelerometers paired with ESP32 microcontrollers. Data is transmitted via LoRa to a central gateway. Challenges include moisture protection and power management for long-term outdoor deployment."
-          }
-        ]
-      }
+      "duration": "2:41",
+      "description": ""
     },
     {
-      "id": "i2",
-      "title": "Mechanical Keyboard Restoration",
-      "category": "Hardware / Craft",
-      "year": "2023",
-      "description": "Sourcing and restoring vintage Alps switches and custom PCB design for 60% layouts.",
-      "details": {
-        "plateNo": "INT-002",
-        "type": "DOCUMENTARY / CRAFT",
-        "heroImage": {
-          "url": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&q=80&w=800"
-        },
-        "metadata": [
-          {
-            "label": "Switches",
-            "value": "Vintage Alps Blue"
-          },
-          {
-            "label": "Case",
-            "value": "Custom CNC Walnut"
-          }
-        ],
-        "sections": [
-          {
-            "id": "journal-entry-1",
-            "label": "The Hunt",
-            "content": "Found a batch of early 90s terminal keyboards in a warehouse. The Alps Blue switches are dusty but functionally perfect. The goal is to clean, lube, and transplant them into a modern 60% case with a custom PCB."
-          }
-        ]
-      }
+      "id": "v1777566086602",
+      "title": "Explore Varkala | Travel Film",
+      "url": "https://www.youtube.com/watch?v=mCt_TxJVFNs",
+      "year": "2024",
+      "duration": "1:33",
+      "description": ""
     },
     {
-      "id": "i3",
-      "title": "Ludic Narrative Studies",
-      "category": "Gaming / Research",
+      "id": "v1777566117384",
+      "title": "Coca Cola | Cinematic B-Roll",
+      "url": "https://www.youtube.com/watch?v=-Y6ULrh2liA",
+      "year": "2022",
+      "duration": "0:36",
+      "description": ""
+    },
+    {
+      "id": "v1777566136474",
+      "title": "MRF National Supercross 2022 | Bangalore",
+      "url": "https://www.youtube.com/watch?v=Vj2WAY4AYEk",
       "year": "2023",
-      "description": "An ongoing investigation into non-linear storytelling and environmental narrative in immersive simulations.",
-      "details": {
-        "plateNo": "INT-003",
-        "type": "RESEARCH / BLOG",
-        "heroImage": {
-          "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800"
-        },
-        "metadata": [
-          {
-            "label": "Focus",
-            "value": "Level Design"
-          },
-          {
-            "label": "Subject",
-            "value": "Immersive Sims"
-          }
-        ],
-        "sections": [
-          {
-            "id": "theory-notes",
-            "label": "Theory Notes",
-            "content": "Analyzing how 'Looking Glass' style games use environmental clutter to tell stories without dialogue. **Environmental Narrative** is the core of player agency."
-          }
-        ]
-      }
+      "duration": "1:40",
+      "description": ""
     }
-  ]
+  ],
+  "design": [],
+  "interests": []
 }
