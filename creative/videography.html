@@ -6,8 +6,8 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <script src="/src/js/theme-config.js"></script>
-    <link rel="stylesheet" href="/src/css/global.css">
+    <script src="../src/js/theme-config.js"></script>
+    <link rel="stylesheet" href="../src/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>videography // eric alex</title>
     <!-- Google tag (gtag.js) -->
@@ -64,7 +64,7 @@
             async function loadVideography() {
                 const container = document.getElementById('videography-grid-container');
                 try {
-                    const response = await fetch('/data/content.json');
+                    const response = await fetch('../data/content.json');
                     const data = await response.json();
 
                     if (data.videography && data.videography.length > 0) {
