@@ -525,7 +525,7 @@
             <button class="btn-publish clean" id="publish-btn" onclick="publishChanges()" disabled>
                 ↑ Publish
             </button>
-            <a href="../index.html" style="display:block;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.3;color:#fff;text-decoration:none;margin-bottom:0.75rem;" target="_blank">↗ View Site</a>
+            <a href="../" style="display:block;font-size:0.5rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.3;color:#fff;text-decoration:none;margin-bottom:0.75rem;" target="_blank">↗ View Site</a>
             <button class="btn-logout" onclick="logout()">Sign Out</button>
         </div>
     </aside>
@@ -820,7 +820,7 @@
     <script>
         // ── Auth Guard ──
         if (sessionStorage.getItem('admin_auth') !== 'true') {
-            window.location.href = 'index.html';
+            window.location.href = './';
         }
 
         // ── State ──
@@ -1553,7 +1553,7 @@
 
         function logout() {
             sessionStorage.removeItem('admin_auth');
-            window.location.href = 'index.html';
+            window.location.href = './';
         }
 
         // ── Init ──

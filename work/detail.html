@@ -144,7 +144,7 @@
         class="hidden md:flex fixed top-0 left-0 right-0 bg-surface/80 backdrop-blur-md border-b border-outline-variant/10 z-[90] h-16 items-center px-12 justify-between shadow-sm">
         <div class="max-w-[1200px] mx-auto w-full flex justify-between items-center">
             <div class="flex items-center gap-6">
-                <a href="index.html" class="text-on-surface hover:text-primary transition-colors flex items-center">
+                <a href="./" class="text-on-surface hover:text-primary transition-colors flex items-center">
                     <span class="material-symbols-outlined text-xl">arrow_back</span>
                 </a>
                 <div class="h-4 w-px bg-outline-variant/20"></div>
@@ -228,7 +228,7 @@
         async function loadDetail() {
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
-            if (!id) { window.location.href = 'index.html'; return; }
+            if (!id) { window.location.href = './'; return; }
 
             try {
                 const response = await fetch('../data/content.json?t=' + Date.now());

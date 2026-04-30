@@ -45,7 +45,7 @@
           {
             "id": "context-view",
             "label": "Strategic Context",
-            "imageUrl": "/public/images/bde_context.png",
+            "imageUrl": "/images/bde_context.png",
             "type": "image"
           },
           {
