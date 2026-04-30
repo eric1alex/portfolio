@@ -1,5 +1,18 @@
-document.addEventListener('DOMContentLoaded', () => {
+// Custom Cursor Implementation
+const initCursor = () => {
+    // Only run on homepage
+    const isHomepage = window.location.pathname === '/' || 
+                       window.location.pathname === '/index.html' || 
+                       window.location.pathname.endsWith('/index.html') ||
+                       document.getElementById('slideshow-container');
+    
+    if (!isHomepage) return;
+
+    // Prevent double initialization
+    if (document.querySelector('.custom-cursor')) return;
+
     document.body.classList.add('has-custom-cursor');
+    
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor';
     document.body.appendChild(cursor);
@@ -14,8 +27,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let cursorY = 0;
     let followerX = 0;
     let followerY = 0;
+    let hasMoved = false;
+
+    // Initially hide until first movement
+    cursor.style.opacity = '0';
+    follower.style.opacity = '0';
 
     document.addEventListener('mousemove', (e) => {
+        if (!hasMoved) {
+            hasMoved = true;
+            cursor.style.opacity = '1';
+            follower.style.opacity = '1';
+            // Snap to initial position to avoid sliding from (0,0)
+            cursorX = followerX = mouseX = e.clientX;
+            cursorY = followerY = mouseY = e.clientY;
+        }
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
@@ -38,15 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animate();
 
-    // Hover effect on links and buttons
-    const hoverables = document.querySelectorAll('a, button, .group, [role="button"]');
-    hoverables.forEach((el) => {
-        el.addEventListener('mouseenter', () => {
+    // Hover effect using event delegation for better performance and dynamic elements
+    document.addEventListener('mouseover', (e) => {
+        const target = e.target.closest('a, button, .group, [role="button"]');
+        if (target) {
             document.body.classList.add('cursor-hover');
-        });
-        el.addEventListener('mouseleave', () => {
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        const target = e.target.closest('a, button, .group, [role="button"]');
+        if (target) {
             document.body.classList.remove('cursor-hover');
-        });
+        }
     });
 
     // Handle clicks
@@ -59,13 +89,23 @@ document.addEventListener('DOMContentLoaded', () => {
         follower.style.transform = 'translate(-50%, -50%) scale(1)';
     });
 
-    // Hide cursor when leaving window
+    // Hide/Show cursor when leaving/entering window
     document.addEventListener('mouseleave', () => {
         cursor.style.opacity = '0';
         follower.style.opacity = '0';
     });
     document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '1';
-        follower.style.opacity = '1';
+        if (hasMoved) {
+            cursor.style.opacity = '1';
+            follower.style.opacity = '1';
+        }
     });
-});
+};
+
+// Initialize
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCursor);
+} else {
+    initCursor();
+}
+

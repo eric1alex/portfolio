@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
         tailwind.config = {
@@ -68,23 +69,28 @@
             },
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../src/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>work // eric alex</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMWDY8P9GQ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QMWDY8P9GQ');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QMWDY8P9GQ');
     </script>
 </head>
+
 <body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
     <nav class="fixed top-8 left-8 lg:top-12 lg:left-12 z-50">
-        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5" href="../">
+        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            href="../">
             <span class="material-symbols-outlined !text-[1.2rem]" data-icon="arrow_back">arrow_back</span>
             <span class="tracking-widest uppercase text-[0.65rem] font-bold">Back</span>
         </a>
@@ -96,7 +102,8 @@
                 work record
             </h1>
             <p class="text-xs md:text-sm text-style-body text-secondary opacity-60 leading-relaxed tracking-tight">
-                A chronological archive of professional engagements and industrial contributions within the digital design sector.
+                A timeline of engagements, contributions, and the organizations they shaped. Every position documented
+                as evidence of growth, not just presence.
             </p>
         </div>
         <!-- Experience List -->
@@ -110,7 +117,7 @@
                 try {
                     const response = await fetch('../data/content.json');
                     const data = await response.json();
-                    
+
                     if (data.work && data.work.length > 0) {
                         const html = data.work.map((item, index) => {
                             const paddedIndex = (index + 1).toString().padStart(2, '0');
@@ -127,7 +134,7 @@
                                 </a>
                             `;
                         }).join('');
-                        
+
                         container.innerHTML = html + '<div class="border-t border-outline-variant/30"></div>';
                     } else {
                         container.innerHTML = '<p class="py-8 text-secondary opacity-40">No work records found.</p>';
@@ -137,13 +144,14 @@
                     container.innerHTML = '<p class="py-8 text-error">Error loading work records.</p>';
                 }
             }
-            
+
             loadWork();
         </script>
         <!-- Technical Metadata -->
         <div class="mt-8 lg:mt-16 max-w-md">
             <p class="text-style-label text-outline leading-relaxed tracking-widest opacity-40">
-                Documentation of professional trajectory. Each entry represents a commitment to functional purity and structural integrity.
+                Roles held with intention, contributions measured in outcomes rather than effort. The progression here
+                is not linear by chance — it is the result of focused decision-making.
             </p>
         </div>
     </main>
@@ -154,4 +162,5 @@
         </div>
     </footer>
 </body>
+
 </html>

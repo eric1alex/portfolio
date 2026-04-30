@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <script src="../src/js/theme-config.js"></script>
     <link rel="stylesheet" href="../src/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -13,15 +17,17 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMWDY8P9GQ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QMWDY8P9GQ');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QMWDY8P9GQ');
     </script>
 </head>
+
 <body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
     <nav class="fixed top-8 left-8 lg:top-12 lg:left-12 z-50">
-        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5" href="./">
+        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            href="./">
             <span class="material-symbols-outlined !text-[1.2rem]" data-icon="arrow_back">arrow_back</span>
             <span class="tracking-widest uppercase text-[0.65rem] font-bold">Back</span>
         </a>
@@ -30,12 +36,15 @@
     <main class="max-w-[1440px] mx-auto px-8 lg:px-16 py-32 lg:py-48">
         <!-- Hero Header -->
         <header class="mb-16 lg:mb-48 max-w-4xl">
-            <span class="text-style-label text-outline opacity-40 mb-6 lg:mb-8 block">COLLECTION 01 / ARCHITECTURAL FRAGMENTS</span>
-            <h1 class="text-5xl md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.9] mb-12 text-primary uppercase">
-                THE SILENCE<br/>OF FORM.
+            <span class="text-style-label text-outline opacity-40 mb-6 lg:mb-8 block">COLLECTION 01 / SOMEWHERE IN
+                BETWEEN</span>
+            <h1
+                class="text-5xl md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.9] mb-12 text-primary uppercase">
+                THE WORLD <br />AT EYE LEVEL
             </h1>
             <p class="text-xl lg:text-2xl text-secondary leading-relaxed max-w-2xl font-light">
-                A study of shadow and structural economy. These plates document the interaction between brutalist concrete and the shifting geometry of natural light.
+                A visual archive of speed, place, and quiet observation. From motocross mid-air to mist over mountains —
+                each frame caught in the moment between movement and rest.
             </p>
         </header>
 
@@ -50,12 +59,12 @@
                 try {
                     const response = await fetch('../data/content.json');
                     const data = await response.json();
-                    
+
                     if (data.photography && data.photography.length > 0) {
                         container.innerHTML = data.photography.map((item, index) => {
                             const isLast = (index === data.photography.length - 1);
                             const finalClass = isLast ? 'mt-32' : '';
-                            
+
                             const patterns = [
                                 'col-span-1 md:col-span-5 md:col-start-4',           // Center Focus
                                 'col-span-1 md:col-span-4 md:col-start-2 md:mt-24',  // Left Medium
@@ -65,7 +74,7 @@
                                 'col-span-1 md:col-span-4 md:col-start-5',           // Center Small
                             ];
                             const layoutClass = patterns[index % patterns.length];
-                            
+
                             return `
                                 <div class="${layoutClass} ${finalClass} group">
                                     <div class="aspect-[${item.aspect || '4/5'}] bg-surface-container overflow-hidden">
@@ -87,7 +96,7 @@
                     container.innerHTML = '<p class="col-span-12 py-8 text-error">Error loading photography records.</p>';
                 }
             }
-            
+
             loadPhotography();
         </script>
 
@@ -101,4 +110,5 @@
         </div>
     </footer>
 </body>
+
 </html>

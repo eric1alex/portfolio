@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script>
         tailwind.config = {
@@ -68,15 +69,20 @@
             },
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="../src/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <title>side projects // eric alex</title>
 </head>
+
 <body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
     <nav class="fixed top-8 left-8 lg:top-12 lg:left-12 z-50">
-        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5" href="../">
+        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            href="../">
             <span class="material-symbols-outlined !text-[1.2rem]" data-icon="arrow_back">arrow_back</span>
             <span class="tracking-widest uppercase text-[0.65rem] font-bold">Back</span>
         </a>
@@ -88,7 +94,8 @@
                 side projects
             </h1>
             <p class="text-xs md:text-sm text-style-body text-secondary opacity-60 leading-relaxed tracking-tight">
-                A collection of independent builds, open-source contributions, and technical explorations.
+                A collection of self-initiated work built outside the brief. Projects driven by curiosity, tested by
+                real audiences, and measured by real results.
             </p>
         </div>
         <!-- Projects List -->
@@ -102,7 +109,7 @@
                 try {
                     const response = await fetch('../data/content.json');
                     const data = await response.json();
-                    
+
                     if (data.sideProjects && data.sideProjects.length > 0) {
                         const html = data.sideProjects.map((item, index) => {
                             const paddedIndex = (index + 1).toString().padStart(2, '0');
@@ -119,7 +126,7 @@
                                 </a>
                             `;
                         }).join('');
-                        
+
                         container.innerHTML = html + '<div class="border-t border-outline-variant/30"></div>';
                     }
                 } catch (error) { console.error(error); }
@@ -128,4 +135,5 @@
         </script>
     </main>
 </body>
+
 </html>
