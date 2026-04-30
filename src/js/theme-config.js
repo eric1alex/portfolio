@@ -1,5 +1,6 @@
 /* Shared Tailwind Configuration */
 
+window.tailwind = window.tailwind || {};
 window.tailwind.config = {
   darkMode: "class",
   theme: {

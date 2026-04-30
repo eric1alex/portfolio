@@ -10,7 +10,70 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="../src/js/theme-config.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#3b3b3b",
+                        "tertiary-fixed-dim": "#474747",
+                        "surface-dim": "#dadad5",
+                        "on-error-container": "#410002",
+                        "on-background": "#1a1c19",
+                        "primary-fixed": "#5e5e5e",
+                        "surface-variant": "#e3e3de",
+                        "on-tertiary-fixed-variant": "#e2e2e2",
+                        "on-tertiary-fixed": "#ffffff",
+                        "primary": "#000000",
+                        "background": "#fafaf5",
+                        "surface-tint": "#5e5e5e",
+                        "tertiary-container": "#747474",
+                        "on-tertiary-container": "#ffffff",
+                        "surface-bright": "#fafaf5",
+                        "on-tertiary": "#e2e2e2",
+                        "inverse-surface": "#2f312e",
+                        "surface-container-high": "#e8e8e3",
+                        "on-primary-fixed-variant": "#e2e2e2",
+                        "on-surface": "#1a1c19",
+                        "primary-container": "#3b3b3b",
+                        "on-secondary-fixed": "#1b1b1b",
+                        "tertiary-fixed": "#5e5e5e",
+                        "surface-container": "#eeeee9",
+                        "secondary-container": "#d4d4d4",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#3b3b3b",
+                        "surface": "#fafaf5",
+                        "outline": "#777777",
+                        "inverse-primary": "#c6c6c6",
+                        "on-primary-container": "#ffffff",
+                        "primary-fixed-dim": "#474747",
+                        "secondary": "#5e5e5e",
+                        "on-primary": "#e2e2e2",
+                        "on-surface-variant": "#474747",
+                        "surface-container-highest": "#e3e3de",
+                        "outline-variant": "#c6c6c6",
+                        "secondary-fixed-dim": "#ababab",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f1f1ec",
+                        "on-primary-fixed": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#1b1b1b",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#c6c6c6",
+                        "surface-container-low": "#f4f4ef",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Space Grotesk", "sans-serif"],
+                        "label": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
     <link rel="stylesheet" href="../src/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -99,7 +162,7 @@
     <div class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] flex flex-col items-center">
         <!-- The Menu -->
         <div id="index-dropdown"
-            class="mb-3 bg-surface/100 backdrop-blur-2xl border border-outline-variant/20 rounded-2xl p-1.5 shadow-2xl min-w-[160px]">
+            class="mb-3 bg-surface-container-lowest backdrop-blur-2xl border border-outline-variant/20 rounded-2xl p-1.5 shadow-2xl min-w-[160px]">
             <div class="text-[0.4rem] uppercase tracking-[0.3em] font-bold text-outline px-3 py-1.5 opacity-40">Index
             </div>
             <nav id="dropdown-links" class="flex flex-col gap-0.5">
@@ -109,7 +172,7 @@
 
         <!-- The Toggle Button -->
         <button id="floating-index-btn" onclick="toggleIndex()"
-            class="bg-surface text-on-surface border border-outline-variant/30 px-4 py-2 rounded-full shadow-lg hover:bg-surface-container-low transition-all duration-300 flex items-center gap-2 group">
+            class="bg-surface-container-lowest text-on-surface border border-outline-variant/30 px-4 py-2 rounded-full shadow-lg hover:bg-surface-container-low transition-all duration-300 flex items-center gap-2 group">
             <span class="text-[0.55rem] uppercase tracking-[0.25em] font-bold opacity-70">Index</span>
             <span class="material-symbols-outlined text-sm opacity-30 transition-transform group-hover:rotate-180"
                 id="index-arrow">keyboard_arrow_up</span>
@@ -125,7 +188,7 @@
                 class="material-symbols-outlined text-xl group-hover:-translate-x-0.5 transition-transform">arrow_back</span>
         </button>
 
-        <div class="w-full max-w-[900px]">
+        <div class="w-full max-w-[1100px]">
             <!-- Header -->
             <header
                 class="mb-12 bg-surface p-6 md:p-12 rounded-[2.5rem] border border-outline-variant/10 shadow-sm relative overflow-hidden group">

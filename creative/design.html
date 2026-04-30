@@ -71,7 +71,7 @@
                                 <div class="${layoutClass} group">
                                     <div class="aspect-[${index % 3 === 0 ? '2/3' : index % 3 === 1 ? 'square' : '16/7'}] bg-surface-container overflow-hidden">
                                         <img src="${item.url || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3GipTzBJRwmxfwnL2cZjxBUjCwWWAliNKi873jVCUXyIa95Mgyzzya0ma7z_XVUcTEgg37coggUYVz_6tzjPHKg9ehU3ZWzqaCBSZrnVbWjqwHyxwojLnLDsd-uEguCto-9FuZal9km_hYIm6OU6MF3LnC8d_6nJ2Ohd4aKdQtPmKwgb9jRicncHypKhTVfGS0-Od6ojyipioxsp2qt93e0Zo_AtSGOYEGJnW0dlr3Ik_NyTOcSdQBrMnq5Kgc_QTXdtTKf2-57Y'}" 
-                                             alt="${item.title}" class="w-full h-full object-cover grayscale group-hover:invert transition-all duration-700"/>
+                                             alt="${item.title}" loading="lazy" class="w-full h-full object-cover grayscale group-hover:invert transition-all duration-700"/>
                                     </div>
                                     <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">
                                         <span class="text-[0.6rem] font-bold tracking-widest uppercase">PLATE NO. D-${(index + 1).toString().padStart(3, '0')}</span>
