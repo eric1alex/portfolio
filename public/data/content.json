@@ -202,15 +202,15 @@
     {
       "id": "ph1777467454176227",
       "plateNo": "001",
-      "caption": "Auto-synced Image",
-      "aspect": "square",
+      "caption": "sky high",
+      "aspect": "4/5",
       "colSpan": "md:col-span-8 md:col-start-5",
       "url": "/images/Image - 1.jpg"
     },
     {
       "id": "ph1777467454176273",
       "plateNo": "002",
-      "caption": "Auto-synced Image",
+      "caption": "wires everywhere",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 10.jpg"
@@ -218,7 +218,7 @@
     {
       "id": "ph1777467454176631",
       "plateNo": "003",
-      "caption": "Auto-synced Image",
+      "caption": "greens and blues",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 11.jpg"
@@ -226,7 +226,7 @@
     {
       "id": "ph1777467454176698",
       "plateNo": "004",
-      "caption": "Auto-synced Image",
+      "caption": "there anymore?",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 2.jpg"
@@ -234,7 +234,7 @@
     {
       "id": "ph1777467454176764",
       "plateNo": "005",
-      "caption": "Auto-synced Image",
+      "caption": "still live.",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 3.jpg"
@@ -242,7 +242,7 @@
     {
       "id": "ph1777467454176840",
       "plateNo": "006",
-      "caption": "Auto-synced Image",
+      "caption": "speed.",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 4.jpg"
@@ -250,7 +250,7 @@
     {
       "id": "ph1777467454176486",
       "plateNo": "007",
-      "caption": "Auto-synced Image",
+      "caption": "lookout.",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 5.jpg"
@@ -258,7 +258,7 @@
     {
       "id": "ph1777467454176994",
       "plateNo": "008",
-      "caption": "Auto-synced Image",
+      "caption": "wavy",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 6.jpg"
@@ -266,7 +266,7 @@
     {
       "id": "ph1777467454176940",
       "plateNo": "009",
-      "caption": "Auto-synced Image",
+      "caption": "so far away",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 7.jpg"
@@ -274,7 +274,7 @@
     {
       "id": "ph1777467454176338",
       "plateNo": "010",
-      "caption": "Auto-synced Image",
+      "caption": "old timer",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 8.jpg"
@@ -282,7 +282,7 @@
     {
       "id": "ph1777467454176754",
       "plateNo": "011",
-      "caption": "Auto-synced Image",
+      "caption": "morning news",
       "aspect": "square",
       "colSpan": "md:col-span-8 md:col-start-1",
       "url": "/images/Image - 9.jpg"
