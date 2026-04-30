@@ -23,22 +23,23 @@
     </script>
 </head>
 
-<body class="bg-background font-body h-[100dvh] overflow-hidden">
+<body class="bg-background font-body min-h-screen">
     <div
         class="fixed bottom-0 left-0 w-full bg-black text-white text-[0.6rem] uppercase tracking-[0.3em] font-bold py-2 text-center z-[100]">
         site in progress
     </div>
     <main
-        class="h-full w-full flex items-center justify-center p-4 lg:p-12 animate-in fade-in duration-1000">
+        class="min-h-[100dvh] w-full flex items-center justify-center p-6 pb-24 lg:p-12 animate-in fade-in duration-1000">
         <div
-            class="max-w-7xl w-full h-full lg:h-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-32 items-center">
+            class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
             <!-- Left Side: Large Clean Image Container (Slideshow) -->
             <div class="relative group order-2 lg:order-1 max-w-xl mx-auto lg:mx-0 w-full">
-                <div class="aspect-video md:aspect-[4/5] w-full bg-surface-container overflow-hidden relative" id="slideshow-container">
+                <div class="aspect-[4/5] w-full bg-surface-container overflow-hidden relative" id="slideshow-container">
                     <!-- Images will be injected here via JS for smooth control -->
                 </div>
                 <!-- Metadata: Size Variant 1 (Label style) -->
-                <div class="mt-4 lg:mt-6 flex justify-between items-baseline opacity-30 text-[0.625rem] font-medium tracking-[0.2em] uppercase">
+                <div
+                    class="mt-6 flex justify-between items-baseline opacity-30 text-[0.625rem] font-medium tracking-[0.2em] uppercase">
                     <span id="slide-plate-no">PLATE NO. 042 / ARCHIVAL</span>
                     <span id="slide-year">EST. MMXXIV</span>
                 </div>
@@ -96,10 +97,10 @@
                 <section class="mb-12 lg:mb-24">
                     <!-- Title: Size Variant 2 (Large Headline) -->
                     <h1
-                        class="text-[2.25rem] lg:text-[5rem] font-bold leading-[1] tracking-tighter text-primary lowercase mb-6 lg:mb-12">
+                        class="text-[2.75rem] lg:text-[5rem] font-bold leading-[1] tracking-tighter text-primary lowercase mb-8 lg:mb-12">
                         my story,<br />told.
                     </h1>
-                    <nav class="flex flex-col items-start space-y-0.5 lg:space-y-3">
+                    <nav class="flex flex-col items-start space-y-1 lg:space-y-3">
                         <!-- Nav Items -->
                         <a class="group/work group flex items-center gap-4 py-1.5 transition-all duration-300"
                             href="work/index.html">
