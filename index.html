@@ -12,58 +12,176 @@
     <script src="/src/js/theme-config.js"></script>
     <link rel="stylesheet" href="/src/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <title>Portfolio of Eric Alex - Home</title>
+    <title>home // eric alex</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMWDY8P9GQ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QMWDY8P9GQ');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QMWDY8P9GQ');
     </script>
 </head>
 
-<body class="bg-background font-body overflow-x-hidden">
-    <main class="min-h-screen w-full flex items-center justify-center p-6 lg:p-24 animate-in fade-in duration-1000">
-        <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-32 items-center">
-            <!-- Left Side: Large Clean Image Container -->
+<body class="bg-background font-body overflow-hidden">
+    <div
+        class="fixed bottom-0 left-0 w-full bg-black text-white text-[0.6rem] uppercase tracking-[0.3em] font-bold py-2 text-center z-[100]">
+        site in progress
+    </div>
+    <main
+        class="h-[100dvh] w-full flex items-center justify-center p-6 pb-16 lg:p-12 animate-in fade-in duration-1000 overflow-hidden">
+        <div
+            class="max-w-7xl w-full max-h-full grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-32 items-center overflow-hidden">
+            <!-- Left Side: Large Clean Image Container (Slideshow) -->
             <div class="relative group order-2 lg:order-1 max-w-xl mx-auto lg:mx-0">
-                <div class="aspect-[4/5] w-full bg-surface-container overflow-hidden">
-                    <img alt="Minimalist architectural detail"
-                        class="w-full h-full object-cover grayscale brightness-110 contrast-110 group-hover:scale-105 transition-transform duration-1000"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" />
+                <div class="aspect-[4/5] w-full bg-surface-container overflow-hidden relative" id="slideshow-container">
+                    <!-- Images will be injected here via JS for smooth control -->
                 </div>
                 <!-- Metadata: Size Variant 1 (Label style) -->
-                <div class="mt-6 flex justify-between items-baseline opacity-30 text-[0.625rem] font-medium tracking-[0.2em] uppercase">
-                    <span>PLATE NO. 042 / ARCHIVAL</span>
-                    <span>EST. MMXXIV</span>
+                <div
+                    class="mt-6 flex justify-between items-baseline opacity-30 text-[0.625rem] font-medium tracking-[0.2em] uppercase">
+                    <span id="slide-plate-no">PLATE NO. 042 / ARCHIVAL</span>
+                    <span id="slide-year">EST. MMXXIV</span>
                 </div>
             </div>
 
+            <script>
+                const slides = [
+                    { url: '/images/Image - 3.jpg', plate: 'PLATE NO. 042 / STILL ALIVE', year: 'EST. MMXXIV' },
+                    { url: '/images/Image - 1.jpg', plate: 'PLATE NO. 018 / HIGH', year: 'EST. MMXXIV' },
+                    { url: '/images/Image - 5.jpg', plate: 'PLATE NO. 089 / LOOKOUT', year: 'EST. MMXXIV' },
+                    { url: '/images/Image - 7.jpg', plate: 'PLATE NO. 112 / SO CLOSE', year: 'EST. MMXXIV' }
+                ];
+
+                let currentSlide = 0;
+                const container = document.getElementById('slideshow-container');
+                const plateEl = document.getElementById('slide-plate-no');
+                const yearEl = document.getElementById('slide-year');
+
+                function initSlideshow() {
+                    // Create image elements
+                    slides.forEach((slide, i) => {
+                        const img = document.createElement('img');
+                        img.src = slide.url;
+                        img.alt = slide.plate;
+                        img.className = `absolute inset-0 w-full h-full object-cover grayscale brightness-110 contrast-110 transition-all duration-1000 ease-in-out opacity-0 group-hover:scale-105`;
+                        if (i === 0) img.classList.add('opacity-100');
+                        container.appendChild(img);
+                    });
+
+                    setInterval(nextSlide, 6000);
+                }
+
+                function nextSlide() {
+                    const images = container.querySelectorAll('img');
+                    images[currentSlide].classList.remove('opacity-100');
+                    images[currentSlide].classList.add('opacity-0');
+
+                    currentSlide = (currentSlide + 1) % slides.length;
+
+                    images[currentSlide].classList.remove('opacity-0');
+                    images[currentSlide].classList.add('opacity-100');
+
+                    // Update Metadata with a slight delay for better rhythm
+                    setTimeout(() => {
+                        plateEl.textContent = slides[currentSlide].plate;
+                        yearEl.textContent = slides[currentSlide].year;
+                    }, 500);
+                }
+
+                initSlideshow();
+            </script>
+
             <!-- Right Side: Text & Navigation -->
-            <div class="flex flex-col justify-center h-full pt-4 lg:pt-12 order-1 lg:order-2 text-left items-start">
+            <div class="flex flex-col justify-center order-1 lg:order-2 text-left items-start">
                 <section class="mb-12 lg:mb-24">
                     <!-- Title: Size Variant 2 (Large Headline) -->
-                    <h1 class="text-[2.75rem] lg:text-[5rem] font-bold leading-[1] tracking-tighter text-primary lowercase mb-8 lg:mb-12">
-                        my story,<br />told
+                    <h1
+                        class="text-[2.75rem] lg:text-[5rem] font-bold leading-[1] tracking-tighter text-primary lowercase mb-8 lg:mb-12">
+                        my story,<br />told.
                     </h1>
-                    <nav class="flex flex-col items-start space-y-2 lg:space-y-6">
+                    <nav class="flex flex-col items-start space-y-1 lg:space-y-3">
                         <!-- Nav Items -->
-                        <a class="group/work group flex items-center gap-4 py-2 transition-all duration-300" href="work/index.html">
-                            <span class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">01</span>
-                            <span class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">professional work</span>
+                        <a class="group/work group flex items-center gap-4 py-1.5 transition-all duration-300"
+                            href="work/index.html">
+                            <span
+                                class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">01</span>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">professional
+                                    work</span>
+                                <span
+                                    class="hidden lg:block opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </div>
                         </a>
-                        <a class="group/projects group flex items-center gap-4 py-2 transition-all duration-300" href="side-projects/index.html">
-                            <span class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">02</span>
-                            <span class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">side projects</span>
+                        <a class="group/projects group flex items-center gap-4 py-1.5 transition-all duration-300"
+                            href="side-projects/index.html">
+                            <span
+                                class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">02</span>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">side
+                                    projects</span>
+                                <span
+                                    class="hidden lg:block opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </div>
                         </a>
-                        <a class="group/creative group flex items-center gap-4 py-2 transition-all duration-300" href="creative/index.html">
-                            <span class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">03</span>
-                            <span class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">creative archive</span>
+                        <a class="group/interests group flex items-center gap-4 py-1.5 transition-all duration-300"
+                            href="interests/index.html">
+                            <span
+                                class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">03</span>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">interests</span>
+                                <span
+                                    class="hidden lg:block opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </div>
                         </a>
-                        <a class="group flex items-center gap-4 py-2 transition-all duration-300 opacity-40 hover:opacity-100" href="/Eric Alex Resume.pdf" target="_blank" rel="noopener noreferrer">
-                            <span class="text-[0.625rem] font-medium tracking-widest">04</span>
-                            <span class="text-xl lg:text-2xl font-medium lowercase">resume</span>
+                        <a class="group/creative group flex items-center gap-4 py-1.5 transition-all duration-300"
+                            href="creative/index.html">
+                            <span
+                                class="text-[0.625rem] font-medium opacity-20 group-hover:opacity-100 transition-opacity tracking-widest">04</span>
+                            <div class="flex items-center gap-2">
+                                <span
+                                    class="text-xl lg:text-2xl font-medium border-b border-transparent group-hover:border-primary pb-0.5 transition-all">creative
+                                    archive</span>
+                                <span
+                                    class="hidden lg:block opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </a>
+                        <a class="group flex items-center gap-4 py-1.5 transition-all duration-300 opacity-40 hover:opacity-100"
+                            href="/Eric Alex Resume.pdf" target="_blank" rel="noopener noreferrer">
+                            <span class="text-[0.625rem] font-medium tracking-widest">05</span>
+                            <div class="flex items-center gap-2">
+                                <span class="text-xl lg:text-2xl font-medium lowercase">resume.</span>
+                                <span
+                                    class="hidden lg:block opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </span>
+                            </div>
                         </a>
                     </nav>
                 </section>

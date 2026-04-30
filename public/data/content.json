@@ -34,12 +34,19 @@
           {
             "id": "overview",
             "label": "Overview",
-            "content": "Tailwebs was my first job, and it moved fast. What started as managing a CRM and running outreach campaigns quickly expanded into owning the go-to-market for two internal SaaS products — ShopAR (B2B) and Kaipo (B2C). Across both, I handled messaging, positioning, content, sales channels, user onboarding, feedback loops, and analytics. I learned by doing, iterated quickly, and by the end I was making independent product and growth decisions backed by data."
+            "content": "Tailwebs was my first job, and it moved fast. What started as managing a CRM and running outreach campaigns quickly expanded into owning the go-to-market for two internal SaaS products — ShopAR (B2B) and Kaipo (B2C). Across both, I handled messaging, positioning, content, sales channels, user onboarding, feedback loops, and analytics. I learned by doing, iterated quickly, and by the end I was making independent product and growth decisions backed by data.",
+            "special": true
           },
           {
             "id": "foundation:-crm-&-outreach",
             "label": "Foundation: CRM & Outreach",
             "content": "My first ownership area was HubSpot. I learned the platform end-to-end and took over lead management — tracking, follow-ups, and pipeline hygiene. This led into outreach, where I was introduced to Dripify for LinkedIn and Apollo.io for email campaigns.\nAfter a few weeks of learning the tools, I owned all campaigns end-to-end: planning, execution, tracking, and lead management. Content and messaging started with CMO sign-off and gradually became fully my responsibility as I got a handle on what worked."
+          },
+          {
+            "id": "context-view",
+            "label": "Strategic Context",
+            "imageUrl": "/public/images/bde_context.png",
+            "type": "image"
           },
           {
             "id": "shopar:-b2b-saas-gtm",
@@ -282,5 +289,119 @@
     }
   ],
   "videography": [],
-  "design": []
+  "design": [],
+  "interests": [
+    {
+      "id": "i1",
+      "title": "Sensor Research & Prototyping",
+      "category": "Electronics / Hobby",
+      "year": "2024",
+      "description": "Experimental builds using atmospheric sensors to track structural resonance in urban environments.",
+      "details": {
+        "plateNo": "INT-001",
+        "type": "JOURNAL / LABS",
+        "heroImage": {
+          "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800"
+        },
+        "metadata": [
+          {
+            "label": "Status",
+            "value": "Active Research"
+          },
+          {
+            "label": "Stack",
+            "value": "ESP32, LoRa, Python"
+          }
+        ],
+        "sections": [
+          {
+            "id": "overview",
+            "label": "Overview",
+            "content": "Led the go-to-market strategy for a high-growth B2B SaaS platform. Focused on building a sustainable outbound sales machine and establishing strategic partnerships with key industry players.",
+            "type": "text",
+            "special": true
+          },
+          {
+            "id": "context-view",
+            "label": "Strategic Context",
+            "imageUrl": "/brain/373ed610-32ec-4926-ad81-ba772bc72ac6/bde_context_image_1777522156694.png",
+            "type": "image"
+          },
+          {
+            "id": "outcomes",
+            "label": "Outcomes",
+            "content": "Achieved a 40% increase in quarterly revenue and successfully onboarded 15 enterprise clients within the first six months.",
+            "type": "text"
+          },
+          {
+            "id": "technical-log",
+            "label": "Technical Log",
+            "content": "Current iteration uses high-precision accelerometers paired with ESP32 microcontrollers. Data is transmitted via LoRa to a central gateway. Challenges include moisture protection and power management for long-term outdoor deployment."
+          }
+        ]
+      }
+    },
+    {
+      "id": "i2",
+      "title": "Mechanical Keyboard Restoration",
+      "category": "Hardware / Craft",
+      "year": "2023",
+      "description": "Sourcing and restoring vintage Alps switches and custom PCB design for 60% layouts.",
+      "details": {
+        "plateNo": "INT-002",
+        "type": "DOCUMENTARY / CRAFT",
+        "heroImage": {
+          "url": "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&q=80&w=800"
+        },
+        "metadata": [
+          {
+            "label": "Switches",
+            "value": "Vintage Alps Blue"
+          },
+          {
+            "label": "Case",
+            "value": "Custom CNC Walnut"
+          }
+        ],
+        "sections": [
+          {
+            "id": "journal-entry-1",
+            "label": "The Hunt",
+            "content": "Found a batch of early 90s terminal keyboards in a warehouse. The Alps Blue switches are dusty but functionally perfect. The goal is to clean, lube, and transplant them into a modern 60% case with a custom PCB."
+          }
+        ]
+      }
+    },
+    {
+      "id": "i3",
+      "title": "Ludic Narrative Studies",
+      "category": "Gaming / Research",
+      "year": "2023",
+      "description": "An ongoing investigation into non-linear storytelling and environmental narrative in immersive simulations.",
+      "details": {
+        "plateNo": "INT-003",
+        "type": "RESEARCH / BLOG",
+        "heroImage": {
+          "url": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800"
+        },
+        "metadata": [
+          {
+            "label": "Focus",
+            "value": "Level Design"
+          },
+          {
+            "label": "Subject",
+            "value": "Immersive Sims"
+          }
+        ],
+        "sections": [
+          {
+            "id": "theory-notes",
+            "label": "Theory Notes",
+            "content": "Analyzing how 'Looking Glass' style games use environmental clutter to tell stories without dialogue. **Environmental Narrative** is the core of player agency."
+          }
+        ]
+      }
+    }
+  ]
 }

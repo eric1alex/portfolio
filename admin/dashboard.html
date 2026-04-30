@@ -105,7 +105,6 @@
         }
         .btn-logout:hover { opacity: 0.7; }
 
-        /* ── Main Content ── */
         .main {
             margin-left: 220px;
             padding: 3rem;
@@ -456,6 +455,10 @@
                             <label class="form-label">Type / Label</label>
                             <input class="form-input" id="det-type" placeholder="e.g. ARCHIVAL RECORD / 2024"/>
                         </div>
+                        <div class="form-field full">
+                            <label class="form-label">Sticky Header Title (Optional)</label>
+                            <input class="form-input" id="det-sticky-title" placeholder="Custom title for sticky top bar"/>
+                        </div>
                     </div>
 
                     <p class="editor-section-title">Key Metadata (Q&A Pairs)</p>
@@ -471,9 +474,14 @@
 
                 <!-- Right: Content Sections -->
                 <div class="editor-column">
-                    <p class="editor-section-title">Content Sections</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                        <p class="editor-section-title" style="margin-bottom: 0;">Content Sections</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn-ghost" onclick="addContentSection()">+ Text</button>
+                            <button class="btn-ghost" onclick="addImageSection()">+ Image</button>
+                        </div>
+                    </div>
                     <div id="sections-container"></div>
-                    <button class="btn-ghost" style="width:100%;" onclick="addContentSection()">+ Add Section</button>
                 </div>
             </div>
 
@@ -509,6 +517,9 @@
         <button class="nav-item" onclick="showPanel('design', this)">
             <span class="nav-icon">◧</span> Design
         </button>
+        <button class="nav-item" onclick="showPanel('interests', this)">
+            <span class="nav-icon">♡</span> Interests
+        </button>
 
         <div class="sidebar-footer">
             <button class="btn-publish clean" id="publish-btn" onclick="publishChanges()" disabled>
@@ -534,6 +545,9 @@
                 <div class="stat-card"><p class="stat-label">Work Items</p><p class="stat-value" id="stat-work">—</p></div>
                 <div class="stat-card"><p class="stat-label">Side Projects</p><p class="stat-value" id="stat-projects">—</p></div>
                 <div class="stat-card"><p class="stat-label">Photo Plates</p><p class="stat-value" id="stat-photos">—</p></div>
+                <div class="stat-card"><p class="stat-label">Videos</p><p class="stat-value" id="stat-videos">—</p></div>
+                <div class="stat-card"><p class="stat-label">Design</p><p class="stat-value" id="stat-design">—</p></div>
+                <div class="stat-card"><p class="stat-label">Interests</p><p class="stat-value" id="stat-interests">—</p></div>
             </div>
             <div class="banner" id="overview-banner" style="display:none;">
                 <strong>Unpublished changes.</strong> You have pending edits. Click <strong>Publish</strong> in the sidebar to deploy them to your live site.
@@ -651,6 +665,8 @@
                             <option value="4/5">Portrait (4:5)</option>
                             <option value="3/4">Portrait (3:4)</option>
                             <option value="16/9">Landscape (16:9)</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-actions">
                     <button class="btn-add" onclick="savePhoto()" id="btn-save-photo">Add Plate</button>
@@ -665,7 +681,7 @@
                     <button class="btn-new" onclick="openAddPhoto()">+ Add Plate</button>
                 </div>
             </div>
-            <div class="photo-grid" id="photo-grid"></div>
+            <div id="photo-grid" class="photo-grid"></div>
         </div>
 
         <!-- Videography Panel -->
@@ -712,7 +728,7 @@
                 <span class="section-label" id="video-count-label">— entries</span>
                 <button class="btn-new" onclick="openAddVideo()">+ Add Video</button>
             </div>
-            <div class="card-list" id="video-list"></div>
+            <div id="video-list" class="card-list"></div>
         </div>
 
         <!-- Design Panel -->
@@ -725,15 +741,16 @@
             </div>
 
             <div class="add-form-wrapper" id="design-form" style="display:none;">
-                <p class="add-form-title">Add Design Work</p>
+                <p class="add-form-title" id="design-form-title">Add Design Work</p>
+                <input type="hidden" id="des-index" value="-1"/>
                 <div class="form-grid">
-                    <div class="form-field">
-                        <label class="form-label">Title</label>
-                        <input class="form-input" id="des-title" placeholder="e.g. Type System v2"/>
-                    </div>
                     <div class="form-field">
                         <label class="form-label">Image URL</label>
                         <input class="form-input" id="des-url" placeholder="https://..."/>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label">Title</label>
+                        <input class="form-input" id="des-title" placeholder="e.g. Type System v2"/>
                     </div>
                     <div class="form-field">
                         <label class="form-label">Year</label>
@@ -745,16 +762,55 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    <button class="btn-add" onclick="addDesign()">Add Work</button>
-                    <button class="btn-cancel" onclick="toggleForm('design-form')">Cancel</button>
+                    <button class="btn-add" onclick="saveDesign()" id="btn-save-design">Add Work</button>
+                    <button class="btn-cancel" onclick="closeDesignForm()">Cancel</button>
+                </div>
+            </div>
+
+            <div class="photo-grid" id="design-grid"></div>
+        </div>
+
+        <!-- Interests Panel -->
+        <div id="panel-interests" class="panel">
+            <div class="page-header">
+                <div>
+                    <h1 class="page-title">Interests</h1>
+                    <p class="page-subtitle">Personal hobbies and log entries.</p>
+                </div>
+            </div>
+
+            <div class="add-form-wrapper" id="interest-form" style="display:none;">
+                <p class="add-form-title" id="interest-form-title">Add New Interest</p>
+                <input type="hidden" id="int-index" value="-1"/>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label class="form-label">Title</label>
+                        <input class="form-input" id="int-title" placeholder="e.g. Mechanical Keyboards"/>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label">Category</label>
+                        <input class="form-input" id="int-category" placeholder="e.g. Hardware / Hobby"/>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label">Year</label>
+                        <input class="form-input" id="int-year" placeholder="2024"/>
+                    </div>
+                    <div class="form-field full">
+                        <label class="form-label">Description</label>
+                        <input class="form-input" id="int-description" placeholder="A short log entry about this interest"/>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-add" id="btn-save-interest" onclick="saveInterest()">Add Entry</button>
+                    <button class="btn-cancel" onclick="closeInterestForm()">Cancel</button>
                 </div>
             </div>
 
             <div class="section-header-row">
-                <span class="section-label" id="design-count-label">— entries</span>
-                <button class="btn-new" onclick="toggleForm('design-form')">+ Add Work</button>
+                <span class="section-label" id="interest-count-label">— entries</span>
+                <button class="btn-new" onclick="openAddInterest()">+ Add Interest</button>
             </div>
-            <div class="card-list" id="design-list"></div>
+            <div id="interest-list" class="card-list"></div>
         </div>
     </main>
 
@@ -787,15 +843,24 @@
         }
 
         function renderAll() {
-            renderWork();
-            renderProjects();
-            renderPhotos();
-            renderVideos();
-            renderDesign();
+            try { renderWork(); } catch(e) { console.error('renderWork failed', e); }
+            try { renderProjects(); } catch(e) { console.error('renderProjects failed', e); }
+            try { renderPhotos(); } catch(e) { console.error('renderPhotos failed', e); }
+            try { renderVideos(); } catch(e) { console.error('renderVideos failed', e); }
+            try { renderDesign(); } catch(e) { console.error('renderDesign failed', e); }
+            try { renderInterests(); } catch(e) { console.error('renderInterests failed', e); }
+            
             // Stats
-            document.getElementById('stat-work').textContent = data.work.length;
-            document.getElementById('stat-projects').textContent = data.sideProjects.length;
-            document.getElementById('stat-photos').textContent = (data.photography || []).length;
+            if (document.getElementById('stat-work')) document.getElementById('stat-work').textContent = data.work.length;
+            if (document.getElementById('stat-projects')) document.getElementById('stat-projects').textContent = data.sideProjects.length;
+            if (document.getElementById('stat-photos')) document.getElementById('stat-photos').textContent = (data.photography || []).length;
+            // Additional stats if elements exist
+            const sVid = document.getElementById('stat-videos');
+            if (sVid) sVid.textContent = (data.videography || []).length;
+            const sDes = document.getElementById('stat-design');
+            if (sDes) sDes.textContent = (data.design || []).length;
+            const sInt = document.getElementById('stat-interests');
+            if (sInt) sInt.textContent = (data.interests || []).length;
         }
 
         // ── Navigation ──
@@ -982,36 +1047,50 @@
             markDirty(); renderPhotos();
         }
 
-        async function syncImages() {
-            const btn = document.getElementById('btn-sync-images');
-            btn.disabled = true;
-            btn.textContent = 'Syncing...';
+        async function syncFolder(folder, type) {
+            const btnId = `btn-sync-${folder}`;
+            const btn = document.getElementById(btnId);
+            if (btn) {
+                btn.disabled = true;
+                btn.textContent = 'Syncing...';
+            }
             try {
-                const res = await fetch('/api/sync');
-                if (!res.ok) throw new Error('Failed to fetch from /api/sync');
+                const res = await fetch(`/api/sync?folder=${folder}`);
+                if (!res.ok) throw new Error(`Failed to fetch from /api/sync?folder=${folder}`);
                 const { images } = await res.json();
                 
-                if (!data.photography) data.photography = [];
-                const existingUrls = new Set(data.photography.map(p => p.url));
+                if (!data[type]) data[type] = [];
+                const existingUrls = new Set(data[type].map(p => p.url));
                 
                 let addedCount = 0;
                 for (const url of images) {
                     if (!existingUrls.has(url)) {
                         addedCount++;
-                        data.photography.push({
-                            id: 'ph' + Date.now() + Math.floor(Math.random()*1000),
-                            plateNo: (data.photography.length + 1).toString().padStart(3, '0'),
-                            caption: 'Auto-synced Image',
-                            aspect: '4/5',
-                            colSpan: 'md:col-span-6 md:col-start-4',
-                            url: url
-                        });
+                        if (type === 'photography') {
+                            data.photography.push({
+                                id: 'ph' + Date.now() + Math.floor(Math.random()*1000),
+                                plateNo: (data.photography.length + 1).toString().padStart(3, '0'),
+                                caption: 'Auto-synced Image',
+                                aspect: '4/5',
+                                colSpan: 'md:col-span-6 md:col-start-4',
+                                url: url
+                            });
+                        } else if (type === 'design') {
+                            data.design.push({
+                                id: 'd' + Date.now() + Math.floor(Math.random()*1000),
+                                title: 'Auto-synced Design',
+                                category: 'Design',
+                                year: new Date().getFullYear().toString(),
+                                url: url
+                            });
+                        }
                     }
                 }
                 
                 if (addedCount > 0) {
                     markDirty();
-                    renderPhotos();
+                    if (type === 'photography') renderPhotos();
+                    if (type === 'design') renderDesign();
                     showToast(`✓ Synced ${addedCount} new image(s)`, false, true);
                 } else {
                     showToast('No new images found in repo.');
@@ -1019,9 +1098,15 @@
             } catch(e) {
                 showToast('Sync failed: ' + e.message, true);
             } finally {
-                btn.disabled = false;
-                btn.textContent = 'Sync Repo Images';
+                if (btn) {
+                    btn.disabled = false;
+                    btn.textContent = `Sync Repo ${folder.charAt(0).toUpperCase() + folder.slice(1)}`;
+                }
             }
+        }
+
+        async function syncImages() {
+            await syncFolder('images', 'photography');
         }
 
         // ── Videography ──
@@ -1104,37 +1189,83 @@
 
         // ── Design ──
         function renderDesign() {
-            const list = document.getElementById('design-list');
+            const grid = document.getElementById('design-grid');
             const items = data.design || [];
             document.getElementById('design-count-label').textContent = items.length + ' entries';
-            list.innerHTML = items.length === 0
-                ? '<p style="font-size:0.8125rem;opacity:0.4;padding:1rem 0;">No design entries yet.</p>'
-                : items.map((item, i) => `
-                <div class="list-card">
-                    <div class="list-card-info">
-                        <p class="list-card-title">${item.title}</p>
-                        <p class="list-card-meta">${item.category || ''} · ${item.year || ''}</p>
-                    </div>
-                    <div class="list-card-actions">
-                        <button class="btn-sm danger" onclick="deleteDesign(${i})">Delete</button>
+            grid.innerHTML = items.map((item, i) => `
+                <div class="photo-item">
+                    <img src="${item.url}" alt="${item.title}" loading="lazy" decoding="async" onerror="this.style.display='none'"/>
+                    <div class="photo-item-overlay">
+                        <span class="photo-caption">${item.title}<br/>${item.category || ''}</span>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                            <button class="photo-del" style="color: #fff;" onclick="editDesign(${i})">✎ Edit</button>
+                            <button class="photo-del" onclick="deleteDesign(${i})">✕ Remove</button>
+                        </div>
                     </div>
                 </div>`).join('');
         }
 
-        function addDesign() {
-            const title = document.getElementById('des-title').value.trim();
+        function openAddDesign() {
+            document.getElementById('design-form-title').textContent = 'Add Design Work';
+            document.getElementById('btn-save-design').textContent = 'Add Work';
+            document.getElementById('des-index').value = '-1';
+            clearFields(['des-url','des-title','des-year','des-cat']);
+            document.getElementById('design-form').style.display = 'block';
+        }
+
+        function closeDesignForm() {
+            document.getElementById('design-form').style.display = 'none';
+        }
+
+        function editDesign(i) {
+            const item = data.design[i];
+            document.getElementById('design-form-title').textContent = 'Edit Design Work';
+            document.getElementById('btn-save-design').textContent = 'Save Changes';
+            document.getElementById('des-index').value = i;
+            document.getElementById('des-url').value = item.url || '';
+            document.getElementById('des-title').value = item.title || '';
+            document.getElementById('des-year').value = item.year || '';
+            document.getElementById('des-cat').value = item.category || '';
+            
+            document.getElementById('design-form').style.display = 'block';
+            document.getElementById('design-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function saveDesign() {
+            const index = parseInt(document.getElementById('des-index').value);
             const url = document.getElementById('des-url').value.trim();
+            const title = document.getElementById('des-title').value.trim();
             const year = document.getElementById('des-year').value.trim();
             const category = document.getElementById('des-cat').value.trim();
-            if (!title) { showToast('Title required', true); return; }
+            
+            if (!url || !title) { showToast('URL and Title required', true); return; }
             if (!data.design) data.design = [];
-            data.design.push({ id: 'd' + Date.now(), title, url, year, category });
-            clearFields(['des-title','des-url','des-year','des-cat']);
-            markDirty(); renderDesign();
+            
+            if (index === -1) {
+                // Add new
+                data.design.push({ 
+                    id: 'd' + Date.now(), 
+                    title,
+                    year,
+                    category,
+                    url 
+                });
+            } else {
+                // Update existing
+                const item = data.design[index];
+                item.url = url;
+                item.title = title;
+                item.year = year;
+                item.category = category;
+            }
+            
+            closeDesignForm();
+            markDirty(); 
+            renderDesign();
         }
 
         function deleteDesign(i) {
-            if (!confirm('Delete this entry?')) return;
+            if (!confirm('Remove this entry?')) return;
             data.design.splice(i, 1);
             markDirty(); renderDesign();
         }
@@ -1143,13 +1274,17 @@
         function openEditor(type, index) {
             currentEditType = type;
             currentEditItem = index;
-            const item = type === 'work' ? data.work[index] : data.sideProjects[index];
+            let item;
+            if (type === 'work') item = data.work[index];
+            else if (type === 'projects') item = data.sideProjects[index];
+            else if (type === 'interests') item = data.interests[index];
             
             document.getElementById('editor-project-name').textContent = item.title;
             const det = item.details || {};
             
             document.getElementById('det-plate').value = det.plateNo || '';
             document.getElementById('det-type').value = det.type || '';
+            document.getElementById('det-sticky-title').value = det.stickyTitle || '';
             document.getElementById('det-hero-url').value = det.heroImage?.url || '';
             
             // Render meta rows
@@ -1161,7 +1296,10 @@
             // Render sections
             const sectionsContainer = document.getElementById('sections-container');
             sectionsContainer.innerHTML = '';
-            (det.sections || []).forEach(s => addContentSection(s.label, s.content));
+            (det.sections || []).forEach(s => {
+                if (s.type === 'image' || s.imageUrl) addImageSection(s.label, s.imageUrl);
+                else addContentSection(s.label, s.content, s.special);
+            });
             if (det.sections?.length === 0) addContentSection();
 
             document.getElementById('editor-overlay').classList.add('active');
@@ -1182,21 +1320,46 @@
             document.getElementById('meta-container').appendChild(div);
         }
 
-        function addContentSection(label = '', content = '') {
+        function addContentSection(label = '', content = '', special = false) {
             const div = document.createElement('div');
             div.className = 'content-block';
+            div.dataset.type = 'text';
             div.innerHTML = `
                 <div class="block-header">
                     <input class="form-input section-label" style="width:70%; font-weight:bold; font-size:0.9rem;" placeholder="Section Title (e.g. Overview)" value="${label}"/>
-                    <button class="btn-sm danger" onclick="this.parentElement.parentElement.remove()">Remove Section</button>
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                        <label style="font-size:0.6rem; text-transform:uppercase; opacity:0.6; display:flex; align-items:center; gap:0.3rem; cursor:pointer;">
+                            <input type="checkbox" class="section-special" ${special ? 'checked' : ''}/> Special
+                        </label>
+                        <button class="btn-sm danger" onclick="this.parentElement.parentElement.parentElement.remove()">Remove</button>
+                    </div>
                 </div>
-                <textarea class="form-input section-content" rows="10" style="resize:vertical; line-height:1.6; padding:1rem;" placeholder="Write content...">${content}</textarea>
+                <textarea class="form-input section-content" rows="6" style="resize:vertical; line-height:1.6; padding:1rem;" placeholder="Write markdown content...">${content}</textarea>
+            `;
+            document.getElementById('sections-container').appendChild(div);
+        }
+
+        function addImageSection(label = '', url = '') {
+            const div = document.createElement('div');
+            div.className = 'content-block image-block';
+            div.dataset.type = 'image';
+            div.innerHTML = `
+                <div class="block-header">
+                    <input class="form-input section-label" style="width:70%; font-weight:bold; font-size:0.9rem;" placeholder="Image Caption/Label" value="${label}"/>
+                    <button class="btn-sm danger" onclick="this.parentElement.parentElement.remove()">Remove</button>
+                </div>
+                <div class="form-field">
+                    <input class="form-input section-image-url" placeholder="Image URL (e.g. /images/project-1.jpg)" value="${url}"/>
+                </div>
             `;
             document.getElementById('sections-container').appendChild(div);
         }
 
         function saveDetails() {
-            const item = currentEditType === 'work' ? data.work[currentEditItem] : data.sideProjects[currentEditItem];
+            let item;
+            if (currentEditType === 'work') item = data.work[currentEditItem];
+            else if (currentEditType === 'projects') item = data.sideProjects[currentEditItem];
+            else if (currentEditType === 'interests') item = data.interests[currentEditItem];
             
             const metadata = [];
             document.querySelectorAll('.meta-row').forEach(row => {
@@ -1208,13 +1371,21 @@
             const sections = [];
             document.querySelectorAll('.content-block').forEach(block => {
                 const label = block.querySelector('.section-label').value.trim();
-                const content = block.querySelector('.section-content').value.trim();
-                if (label) sections.push({ id: label.toLowerCase().replace(/\s+/g, '-'), label, content });
+                const type = block.dataset.type;
+                if (type === 'text') {
+                    const content = block.querySelector('.section-content').value.trim();
+                    const special = block.querySelector('.section-special').checked;
+                    if (label) sections.push({ id: label.toLowerCase().replace(/\s+/g, '-'), label, content, type: 'text', special });
+                } else {
+                    const url = block.querySelector('.section-image-url').value.trim();
+                    if (label) sections.push({ id: label.toLowerCase().replace(/\s+/g, '-'), label, imageUrl: url, type: 'image' });
+                }
             });
 
             item.details = {
                 plateNo: document.getElementById('det-plate').value.trim(),
                 type: document.getElementById('det-type').value.trim(),
+                stickyTitle: document.getElementById('det-sticky-title').value.trim(),
                 heroImage: { url: document.getElementById('det-hero-url').value.trim() },
                 metadata,
                 sections
@@ -1280,6 +1451,88 @@
             document.getElementById('stat-work').textContent = data.work.length;
             document.getElementById('stat-projects').textContent = data.sideProjects.length;
             document.getElementById('stat-photos').textContent = (data.photography || []).length;
+            if (document.getElementById('stat-interests')) {
+                document.getElementById('stat-interests').textContent = (data.interests || []).length;
+            }
+        }
+
+        // ── Interests Management ──
+        function renderInterests() {
+            const list = document.getElementById('interest-list');
+            const items = data.interests || [];
+            document.getElementById('interest-count-label').textContent = `${items.length} entries`;
+            
+            list.innerHTML = items.map((item, i) => `
+                <div class="list-card">
+                    <div class="list-card-info">
+                        <p class="list-card-title">${item.title}</p>
+                        <p class="list-card-meta">${item.category || ''} · ${item.year}</p>
+                        ${item.description ? `<p class="list-card-meta" style="opacity:0.8; margin-top:0.25rem;">${item.description}</p>` : ''}
+                    </div>
+                    <div class="list-card-actions">
+                        <button class="btn-sm" onclick="openEditor('interests', ${i})">Edit Journey</button>
+                        <div class="btn-group">
+                            <button class="btn-sm" onclick="editInterest(${i})">Meta</button>
+                            <button class="btn-sm danger" onclick="deleteInterest(${i})">Delete</button>
+                        </div>
+                    </div>
+                </div>`).join('');
+        }
+
+        function openAddInterest() {
+            document.getElementById('interest-form-title').textContent = 'Add New Interest';
+            document.getElementById('btn-save-interest').textContent = 'Add Entry';
+            document.getElementById('int-index').value = '-1';
+            clearFields(['int-title', 'int-category', 'int-year', 'int-description']);
+            document.getElementById('interest-form').style.display = 'block';
+        }
+
+        function closeInterestForm() {
+            document.getElementById('interest-form').style.display = 'none';
+        }
+
+        function editInterest(index) {
+            const item = data.interests[index];
+            document.getElementById('interest-form-title').textContent = 'Edit Interest';
+            document.getElementById('btn-save-interest').textContent = 'Save Changes';
+            document.getElementById('int-index').value = index;
+            document.getElementById('int-title').value = item.title;
+            document.getElementById('int-category').value = item.category || '';
+            document.getElementById('int-year').value = item.year;
+            document.getElementById('int-description').value = item.description || '';
+            document.getElementById('interest-form').style.display = 'block';
+        }
+
+        function saveInterest() {
+            const index = parseInt(document.getElementById('int-index').value);
+            const title = document.getElementById('int-title').value.trim();
+            const category = document.getElementById('int-category').value.trim();
+            const year = document.getElementById('int-year').value.trim();
+            const description = document.getElementById('int-description').value.trim();
+
+            if (!title) { showToast('Title required', true); return; }
+
+            const newItem = { id: index === -1 ? 'i' + Date.now() : data.interests[index].id, title, category, year, description };
+
+            if (!data.interests) data.interests = [];
+            
+            if (index === -1) {
+                data.interests.unshift(newItem);
+            } else {
+                data.interests[index] = newItem;
+            }
+
+            closeInterestForm();
+            markDirty();
+            renderInterests();
+        }
+
+        function deleteInterest(index) {
+            if (confirm('Delete this entry?')) {
+                data.interests.splice(index, 1);
+                markDirty();
+                renderInterests();
+            }
         }
 
         // ── Utilities ──

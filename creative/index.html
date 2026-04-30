@@ -1,68 +1,112 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
     <script src="/src/js/theme-config.js"></script>
     <link rel="stylesheet" href="/src/css/global.css">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <title>Portfolio of Eric Alex - Creative</title>
+    <title>archive // eric alex</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMWDY8P9GQ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-QMWDY8P9GQ');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-QMWDY8P9GQ');
     </script>
 </head>
+
 <body class="font-body text-on-surface selection:bg-primary selection:text-on-primary min-h-screen">
-    <nav class="fixed top-12 left-12 z-50">
-        <a class="flex items-center gap-2 text-on-surface text-style-label transition-colors duration-200 hover:text-secondary" href="../index.html">
-            <span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
-            <span>Back</span>
+    <nav class="fixed top-8 left-8 lg:top-12 lg:left-12 z-50">
+        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5"
+            href="../index.html">
+            <span class="material-symbols-outlined !text-[1.2rem]" data-icon="arrow_back">arrow_back</span>
+            <span class="tracking-widest uppercase text-[0.65rem] font-bold">Back</span>
         </a>
     </nav>
+    <div id="hover-bg"
+        class="fixed inset-0 z-0 pointer-events-none transition-all duration-1000 opacity-0 bg-cover bg-center grayscale scale-105"
+        style="background-image: none;">
+        <div class="absolute inset-0 bg-surface/90"></div>
+    </div>
+
     <main class="max-w-7xl mx-auto px-6 py-20 lg:py-48 min-h-screen flex flex-col justify-center relative">
         <!-- Creative Navigation -->
-        <nav class="flex flex-col space-y-8 lg:space-y-32 z-10 items-center lg:items-stretch">
+        <nav class="flex flex-col space-y-4 lg:space-y-12 z-10 items-center lg:items-stretch">
             <!-- 01 Photography -->
-            <a href="photography.html" class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-8 border-b border-outline-variant/20 pb-6 lg:pb-12 transition-all hover:bg-surface-container-low/30 lg:hover:pl-8 text-center lg:text-left">
-                <span class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity">01</span>
-                <h1 class="text-3xl md:text-[6.5rem] lg:text-[8rem] font-bold tracking-tighter leading-none group-hover:text-primary transition-colors lowercase">
+            <a href="photography.html"
+                class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-6 border-b border-outline-variant/10 pb-4 lg:pb-8 transition-all hover:bg-surface-container-low/30 lg:hover:pl-4 text-center lg:text-left"
+                onmouseenter="setBg('/images/Image - 1.jpg')" onmouseleave="clearBg()">
+                <span
+                    class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity mb-1">01</span>
+                <h1
+                    class="text-[1.75rem] md:text-[2.5rem] lg:text-[3.25rem] font-bold tracking-tight leading-none group-hover:text-primary transition-colors lowercase">
                     photography.
                 </h1>
-                <p class="lg:ml-auto max-w-sm text-[0.6875rem] uppercase tracking-wider text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
+                <p
+                    class="lg:ml-auto max-w-sm text-[0.6rem] uppercase tracking-[0.2em] text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
                     Architectural fragments in high contrast.
                 </p>
             </a>
-            
+
             <!-- 02 Videography -->
-            <a href="videography.html" class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-8 border-b border-outline-variant/20 pb-6 lg:pb-12 transition-all hover:bg-surface-container-low/30 lg:hover:pl-8 text-center lg:text-left">
-                <span class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity">02</span>
-                <h1 class="text-3xl md:text-[6.5rem] lg:text-[8rem] font-bold tracking-tighter leading-none group-hover:text-primary transition-colors lowercase">
+            <a href="videography.html"
+                class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-6 border-b border-outline-variant/10 pb-4 lg:pb-8 transition-all hover:bg-surface-container-low/30 lg:hover:pl-4 text-center lg:text-left"
+                onmouseenter="setBg('/images/Image - 6.jpg')" onmouseleave="clearBg()">
+                <span
+                    class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity mb-1">02</span>
+                <h1
+                    class="text-[1.75rem] md:text-[2.5rem] lg:text-[3.25rem] font-bold tracking-tight leading-none group-hover:text-primary transition-colors lowercase">
                     videography.
                 </h1>
-                <p class="lg:ml-auto max-w-sm text-[0.6875rem] uppercase tracking-wider text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
+                <p
+                    class="lg:ml-auto max-w-sm text-[0.6rem] uppercase tracking-[0.2em] text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
                     Moving image archives and process studies.
                 </p>
             </a>
 
             <!-- 03 Design -->
-            <a href="design.html" class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-8 border-b border-outline-variant/20 pb-6 lg:pb-12 transition-all hover:bg-surface-container-low/30 lg:hover:pl-8 text-center lg:text-left">
-                <span class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity">03</span>
-                <h1 class="text-3xl md:text-[6.5rem] lg:text-[8rem] font-bold tracking-tighter leading-none group-hover:text-primary transition-colors lowercase">
+            <a href="design.html"
+                class="group w-full flex flex-col lg:flex-row lg:items-end gap-2 lg:gap-6 border-b border-outline-variant/10 pb-4 lg:pb-8 transition-all hover:bg-surface-container-low/30 lg:hover:pl-4 text-center lg:text-left"
+                onmouseenter="setBg('/images/Image - 11.jpg')" onmouseleave="clearBg()">
+                <span
+                    class="text-[0.625rem] font-medium tracking-widest text-outline opacity-40 group-hover:opacity-100 transition-opacity mb-1">03</span>
+                <h1
+                    class="text-[1.75rem] md:text-[2.5rem] lg:text-[3.25rem] font-bold tracking-tight leading-none group-hover:text-primary transition-colors lowercase">
                     design.
                 </h1>
-                <p class="lg:ml-auto max-w-sm text-[0.6875rem] uppercase tracking-wider text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
+                <p
+                    class="lg:ml-auto max-w-sm text-[0.6rem] uppercase tracking-[0.2em] text-secondary opacity-0 lg:group-hover:opacity-60 transition-opacity duration-500 hidden lg:block">
                     Visual research and system architecture.
                 </p>
             </a>
         </nav>
     </main>
+
+    <script>
+        const bg = document.getElementById('hover-bg');
+        function setBg(url) {
+            bg.style.backgroundImage = `url('${url}')`;
+            bg.classList.remove('opacity-0');
+            bg.classList.add('opacity-30'); // Subtle opacity
+            bg.classList.remove('scale-105');
+            bg.classList.add('scale-100');
+        }
+        function clearBg() {
+            bg.classList.remove('opacity-30');
+            bg.classList.add('opacity-0');
+            bg.classList.remove('scale-100');
+            bg.classList.add('scale-105');
+        }
+    </script>
 
     <!-- Sticky/Fixed Elements using Size Variant 1 -->
     <footer class="fixed bottom-12 right-12 pointer-events-none opacity-20 hidden lg:block">
@@ -71,4 +115,5 @@
         </div>
     </footer>
 </body>
+
 </html>

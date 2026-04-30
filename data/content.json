@@ -16,5 +16,28 @@
     { "id": "ph3", "plateNo": "003-B", "caption": "Monolith Study / Berlin", "aspect": "21/9", "colSpan": "md:col-span-12", "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCqkFArRGAjYQxRq4GWda3j76yTUYwekMXRIgddJGJ4ues9qJJ24O-7kvMcrhoRwHZ8LP8jZs9g1iwMmnJpMpdRXXSImyrkTRaGpS9hswcWwuqgn3smvdexJsUtuvJy0ZgOsPm4G01khm7lBRZHq3AHEkGzyjEvA-oxXg3Wg1vrjf7cmlUMqYXOatKGg-q5dDqnwxFtpbBWkJq2tc5S_PVTRSZKr5hxSSHwBuXfeCichLB4A-DQMO_nUjcNVY_KtyMn5dlG4BQm9bI" }
   ],
   "videography": [],
-  "design": []
+  "design": [],
+  "interests": [
+    {
+      "id": "i1",
+      "title": "Sensor Research & Prototyping",
+      "category": "Electronics / Hobby",
+      "year": "2024",
+      "description": "Experimental builds using atmospheric sensors to track structural resonance in urban environments."
+    },
+    {
+      "id": "i2",
+      "title": "Mechanical Keyboard Restoration",
+      "category": "Hardware / Craft",
+      "year": "2023",
+      "description": "Sourcing and restoring vintage Alps switches and custom PCB design for 60% layouts."
+    },
+    {
+      "id": "i3",
+      "title": "Ludic Narrative Studies",
+      "category": "Gaming / Research",
+      "year": "2023",
+      "description": "An ongoing investigation into non-linear storytelling and environmental narrative in immersive simulations."
+    }
+  ]
 }

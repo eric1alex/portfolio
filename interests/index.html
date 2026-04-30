@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="/src/js/theme-config.js"></script>
+    <link rel="stylesheet" href="/src/css/global.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <title>interests // eric alex</title>
+</head>
+<body class="font-body text-on-surface selection:bg-primary selection:text-on-primary">
+    <nav class="fixed top-8 left-8 lg:top-12 lg:left-12 z-50">
+        <a class="flex items-center gap-2 text-on-surface text-style-label transition-all duration-300 hover:text-secondary bg-surface/60 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/10 shadow-sm hover:shadow-md hover:-translate-y-0.5" href="../index.html">
+            <span class="material-symbols-outlined !text-[1.2rem]" data-icon="arrow_back">arrow_back</span>
+            <span class="tracking-widest uppercase text-[0.65rem] font-bold">Back</span>
+        </a>
+    </nav>
+    <main class="max-w-screen-xl mx-auto px-8 pt-24 lg:pt-32 pb-8 lg:pb-12 min-h-[716px]">
+        <!-- Opening Statement -->
+        <div class="mb-6 lg:mb-12 max-w-2xl">
+            <h1 class="text-3xl md:text-5xl text-style-title tracking-tight leading-[1.1] mb-4 text-primary">
+                interests
+            </h1>
+            <p class="text-xs md:text-sm text-style-body text-secondary opacity-60 leading-relaxed tracking-tight">
+                Ongoing research into ludic narratives, industrial design, and structural resonance.
+            </p>
+        </div>
+        <!-- Interests List -->
+        <section id="interests-list-container" class="space-y-0">
+            <!-- Content will be injected here -->
+        </section>
+
+        <script>
+            async function loadInterests() {
+                const container = document.getElementById('interests-list-container');
+                try {
+                    const response = await fetch('/data/content.json');
+                    const data = await response.json();
+                    
+                    if (data.interests && data.interests.length > 0) {
+                        const html = data.interests.map((item, index) => {
+                            const paddedIndex = (index + 1).toString().padStart(2, '0');
+                            return `
+                                <a href="detail.html?id=${item.id}" class="block group border-t border-outline-variant/30 py-3 lg:py-5 flex flex-col md:flex-row md:items-baseline md:justify-between transition-colors duration-200 hover:bg-surface-container-low/30">
+                                    <div class="flex flex-col space-y-1">
+                                        <span class="text-[0.6rem] uppercase tracking-widest text-outline opacity-40">${paddedIndex}</span>
+                                        <h2 class="text-lg md:text-xl text-style-title tracking-tight text-primary lowercase">${item.title}</h2>
+                                        <span class="text-[0.6rem] uppercase tracking-widest text-secondary opacity-60">${item.category}</span>
+                                    </div>
+                                    <div class="mt-2 md:mt-0">
+                                        <span class="text-xs md:text-sm tabular-nums text-on-surface opacity-60">${item.year}</span>
+                                    </div>
+                                </a>
+                            `;
+                        }).join('');
+                        
+                        container.innerHTML = html + '<div class="border-t border-outline-variant/30"></div>';
+                    }
+                } catch (error) { console.error(error); }
+            }
+            loadInterests();
+        </script>
+    </main>
+</body>
+</html>
