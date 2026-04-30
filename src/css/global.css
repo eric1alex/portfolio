@@ -35,3 +35,56 @@ body {
 .material-symbols-outlined.text-sm {
     font-size: 0.875rem;
 }
+
+/* Custom Cursor - The Precision Dot Design */
+.has-custom-cursor {
+    cursor: none !important;
+}
+
+.has-custom-cursor a, 
+.has-custom-cursor button, 
+.has-custom-cursor [role="button"],
+.has-custom-cursor .group {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1), height 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, border 0.4s ease;
+}
+
+.custom-cursor-follower {
+    width: 10px;
+    height: 10px;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1), height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover States */
+.cursor-hover .custom-cursor {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    opacity: 1;
+}
+
+/* Hide on mobile */
+@media (max-width: 1024px) {
+    .custom-cursor, .custom-cursor-follower {
+        display: none !important;
+    }
+    .has-custom-cursor {
+        cursor: auto !important;
+    }
+}
