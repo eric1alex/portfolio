@@ -338,6 +338,56 @@
       "description": ""
     }
   ],
-  "design": [],
+  "design": [
+    {
+      "id": "d1777619709483221",
+      "title": "Choosin Wisely?",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 1.jpg"
+    },
+    {
+      "id": "d1777619709483808",
+      "title": "Welcome.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 2.jpg"
+    },
+    {
+      "id": "d1777619709484805",
+      "title": "Fallin Thru Time",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 3.jpg"
+    },
+    {
+      "id": "d1777619709484753",
+      "title": "drink drink drink.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 4.jpg"
+    },
+    {
+      "id": "d1777619709484956",
+      "title": "bop.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 5.jpg"
+    },
+    {
+      "id": "d1777619709484489",
+      "title": "shoooes.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 6.jpg"
+    },
+    {
+      "id": "d1777619709484362",
+      "title": "¿ǝʌᴉʇɔǝdsɹǝd",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 7.jpg"
+    }
+  ],
   "interests": []
 }
