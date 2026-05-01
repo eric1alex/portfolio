@@ -767,6 +767,14 @@
                 </div>
             </div>
 
+            <div class="section-header-row">
+                <span class="section-label" id="design-count-label">— entries</span>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button class="btn-new" onclick="syncDesignImages()" id="btn-sync-design">Sync Repo Images</button>
+                    <button class="btn-new" onclick="openAddDesign()">+ Add Work</button>
+                </div>
+            </div>
+
             <div class="photo-grid" id="design-grid"></div>
         </div>
 
@@ -1107,6 +1115,10 @@
 
         async function syncImages() {
             await syncFolder('images', 'photography');
+        }
+
+        async function syncDesignImages() {
+            await syncFolder('design', 'design');
         }
 
         // ── Videography ──
