@@ -391,6 +391,76 @@
   ],
   "interests": [
     {
+      "id": "i1777746794886",
+      "title": "coding and tech products",
+      "category": "Tech / Self-Taught",
+      "year": "2024",
+      "description": "Not a CS guy at all. But somewhere between AI getting good, working at a tech company, and a broken Wix site — it clicked.",
+      "details": {
+        "plateNo": "002",
+        "type": "CODING & TECH / SELF-TAUGHT",
+        "stickyTitle": "Coding & Tech — The Accidental Journey",
+        "heroImage": {
+          "url": "https://images.unsplash.com/photo-1665211097514-93f9b5c2bf8c?q=80&w=1120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        "metadata": [
+          {
+            "label": "Background",
+            "value": "Not tech. Not even close."
+          },
+          {
+            "label": "Vibe",
+            "value": "Builds things that make his own life easier"
+          },
+          {
+            "label": "Built So Far",
+            "value": "Portfolio sites, blogs, a CRM, and more."
+          },
+          {
+            "label": "Tools",
+            "value": "Google's Antigravity IDE"
+          }
+        ],
+        "sections": [
+          {
+            "id": "not-a-tech-guy.-at-all.",
+            "label": "Not a Tech Guy. At All.",
+            "content": "Let's get that straight first.\n\nIf you ask me a tech question out of nowhere, I will blank out. I didn't take CS in school — \npartly because of my brother being in that field already, but mostly because teenage me \nthought it was too much studying and just... noped out.\n\nThere was a tiny spark though. I remember school teaching us HTML — the classic \n\"Hello World\" in an H1 tag — and some part of me found it interesting. \nBut that was it. It went nowhere for years.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "it-started-with-a-portfolio-site",
+            "label": "It Started With a Portfolio Site",
+            "content": "About 2 years back, I was looking for my first job and figured having a portfolio site \nwould help. So I did what anyone would do — looked for the easiest option. \nDrag and drop website builder. Done.\n\nStarted with Wix. Wix was expensive. Moved to Hostinger, built my first site there, \nand honestly? It did the job. Helped me land a job, so big W.\n\nBut a few months in, I started looking at analytics and the drop-off was crazy. \nThe loading speed was terrible. So the options were: pay for something better, or learn to code.\n\nAI wasn't where it is today, so the \"just vibe code it\" path didn't exist yet. \nI dropped the idea and left the site as it was. Moved on.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "then-ai-got-good",
+            "label": "Then AI Got Good",
+            "content": "A while later, AI got significantly better. Vibecoding became a thing. \nAnd right around the same time, I was working at a tech company — \npicking up bits and pieces. Localhost, deployment, GitHub, repos, tech stacks. \nNothing deep, but enough to not be completely lost.\n\nMy brother helped fill in the gaps. Maturity probably played a small role too — \nyounger me would've rage quit at the first error.\n\nSo I got the basics of VS Code. Learned how GitHub works. \nUnderstood how to host static sites on GitHub Pages. And started building.\n\nCoding actually started with Gemini. It just felt better for code than ChatGPT at the time — \nmore back and forth that actually worked. I remember building my first proper portfolio site \nand it felt *insane*. Nice design, cool animations. Unfortunately no screenshots, but it existed. \nIt was real. Trust.\n\nThe problem? AI hallucinating mid-project. Long chats would get broken, \nstarting a new one would break the code, and it became its own mess.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "antigravity-changed-things",
+            "label": "Antigravity Changed Things",
+            "content": "Cursor came along and was decent. But then Google dropped their IDE — Antigravity — \nand that was it for me. Something about it just felt right. \nSame concept as the others, but the experience clicked in a way the rest didn't.\n\nThat's when I genuinely realized: I actually love this.\n\nSince then I've built my own portfolio site (the one you're on right now), \nblog sites for friends, side project landing pages, and a bunch of personal mini apps. \nWhich brings me to the best part.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "build-things-that-make-your-life-easier",
+            "label": "Build Things That Make Your Life Easier",
+            "content": "Everyone talks about coding as this huge career move or startup opportunity. \nAnd yeah, sure. But the most underrated thing about learning to code? \n\nYou can build exactly what *you* need.\n\nTwo examples from my own life:\n\n**Invoice Tool** — At work, we managed invoices across 3-4 tabs in a Google Sheet. \nEvery single time, it was annoying. I built a dedicated tool for it. \nSaved nearly 2 hours of work. Just like that.\n\n**Custom CRM** — Every CRM out there is overcomplicated, bloated with features I don't need, \nand weirdly messy. So I built my own. Does exactly what I want, nothing more.\n\nThat's the real magic of coding. AI has made it more accessible than ever — \nand yeah, someone ships a new product every 10 minutes now — but the best use of it \nis still the same: build things that solve *your* problems.\n\nGenuinely excited to see where this goes.",
+            "type": "text",
+            "special": false
+          }
+        ]
+      }
+    },
+    {
       "id": "i1777715751444",
       "title": "Sim Racing",
       "category": "Gaming",
@@ -401,7 +471,7 @@
         "type": "SIM RACING / JOURNEY",
         "stickyTitle": "Sim Racing — The Journey",
         "heroImage": {
-          "url": ""
+          "url": "https://images.steamusercontent.com/ugc/11040954075139841559/6C3EEE42AB5A7A0C78F8D639C6A0447167A0EE5D/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
         },
         "metadata": [
           {
