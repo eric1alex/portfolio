@@ -87,21 +87,28 @@
             <span class="tracking-widest uppercase text-[0.65rem] font-bold">Back</span>
         </a>
     </nav>
-    <main class="max-w-screen-xl mx-auto px-8 pt-24 lg:pt-32 pb-8 lg:pb-12 min-h-[716px]">
+    <main class="max-w-7xl mx-auto px-8 pt-24 lg:pt-32 pb-8 lg:pb-12 min-h-[716px]">
         <!-- Opening Statement -->
-        <div class="mb-6 lg:mb-12 max-w-2xl">
-            <h1 class="text-3xl md:text-5xl text-style-title tracking-tight leading-[1.1] mb-4 text-primary">
+        <div class="mb-16 lg:mb-24">
+            <h1 class="text-4xl md:text-6xl text-style-title tracking-tighter leading-[0.9] text-primary lowercase mb-8">
                 side projects
             </h1>
-            <p class="text-xs md:text-sm text-style-body text-secondary opacity-60 leading-relaxed tracking-tight">
-                A collection of self-initiated work built outside the brief. Projects driven by curiosity, tested by
-                real audiences, and measured by real results.
-            </p>
+            <div class="h-[1px] w-full bg-primary opacity-100"></div>
         </div>
-        <!-- Projects List -->
-        <section id="projects-list-container" class="space-y-0">
-            <!-- Content will be injected here -->
-        </section>
+
+        <!-- Experience List Table -->
+        <div class="w-full bg-[#f7f7f2] border border-primary/5 p-6 md:p-12">
+            <!-- Header -->
+            <div class="hidden md:grid grid-cols-[1fr_2fr_1fr] border-b border-primary/10 pb-6 mb-2">
+                <span class="text-[0.65rem] font-bold tracking-widest text-primary opacity-30 uppercase">Year</span>
+                <span class="text-[0.65rem] font-bold tracking-widest text-primary opacity-30 uppercase">Project & Category</span>
+                <span class="text-[0.65rem] font-bold tracking-widest text-primary opacity-30 uppercase text-right">Action</span>
+            </div>
+
+            <section id="projects-list-container" class="divide-y divide-primary/5">
+                <!-- Content will be injected here -->
+            </section>
+        </div>
 
         <script>
             async function loadProjects() {
@@ -112,22 +119,23 @@
 
                     if (data.sideProjects && data.sideProjects.length > 0) {
                         const html = data.sideProjects.map((item, index) => {
-                            const paddedIndex = (index + 1).toString().padStart(2, '0');
                             return `
-                                <a href="detail?id=${item.id}" class="block group border-t border-outline-variant/30 py-3 lg:py-5 flex flex-col md:flex-row md:items-baseline md:justify-between transition-colors duration-200 hover:bg-surface-container-low/30">
-                                    <div class="flex flex-col space-y-1">
-                                        <span class="text-[0.6rem] uppercase tracking-widest text-outline opacity-40">${paddedIndex}</span>
-                                        <h2 class="text-lg md:text-xl text-style-title tracking-tight text-primary lowercase">${item.title}</h2>
-                                        <span class="text-[0.6rem] uppercase tracking-widest text-secondary opacity-60">${item.category}</span>
+                                <a href="detail?id=${item.id}" class="group grid grid-cols-1 md:grid-cols-[1fr_2fr_1fr] items-center py-6 hover:bg-primary/[0.02] transition-all duration-300">
+                                    <div class="mb-2 md:mb-0">
+                                        <span class="text-sm tabular-nums text-primary opacity-40 group-hover:opacity-100 transition-opacity duration-300">${item.year}</span>
                                     </div>
-                                    <div class="mt-2 md:mt-0">
-                                        <span class="text-xs md:text-sm tabular-nums text-on-surface opacity-60">${item.year}</span>
+                                    <div class="flex flex-col">
+                                        <h2 class="text-base font-medium tracking-tight text-primary group-hover:text-secondary transition-colors duration-300">${item.title}</h2>
+                                        <p class="text-xs text-secondary opacity-60 font-medium uppercase tracking-widest">${item.category}</p>
+                                    </div>
+                                    <div class="hidden md:flex justify-end items-center">
+                                        <span class="text-[0.65rem] font-bold tracking-widest text-primary opacity-0 group-hover:opacity-30 transition-opacity duration-300 uppercase">View Details</span>
                                     </div>
                                 </a>
                             `;
                         }).join('');
 
-                        container.innerHTML = html + '<div class="border-t border-outline-variant/30"></div>';
+                        container.innerHTML = html;
                     }
                 } catch (error) { console.error(error); }
             }
