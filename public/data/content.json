@@ -389,5 +389,143 @@
       "url": "/design/Deisgn 7.jpg"
     }
   ],
-  "interests": []
+  "interests": [
+    {
+      "id": "i1777746794886",
+      "title": "coding and tech products",
+      "category": "Tech / Self-Taught",
+      "year": "2024",
+      "description": "Not a CS guy at all. But somewhere between AI getting good, working at a tech company, and a broken Wix site — it clicked.",
+      "details": {
+        "plateNo": "002",
+        "type": "CODING & TECH / SELF-TAUGHT",
+        "stickyTitle": "Coding & Tech — The Accidental Journey",
+        "heroImage": {
+          "url": "https://images.unsplash.com/photo-1665211097514-93f9b5c2bf8c?q=80&w=1120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        "metadata": [
+          {
+            "label": "Background",
+            "value": "Not tech. Not even close."
+          },
+          {
+            "label": "Vibe",
+            "value": "Builds things that make his own life easier"
+          },
+          {
+            "label": "Built So Far",
+            "value": "Portfolio sites, blogs, a CRM, and more."
+          },
+          {
+            "label": "Tools",
+            "value": "Google's Antigravity IDE"
+          }
+        ],
+        "sections": [
+          {
+            "id": "not-a-tech-guy.-at-all.",
+            "label": "Not a Tech Guy. At All.",
+            "content": "Let's get that straight first.\n\nIf you ask me a tech question out of nowhere, I will blank out. I didn't take CS in school — \npartly because of my brother being in that field already, but mostly because teenage me \nthought it was too much studying and just... noped out.\n\nThere was a tiny spark though. I remember school teaching us HTML — the classic \n\"Hello World\" in an H1 tag — and some part of me found it interesting. \nBut that was it. It went nowhere for years.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "it-started-with-a-portfolio-site",
+            "label": "It Started With a Portfolio Site",
+            "content": "About 2 years back, I was looking for my first job and figured having a portfolio site \nwould help. So I did what anyone would do — looked for the easiest option. \nDrag and drop website builder. Done.\n\nStarted with Wix. Wix was expensive. Moved to Hostinger, built my first site there, \nand honestly? It did the job. Helped me land a job, so big W.\n\nBut a few months in, I started looking at analytics and the drop-off was crazy. \nThe loading speed was terrible. So the options were: pay for something better, or learn to code.\n\nAI wasn't where it is today, so the \"just vibe code it\" path didn't exist yet. \nI dropped the idea and left the site as it was. Moved on.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "then-ai-got-good",
+            "label": "Then AI Got Good",
+            "content": "A while later, AI got significantly better. Vibecoding became a thing. \nAnd right around the same time, I was working at a tech company — \npicking up bits and pieces. Localhost, deployment, GitHub, repos, tech stacks. \nNothing deep, but enough to not be completely lost.\n\nMy brother helped fill in the gaps. Maturity probably played a small role too — \nyounger me would've rage quit at the first error.\n\nSo I got the basics of VS Code. Learned how GitHub works. \nUnderstood how to host static sites on GitHub Pages. And started building.\n\nCoding actually started with Gemini. It just felt better for code than ChatGPT at the time — \nmore back and forth that actually worked. I remember building my first proper portfolio site \nand it felt *insane*. Nice design, cool animations. Unfortunately no screenshots, but it existed. \nIt was real. Trust.\n\nThe problem? AI hallucinating mid-project. Long chats would get broken, \nstarting a new one would break the code, and it became its own mess.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "antigravity-changed-things",
+            "label": "Antigravity Changed Things",
+            "content": "Cursor came along and was decent. But then Google dropped their IDE — Antigravity — \nand that was it for me. Something about it just felt right. \nSame concept as the others, but the experience clicked in a way the rest didn't.\n\nThat's when I genuinely realized: I actually love this.\n\nSince then I've built my own portfolio site (the one you're on right now), \nblog sites for friends, side project landing pages, and a bunch of personal mini apps. \nWhich brings me to the best part.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "build-things-that-make-your-life-easier",
+            "label": "Build Things That Make Your Life Easier",
+            "content": "Everyone talks about coding as this huge career move or startup opportunity. \nAnd yeah, sure. But the most underrated thing about learning to code? \n\nYou can build exactly what *you* need.\n\nTwo examples from my own life:\n\n**Invoice Tool** — At work, we managed invoices across 3-4 tabs in a Google Sheet. \nEvery single time, it was annoying. I built a dedicated tool for it. \nSaved nearly 2 hours of work. Just like that.\n\n**Custom CRM** — Every CRM out there is overcomplicated, bloated with features I don't need, \nand weirdly messy. So I built my own. Does exactly what I want, nothing more.\n\nThat's the real magic of coding. AI has made it more accessible than ever — \nand yeah, someone ships a new product every 10 minutes now — but the best use of it \nis still the same: build things that solve *your* problems.\n\nGenuinely excited to see where this goes.",
+            "type": "text",
+            "special": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "i1777715751444",
+      "title": "Sim Racing",
+      "category": "Gaming",
+      "year": "2020",
+      "description": "From slow PCs and solo laps to endurance races with strangers across the world — this is the journey.",
+      "details": {
+        "plateNo": "001",
+        "type": "SIM RACING / JOURNEY",
+        "stickyTitle": "Sim Racing — The Journey",
+        "heroImage": {
+          "url": "https://images.steamusercontent.com/ugc/11040954075139841559/6C3EEE42AB5A7A0C78F8D639C6A0447167A0EE5D/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+        },
+        "metadata": [
+          {
+            "label": "Current Game",
+            "value": "ACC — Assetto Corsa Competizione"
+          },
+          {
+            "label": "Platform",
+            "value": "PC"
+          }
+        ],
+        "sections": [
+          {
+            "id": "where-it-started",
+            "label": "Where It Started",
+            "content": "The love for sim racing started the day I got a system that could actually run a racing game. \n\nFirst one I ever played was *Copa Petrobras de Marcas* — and oh, what a game that was. Nothing technical, nothing complicated. Just take the car out and race. Perfect for a slow PC and zero experience. I finished the whole thing and immediately wanted more.\n\nAround the same time, F1 12 went on sale. I grabbed it, started a championship, and spent hours just putting in laps — beautifully sounding cars, no pressure, just vibes.\n\nThen solo racing got boring. Same thing every weekend. I stepped away for a bit.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "vroom-vroom",
+            "label": "vroom vroom",
+            "imageUrl": "https://images.steamusercontent.com/ugc/1655598293157979560/BE119FDD75958A95DA7C8BD4D03A47350311A10F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+            "type": "image"
+          },
+          {
+            "id": "the-friend-that-changed-everything",
+            "label": "The Friend That Changed Everything",
+            "content": "Then I found a friend to race with — and that's when the *real* love for sim racing kicked in.\n\nWe jumped into F1 24 on Co-Op and honestly, the memories from that are unmatched. When I bought the game I was absolutely trash. He'd been playing for a while so it was always him first, me last. The dissing over Discord was constant. But that personal ego? It made me grind. Hours of solo practice without him knowing. Tactics. xD\n\nThat went on for nearly a year — until the game started crashing. And I mean *crashing*. EA really said let's make the experience painful. Out of ~130 hours on that game, at least 10 went into just trying to get it to work. \n\nWe stopped playing. Career break, basically. Too broke for F1 25, so we waited for a sale.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "acc-&-a-whole-new-world",
+            "label": "ACC & A Whole New World",
+            "content": "During that break, I picked up *Assetto Corsa Competizione*.\n\nThis game changed things. Like, genuinely made life better.\n\nI was a hardcore F1 fan — not just playing but watching too (Rosberg & Max fan, Barcelona 2016 will never not be iconic) — but GT racing hit different. The cars, the tracks, the pace. I was terrible at first, obviously. Hours getting better, same old story.\n\nBut what *actually* changed things was multiplayer. Competitive racing with real people.\n\nI did my first endurance race at Monza — 6 hours — with a French guy and a Malaysian guy. Completely random people. Ended up having an absolute blast. Then I met more people from around the world, including a guy from Chennai who I've done a solid number of races with.\n\nNearly 320 hours on ACC now. Every single one worth it. Sitting at 102% of the top guys on controller, so yeah — controller gang represent. xD",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "what-sim-racing-actually-teaches-you",
+            "label": "What Sim Racing Actually Teaches You",
+            "content": "Competitive sim racing teaches you more than you'd expect.\n\nPatience. Aggression control. When to push and when to hold back. How to practice with actual intention. How to take a loss and come back smarter.\n\nIt's a genuinely beautiful hobby. The random people you meet, the races you share, the moments you replay in your head — that's what keeps you coming back.\n\n---\n\nIf you've read this far, you probably game. Come say hi on Discord, let's race.\n\n**Discord — 3riccx**",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "beautiful-lexus",
+            "label": "Beautiful lexus",
+            "imageUrl": "https://images.steamusercontent.com/ugc/55840381411132947/3411C8FCBD1A5577C0AE1BD2A685FACDD759E564/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+            "type": "image"
+          }
+        ]
+      }
+    }
+  ]
 }
