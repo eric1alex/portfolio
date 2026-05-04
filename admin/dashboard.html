@@ -202,7 +202,14 @@
             cursor: pointer;
             transition: all 0.15s;
         }
+        .editor-modal .btn-sm { 
+            color: #fff !important; 
+            border-color: rgba(255,255,255,0.2) !important; 
+            font-size: 0.75rem; /* slightly larger for symbols */
+            background: rgba(255,255,255,0.05);
+        }
         .btn-sm:hover { background: var(--surface-low); }
+        .editor-modal .btn-sm:hover { background: rgba(255,255,255,0.15); }
         .btn-sm.danger { color: var(--error); border-color: var(--error); }
         .btn-sm.danger:hover { background: var(--error-light); }
 
@@ -1338,8 +1345,12 @@
             div.dataset.type = 'text';
             div.innerHTML = `
                 <div class="block-header">
-                    <input class="form-input section-label" style="width:70%; font-weight:bold; font-size:0.9rem;" placeholder="Section Title (e.g. Overview)" value="${label}"/>
+                    <input class="form-input section-label" style="width:60%; font-weight:bold; font-size:0.9rem;" placeholder="Section Title (e.g. Overview)" value="${label}"/>
                     <div style="display:flex; align-items:center; gap:0.5rem;">
+                        <div class="btn-group" style="display:flex; gap:2px;">
+                            <button class="btn-sm" onclick="moveSection(this, -1)">↑</button>
+                            <button class="btn-sm" onclick="moveSection(this, 1)">↓</button>
+                        </div>
                         <label style="font-size:0.6rem; text-transform:uppercase; opacity:0.6; display:flex; align-items:center; gap:0.3rem; cursor:pointer;">
                             <input type="checkbox" class="section-special" ${special ? 'checked' : ''}/> Special
                         </label>
@@ -1357,14 +1368,31 @@
             div.dataset.type = 'image';
             div.innerHTML = `
                 <div class="block-header">
-                    <input class="form-input section-label" style="width:70%; font-weight:bold; font-size:0.9rem;" placeholder="Image Caption/Label" value="${label}"/>
-                    <button class="btn-sm danger" onclick="this.parentElement.parentElement.remove()">Remove</button>
+                    <input class="form-input section-label" style="width:60%; font-weight:bold; font-size:0.9rem;" placeholder="Image Caption/Label" value="${label}"/>
+                    <div style="display:flex; align-items:center; gap:0.5rem;">
+                        <div class="btn-group" style="display:flex; gap:2px;">
+                            <button class="btn-sm" onclick="moveSection(this, -1)">↑</button>
+                            <button class="btn-sm" onclick="moveSection(this, 1)">↓</button>
+                        </div>
+                        <button class="btn-sm danger" onclick="this.parentElement.parentElement.remove()">Remove</button>
+                    </div>
                 </div>
                 <div class="form-field">
                     <input class="form-input section-image-url" placeholder="Image URL (e.g. /images/project-1.jpg)" value="${url}"/>
                 </div>
             `;
             document.getElementById('sections-container').appendChild(div);
+        }
+
+        function moveSection(btn, dir) {
+            const block = btn.closest('.content-block');
+            if (dir === -1) {
+                const prev = block.previousElementSibling;
+                if (prev) block.parentNode.insertBefore(block, prev);
+            } else {
+                const next = block.nextElementSibling;
+                if (next) block.parentNode.insertBefore(next, block);
+            }
         }
 
         function saveDetails() {
@@ -1484,6 +1512,10 @@
                     <div class="list-card-actions">
                         <button class="btn-sm" onclick="openEditor('interests', ${i})">Edit Journey</button>
                         <div class="btn-group">
+                            <button class="btn-sm" onclick="moveInterest(${i}, -1)" ${i===0?'disabled':''}>↑</button>
+                            <button class="btn-sm" onclick="moveInterest(${i}, 1)" ${i===items.length-1?'disabled':''}>↓</button>
+                        </div>
+                        <div class="btn-group">
                             <button class="btn-sm" onclick="editInterest(${i})">Meta</button>
                             <button class="btn-sm danger" onclick="deleteInterest(${i})">Delete</button>
                         </div>
@@ -1537,6 +1569,12 @@
             closeInterestForm();
             markDirty();
             renderInterests();
+        }
+
+        function moveInterest(i, dir) {
+            const arr = data.interests;
+            const tmp = arr[i]; arr[i] = arr[i+dir]; arr[i+dir] = tmp;
+            markDirty(); renderInterests();
         }
 
         function deleteInterest(index) {
