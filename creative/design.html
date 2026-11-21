@@ -58,7 +58,7 @@
             async function loadDesign() {
                 const container = document.getElementById('design-grid-container');
                 try {
-                    const response = await fetch('../data/content.json');
+                    const response = await fetch('../data/content.json?t=' + Date.now());
                     const data = await response.json();
 
                     if (data.design && data.design.length > 0) {
@@ -77,10 +77,13 @@
                                 layoutClass = 'md:col-span-6 md:col-start-4 md:mt-24';
                             }
 
+                            const rawUrl = item.url || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3GipTzBJRwmxfwnL2cZjxBUjCwWWAliNKi873jVCUXyIa95Mgyzzya0ma7z_XVUcTEgg37coggUYVz_6tzjPHKg9ehU3ZWzqaCBSZrnVbWjqwHyxwojLnLDsd-uEguCto-9FuZal9km_hYIm6OU6MF3LnC8d_6nJ2Ohd4aKdQtPmKwgb9jRicncHypKhTVfGS0-Od6ojyipioxsp2qt93e0Zo_AtSGOYEGJnW0dlr3Ik_NyTOcSdQBrMnq5Kgc_QTXdtTKf2-57Y';
+                            const imgUrl = rawUrl.startsWith('http') ? rawUrl : (rawUrl.startsWith('/') ? '../public' + rawUrl : '../public/' + rawUrl);
+
                             return `
                                 <div class="${layoutClass} group">
                                     <div class="bg-surface-container overflow-hidden">
-                                        <img src="${item.url || 'https://lh3.googleusercontent.com/aida-public/AB6AXuB3GipTzBJRwmxfwnL2cZjxBUjCwWWAliNKi873jVCUXyIa95Mgyzzya0ma7z_XVUcTEgg37coggUYVz_6tzjPHKg9ehU3ZWzqaCBSZrnVbWjqwHyxwojLnLDsd-uEguCto-9FuZal9km_hYIm6OU6MF3LnC8d_6nJ2Ohd4aKdQtPmKwgb9jRicncHypKhTVfGS0-Od6ojyipioxsp2qt93e0Zo_AtSGOYEGJnW0dlr3Ik_NyTOcSdQBrMnq5Kgc_QTXdtTKf2-57Y'}" 
+                                        <img src="${imgUrl}" 
                                              alt="${item.title}" loading="lazy" class="w-full h-auto transition-all duration-700"/>
                                     </div>
                                     <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity">

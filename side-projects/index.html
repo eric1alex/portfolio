@@ -114,7 +114,7 @@
             async function loadProjects() {
                 const container = document.getElementById('projects-list-container');
                 try {
-                    const response = await fetch('../data/content.json');
+                    const response = await fetch('../data/content.json?t=' + Date.now());
                     const data = await response.json();
 
                     if (data.sideProjects && data.sideProjects.length > 0) {

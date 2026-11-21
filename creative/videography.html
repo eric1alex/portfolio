@@ -72,7 +72,7 @@
             async function loadVideography() {
                 const container = document.getElementById('videography-grid-container');
                 try {
-                    const response = await fetch('../data/content.json');
+                    const response = await fetch('../data/content.json?t=' + Date.now());
                     const data = await response.json();
 
                     if (data.videography && data.videography.length > 0) {

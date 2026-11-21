@@ -125,7 +125,7 @@
             async function loadWork() {
                 const container = document.getElementById('work-list-container');
                 try {
-                    const response = await fetch('../data/content.json');
+                    const response = await fetch('../data/content.json?t=' + Date.now());
                     const data = await response.json();
 
                     if (data.work && data.work.length > 0) {

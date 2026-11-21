@@ -57,7 +57,7 @@
             async function loadPhotography() {
                 const container = document.getElementById('photography-grid-container');
                 try {
-                    const response = await fetch('../data/content.json');
+                    const response = await fetch('../data/content.json?t=' + Date.now());
                     const data = await response.json();
 
                     if (data.photography && data.photography.length > 0) {
@@ -75,10 +75,12 @@
                             ];
                             const layoutClass = patterns[index % patterns.length];
 
+                            const imgUrl = item.url.startsWith('http') ? item.url : (item.url.startsWith('/') ? '../public' + item.url : '../public/' + item.url);
+
                             return `
                                 <div class="${layoutClass} ${finalClass} group">
                                     <div class="aspect-[${item.aspect || '4/5'}] bg-surface-container overflow-hidden">
-                                        <img src="${item.url}" 
+                                        <img src="${imgUrl}" 
                                              alt="${item.caption}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
                                     </div>
                                     <div class="mt-6 flex flex-col gap-1 opacity-40 group-hover:opacity-100 transition-opacity ${item.captionRight ? 'text-right' : ''}">

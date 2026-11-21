@@ -249,10 +249,11 @@
                 let containerHtml = '';
                 allSections.forEach((s, idx) => {
                     if (s.type === 'image' || s.imageUrl) {
+                        const imgUrl = s.imageUrl.startsWith('http') ? s.imageUrl : (s.imageUrl.startsWith('/') ? '../public' + s.imageUrl : '../public/' + s.imageUrl);
                         containerHtml += `
                             <div id="${s.id}" class="image-block bg-surface p-4 rounded-3xl border border-outline-variant/10 shadow-sm transition-all duration-500">
                                 <div class="aspect-video w-full overflow-hidden rounded-2xl">
-                                    <img src="${s.imageUrl}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="${s.label}" />
+                                    <img src="${imgUrl}" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="${s.label}" />
                                 </div>
                                 <div class="mt-4 px-4 flex justify-between items-center opacity-30">
                                     <span class="text-[0.6rem] uppercase tracking-widest font-bold">${s.label}</span>
