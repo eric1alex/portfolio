@@ -1,43 +1,531 @@
 {
   "work": [
-    { "id": "w1", "title": "Principal Systems Architect", "company": "Vanguard Media", "year": "2021 — 2024", "slug": "principal-systems-architect" },
-    { "id": "w2", "title": "Senior Product Designer", "company": "Linear Logistics", "year": "2018 — 2021", "slug": "senior-product-designer" },
-    { "id": "w3", "title": "Visual Researcher", "company": "The Monastic Studio", "year": "2016 — 2018", "slug": "visual-researcher" },
-    { "id": "w4", "title": "Interface Apprentice", "company": "Null Point Agency", "year": "2014 — 2016", "slug": "interface-apprentice" }
+    {
+      "id": "w1775915807316",
+      "title": "Business Development Executive",
+      "company": "Tailwebs Technologies",
+      "year": "2024 - August 2026",
+      "slug": "business-development-executive",
+      "details": {
+        "plateNo": "001",
+        "type": "WORK / 2024",
+        "heroImage": {
+          "url": "https://tailwebs.com/wp-content/uploads/2023/03/tw-logo.png"
+        },
+        "metadata": [
+          {
+            "label": "Duration",
+            "value": "Jun 2024 to Present"
+          },
+          {
+            "label": "Role",
+            "value": "Business Development Executive"
+          },
+          {
+            "label": "Tools",
+            "value": "HubSpot, Dripify, Apollo.io, Mixpanel"
+          },
+          {
+            "label": "Industry",
+            "value": "Service and Product"
+          }
+        ],
+        "sections": [
+          {
+            "id": "overview",
+            "label": "Overview",
+            "content": "Tailwebs was my first job, and it moved fast. What started as managing a CRM and running outreach campaigns quickly expanded into owning the go-to-market for two internal SaaS products — ShopAR (B2B) and Kaipo (B2C). Across both, I handled messaging, positioning, content, sales channels, user onboarding, feedback loops, and analytics. I learned by doing, iterated quickly, and by the end I was making independent product and growth decisions backed by data.",
+            "special": true
+          },
+          {
+            "id": "foundation:-crm-&-outreach",
+            "label": "Foundation: CRM & Outreach",
+            "content": "My first ownership area was HubSpot. I learned the platform end-to-end and took over lead management — tracking, follow-ups, and pipeline hygiene. This led into outreach, where I was introduced to Dripify for LinkedIn and Apollo.io for email campaigns.\nAfter a few weeks of learning the tools, I owned all campaigns end-to-end: planning, execution, tracking, and lead management. Content and messaging started with CMO sign-off and gradually became fully my responsibility as I got a handle on what worked."
+          },
+          {
+            "id": "context-view",
+            "label": "Strategic Context",
+            "imageUrl": "/images/bde_context.png",
+            "type": "image"
+          },
+          {
+            "id": "shopar:-b2b-saas-gtm",
+            "label": "ShopAR: B2B SaaS GTM",
+            "content": "ShopAR was Tailwebs' internal SaaS product — an Augmented Reality tool that let retailers place their products in AR via phone or an Image-to-3D feature. I was handed the marketing and GTM from the ground up.\nMy scope:\n\nPositioning and go-to-market strategy\nContent for website, in-app, email, and push notifications\nMinor contribution to feature ideation\n\n\nOnce the product was ready, I moved into sales. We tested four channels: Email, Cold Calling, Ads, and Door-to-Door.\n\nWhat the data showed: Both Ads and Door-to-Door produced results. I ran 4 weeks of door-to-door sales while the CMO ran ads in parallel. After 4 weeks, ads showed better returns — we cut the other channels and focused there.\nI then owned user onboarding, the feedback loop, and cross-functional conversations with product and tech on what to improve — all running alongside my core Tailwebs responsibilities."
+          },
+          {
+            "id": "kaipo:-b2c-ai-companion",
+            "label": "Kaipo: B2C AI Companion",
+            "content": "Kaipo was an AI companion product — fully B2C, which meant a different muscle. With ShopAR behind me, I came into this one with more confidence and a clearer sense of where to focus.\nWith lower direct user interaction than B2B, I shifted my time toward analytics and product thinking. I went deep on Mixpanel — building funnels, mapping user journeys, identifying drop-offs, and figuring out what to act on.\n\nExample 1 — Onboarding drop-off: Initial sign-up flow had a ~75% drop-off rate. We prioritised Google Sign-In. Drop-off fell to 15%.\n\n\nExample 2 — Retention: We had no hook to bring users back. Beyond improving chat quality, we introduced a \"feelings\" section — a live emotional state indicator for the AI companion. The light gamification element improved return rates.\n\nThe through-line across both products: use cases and decisions had to be grounded in data, not instinct."
+          },
+          {
+            "id": "what-made-it-all-work",
+            "label": "What Made It All Work",
+            "content": "Across both products and the core BDE work, the force multiplier was automation and AI tooling. Removing manual effort from repeatable tasks created the bandwidth to go deeper on strategy, messaging, and analytics — which is where the real impact was."
+          }
+        ]
+      }
+    }
   ],
   "sideProjects": [
-    { "id": "sp1", "title": "Kinetic Typography Engine", "category": "Open Source / WebGL", "year": "2024", "slug": "kinetic-typography-engine" },
-    { "id": "sp2", "title": "Monospatial Design System", "category": "Personal Project", "year": "2023 — 2024", "slug": "monospatial-design-system" },
-    { "id": "sp3", "title": "Minimalist RSS Reader", "category": "Product Design", "year": "2023", "slug": "minimalist-rss-reader" }
+    {
+      "id": "sp1775915826484",
+      "title": "Where In India",
+      "category": "Travel Directory",
+      "year": "2025",
+      "slug": "where-in-india",
+      "details": {
+        "plateNo": "001",
+        "type": "WHERE IN INDIA / 2025",
+        "heroImage": {
+          "url": "https://www.whereinindia.online/flag.png"
+        },
+        "metadata": [
+          {
+            "label": "Industry",
+            "value": "Travel"
+          },
+          {
+            "label": "Monthly Users",
+            "value": "2000"
+          },
+          {
+            "label": "Growth Channel",
+            "value": "Reddit"
+          },
+          {
+            "label": "Feedback",
+            "value": "98.7%"
+          }
+        ],
+        "sections": [
+          {
+            "id": "the-problem",
+            "label": "THE PROBLEM",
+            "content": "Planning a trip to Pondicherry, I searched for recommendations and hit a wall — every result was a bloated blog post with too much noise and not enough signal. I wanted a simple list of places with a Google Maps link. That gap was the product idea.\n\nDigging deeper, I spotted a second problem: the internet was flooding with generic, AI-generated travel content. Trust was eroding. Travelers wanted human experiences, not algorithm output."
+          },
+          {
+            "id": "positioning-&-differentiation",
+            "label": "Positioning & Differentiation",
+            "content": "I positioned the product as a community-curated directory — the opposite of AI-generated content. To back this up with real data, I ran a 2-week community research exercise on Reddit across 5–6 cities, collecting genuine local recommendations. This wasn't just market research — it became the product's core differentiator.\n\nKey positioning choice: \"Community-curated\" wasn't a tagline — it was a trust signal the audience immediately connected with. Early users didn't just approve; they started contributing unprompted, reducing my data-collection load organically."
+          },
+          {
+            "id": "go-to-market:-one-channel,-full-focus",
+            "label": "Go-to-Market: One Channel, Full Focus",
+            "content": "With a full-time job, I had limited bandwidth. I made a deliberate GTM call: pick one channel and go deep on it. I chose Reddit — where the audience already was, asking for travel recommendations. I engaged genuinely on existing posts across all the cities on my site. What started as a daily activity scaled down to 2–3 sessions a week as the channel matured.\n\nResult: 60–80 users a day from 30 minutes of weekly effort. 2,000 users in the last 30 days — entirely from one channel, zero paid spend."
+          },
+          {
+            "id": "product-evolution",
+            "label": "Product Evolution",
+            "content": "The MVP was a minimal directory — city pages with place listings and Google Maps links. After launch, I identified two gaps: it felt sparse, and it didn't offer enough value to retain users. I iterated deliberately.\n\nWhat I added: A city dashboard (daily budget, transport, best time to visit, recommended stay) to improve stickiness. Download and share list features for brand distribution. A map view for discoverability. I tracked usage on each and kept features that showed signal — even low usage — over vanity features that added nothing."
+          },
+          {
+            "id": "validation-&-feedback-loop",
+            "label": "Validation & Feedback Loop",
+            "content": "I built a feedback popup directly into the site to close the loop with users. 154 submissions collected. 152 positive, 2 negative. I treated this as the clearest signal that the core value proposition was working — and used it to stay focused on what was already resonating rather than chasing scope creep."
+          },
+          {
+            "id": "monetization-thinking",
+            "label": "Monetization Thinking",
+            "content": "I approached monetization with the same intentionality as the product itself. Google Ads would have been the obvious route — but it conflicted with the clean, trust-first experience I'd built. I ruled it out. Instead, I went with affiliate marketing, integrating it as a native product category within each city page rather than an intrusive popup. The experience stays seamless; the brand integrity stays intact."
+          },
+          {
+            "id": "seo-&-long-term-growth",
+            "label": "SEO & Long-term Growth",
+            "content": "Organic search was the long game. I started SEO activities from day one, knowing results would compound slowly. From near-zero impressions in January to ~30 per day in April, the curve is moving. Direct traffic is also climbing — a potential early signal of Google-driven discovery as authority builds."
+          }
+        ]
+      }
+    },
+    {
+      "id": "sp1777259241308",
+      "title": "Where In India - Pinterest ( 220k Impressions )",
+      "category": "Travek",
+      "year": "2024",
+      "slug": "where-in-india---pinterest--220k-impressions-",
+      "details": {
+        "plateNo": "002",
+        "type": "From random pins to 10M impressions",
+        "heroImage": {
+          "url": "https://i.pinimg.com/280x280_RS/95/2c/a4/952ca409b21037871ec8c02d95827d91.jpg"
+        },
+        "metadata": [
+          {
+            "label": "Total Impressions",
+            "value": "10M+"
+          },
+          {
+            "label": "Total Engagement",
+            "value": "550K"
+          },
+          {
+            "label": "Current Status",
+            "value": "Merged with whereinindia.online"
+          }
+        ],
+        "sections": [
+          {
+            "id": "overview",
+            "label": "Overview",
+            "content": "What started as an unfocused Pinterest experiment turned into a 10M impression, 550K engagement channel — built without a budget, just iteration and analytics. Over two years, I taught myself Pinterest from scratch, used data to identify a winning niche (Indian travel content for women), A/B tested designs until two formats broke out, and scaled from there. The channel is now merged with Where In India, closing the loop on the one mistake I made early: having an audience with nowhere to go."
+          },
+          {
+            "id": "how-it-started",
+            "label": "How It Started",
+            "content": "I wanted to grow a Pinterest account and did what most people do — followed trends. For the first 5–6 months I used Pinterest Trends to create pins across random categories. No niche, no strategy, no vision. Just post and hope."
+          },
+          {
+            "id": "the-analytics-turning-point",
+            "label": "The Analytics Turning Point",
+            "content": "As I got more comfortable with the platform and its analytics, a clear signal emerged: travel content was significantly outperforming everything else — and specifically resonating with Indian audiences and female users.\n\nThe decision: Stop spreading thin across topics. Double down on Indian travel content for a defined audience. I renamed the account to Travel India Now and fully committed to the niche."
+          },
+          {
+            "id": "creative-iteration-&-what-worked",
+            "label": "Creative Iteration & What Worked",
+            "content": "Pivoting to travel content didn't instantly produce results. The early phase was heavy on experimentation — testing formats, layouts, and design variations to find what drove impressions. Out of many attempts, two pin designs consistently outperformed everything else.\n\nThe learning: Creative is a variable, not a constant. I tested until the data told me what worked, then doubled down on those two formats. That decision is what drove the channel to scale."
+          },
+          {
+            "id": "the-gap-i-missed",
+            "label": "The Gap I Missed",
+            "content": "With growing impressions and engagement, there was one critical thing missing: a destination. I had no website or landing page to send traffic to, which meant zero outbound clicks. An audience was arriving and leaving with nowhere to go.\n\nThe lesson: Distribution without a funnel is just vanity metrics. Impressions mean nothing if there's no next step for the audience."
+          },
+          {
+            "id": "closing-the-loop",
+            "label": "Closing the Loop",
+            "content": "The Pinterest account is now merged under the Where In India brand and pointed to whereinindia.online. Content creation has restarted under the new name, this time with a full funnel in place — impressions convert to site visits rather than dead ends.\n\nWhere it stands now: This is effectively a second learning curve — rebuilding audience trust and momentum under a new brand, but this time with the strategic foundation that was missing the first time around."
+          }
+        ]
+      }
+    }
   ],
   "photography": [
-    { "id": "ph1", "plateNo": "001-A", "caption": "Stairwell Transition / London", "aspect": "4/5", "colSpan": "md:col-span-8 md:col-start-1", "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuAuxMjNb_jNoKCFmp3fW0X_uOCvevS73j5i5nIK22K_wEkau7J06G2YV-0Rllz2SiM5AODs0AaIEhONLYYskWHRKIC8ZEbA-JdIAGZvXyAC6eizodbO1Bxci1TmYO5McNA7JdxgPjGZ2RVPL1bvUPXjyLNYo2e9moPLH4Trg5FDsxxc2D_N6Lp4MzbIPFGzaAebd9pH6cu2u1tLm2ahAfNSXu2-_A_uyATxiApK_TcBJPtluZC3CVMLfVCRtJ4WXxLLavx2N407YJA" },
-    { "id": "ph2", "plateNo": "002-C", "caption": "Surface Detail / Tokyo", "aspect": "square", "colSpan": "md:col-span-3 md:col-start-10 md:mt-32", "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuBRmmmnzGUy8Q1nUaQPXJmOFzDzjWqucH8WNGf-CKxpggUXsv_4z9QmfmjSXbZKL6ueHGC-ivrjPSQL_Ty81VSLpfkSqPo0ZAlpqbdKAc_TiEFDBs0_xG2wa1j1lzX4MtziqxjFjRoFzltQoGuEdCH9wW-l8G_Us1SaqnhajR2iOCfgG6-8Ow25V0UEUZp-xeSWKeqnXs-yy4rOYMohAwENcCmQYe9sGX9WTj1u5bPJ4d5D5c2c47UoCMsK2e5r3kIVa8ZJSn2IigY" },
-    { "id": "ph3", "plateNo": "003-B", "caption": "Monolith Study / Berlin", "aspect": "21/9", "colSpan": "md:col-span-12", "url": "https://lh3.googleusercontent.com/aida-public/AB6AXuCqkFArRGAjYQxRq4GWda3j76yTUYwekMXRIgddJGJ4ues9qJJ24O-7kvMcrhoRwHZ8LP8jZs9g1iwMmnJpMpdRXXSImyrkTRaGpS9hswcWwuqgn3smvdexJsUtuvJy0ZgOsPm4G01khm7lBRZHq3AHEkGzyjEvA-oxXg3Wg1vrjf7cmlUMqYXOatKGg-q5dDqnwxFtpbBWkJq2tc5S_PVTRSZKr5hxSSHwBuXfeCichLB4A-DQMO_nUjcNVY_KtyMn5dlG4BQm9bI" }
+    {
+      "id": "ph1777467454176227",
+      "plateNo": "001",
+      "caption": "sky high",
+      "aspect": "4/5",
+      "colSpan": "md:col-span-8 md:col-start-5",
+      "url": "/images/Image - 1.jpg"
+    },
+    {
+      "id": "ph1777467454176273",
+      "plateNo": "002",
+      "caption": "wires everywhere",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 10.jpg"
+    },
+    {
+      "id": "ph1777467454176631",
+      "plateNo": "003",
+      "caption": "greens and blues",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 11.jpg"
+    },
+    {
+      "id": "ph1777467454176698",
+      "plateNo": "004",
+      "caption": "there anymore?",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 2.jpg"
+    },
+    {
+      "id": "ph1777467454176764",
+      "plateNo": "005",
+      "caption": "still live.",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 3.jpg"
+    },
+    {
+      "id": "ph1777467454176840",
+      "plateNo": "006",
+      "caption": "speed.",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 4.jpg"
+    },
+    {
+      "id": "ph1777467454176486",
+      "plateNo": "007",
+      "caption": "lookout.",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 5.jpg"
+    },
+    {
+      "id": "ph1777467454176994",
+      "plateNo": "008",
+      "caption": "wavy",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 6.jpg"
+    },
+    {
+      "id": "ph1777467454176940",
+      "plateNo": "009",
+      "caption": "so far away",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 7.jpg"
+    },
+    {
+      "id": "ph1777467454176338",
+      "plateNo": "010",
+      "caption": "old timer",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 8.jpg"
+    },
+    {
+      "id": "ph1777467454176754",
+      "plateNo": "011",
+      "caption": "morning news",
+      "aspect": "square",
+      "colSpan": "md:col-span-8 md:col-start-1",
+      "url": "/images/Image - 9.jpg"
+    }
   ],
-  "videography": [],
-  "design": [],
+  "videography": [
+    {
+      "id": "v1777566032456",
+      "title": "Explore South Goal | Travel Film",
+      "url": "https://www.youtube.com/watch?v=S_VY3tySGXs",
+      "year": "2025",
+      "duration": "1:48",
+      "description": ""
+    },
+    {
+      "id": "v1777566055054",
+      "title": "UNDERGROUND 9! | The Pune Car Meet",
+      "url": "https://www.youtube.com/watch?v=K8W96wbsyuk&t=1s",
+      "year": "2025",
+      "duration": "2:31",
+      "description": ""
+    },
+    {
+      "id": "v1777566071571",
+      "title": "BBA A - Class of '24 | St. Joseph's College of Commerce",
+      "url": "https://www.youtube.com/watch?v=e3C1h3oJyIw",
+      "year": "2024",
+      "duration": "2:41",
+      "description": ""
+    },
+    {
+      "id": "v1777566086602",
+      "title": "Explore Varkala | Travel Film",
+      "url": "https://www.youtube.com/watch?v=mCt_TxJVFNs",
+      "year": "2024",
+      "duration": "1:33",
+      "description": ""
+    },
+    {
+      "id": "v1777566117384",
+      "title": "Coca Cola | Cinematic B-Roll",
+      "url": "https://www.youtube.com/watch?v=-Y6ULrh2liA",
+      "year": "2022",
+      "duration": "0:36",
+      "description": ""
+    },
+    {
+      "id": "v1777566136474",
+      "title": "MRF National Supercross 2022 | Bangalore",
+      "url": "https://www.youtube.com/watch?v=Vj2WAY4AYEk",
+      "year": "2023",
+      "duration": "1:40",
+      "description": ""
+    }
+  ],
+  "design": [
+    {
+      "id": "d1777619709483221",
+      "title": "Choosin Wisely?",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 1.jpg"
+    },
+    {
+      "id": "d1777619709483808",
+      "title": "Welcome.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 2.jpg"
+    },
+    {
+      "id": "d1777619709484805",
+      "title": "Fallin Thru Time",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 3.jpg"
+    },
+    {
+      "id": "d1777619709484753",
+      "title": "drink drink drink.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 4.jpg"
+    },
+    {
+      "id": "d1777619709484956",
+      "title": "bop.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 5.jpg"
+    },
+    {
+      "id": "d1777619709484489",
+      "title": "shoooes.",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 6.jpg"
+    },
+    {
+      "id": "d1777619709484362",
+      "title": "¿ǝʌᴉʇɔǝdsɹǝd",
+      "category": "Design",
+      "year": "2026",
+      "url": "/design/Deisgn 7.jpg"
+    }
+  ],
   "interests": [
     {
-      "id": "i1",
-      "title": "Sensor Research & Prototyping",
-      "category": "Electronics / Hobby",
+      "id": "i1777746794886",
+      "title": "coding and tech products",
+      "category": "Tech / Self-Taught",
       "year": "2024",
-      "description": "Experimental builds using atmospheric sensors to track structural resonance in urban environments."
+      "description": "Not a CS guy at all. But somewhere between AI getting good, working at a tech company, and a broken Wix site — it clicked.",
+      "details": {
+        "plateNo": "002",
+        "type": "CODING & TECH / SELF-TAUGHT",
+        "stickyTitle": "Coding & Tech — The Accidental Journey",
+        "heroImage": {
+          "url": "https://images.unsplash.com/photo-1665211097514-93f9b5c2bf8c?q=80&w=1120&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        "metadata": [
+          {
+            "label": "Background",
+            "value": "Not tech. Not even close."
+          },
+          {
+            "label": "Vibe",
+            "value": "Builds things that make his own life easier"
+          },
+          {
+            "label": "Built So Far",
+            "value": "Portfolio sites, blogs, a CRM, and more."
+          },
+          {
+            "label": "Tools",
+            "value": "Google's Antigravity IDE"
+          }
+        ],
+        "sections": [
+          {
+            "id": "not-a-tech-guy.-at-all.",
+            "label": "Not a Tech Guy. At All.",
+            "content": "Let's get that straight first.\n\nIf you ask me a tech question out of nowhere, I will blank out. I didn't take CS in school — \npartly because of my brother being in that field already, but mostly because teenage me \nthought it was too much studying and just... noped out.\n\nThere was a tiny spark though. I remember school teaching us HTML — the classic \n\"Hello World\" in an H1 tag — and some part of me found it interesting. \nBut that was it. It went nowhere for years.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "it-started-with-a-portfolio-site",
+            "label": "It Started With a Portfolio Site",
+            "content": "About 2 years back, I was looking for my first job and figured having a portfolio site \nwould help. So I did what anyone would do — looked for the easiest option. \nDrag and drop website builder. Done.\n\nStarted with Wix. Wix was expensive. Moved to Hostinger, built my first site there, \nand honestly? It did the job. Helped me land a job, so big W.\n\nBut a few months in, I started looking at analytics and the drop-off was crazy. \nThe loading speed was terrible. So the options were: pay for something better, or learn to code.\n\nAI wasn't where it is today, so the \"just vibe code it\" path didn't exist yet. \nI dropped the idea and left the site as it was. Moved on.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "then-ai-got-good",
+            "label": "Then AI Got Good",
+            "content": "A while later, AI got significantly better. Vibecoding became a thing. \nAnd right around the same time, I was working at a tech company — \npicking up bits and pieces. Localhost, deployment, GitHub, repos, tech stacks. \nNothing deep, but enough to not be completely lost.\n\nMy brother helped fill in the gaps. Maturity probably played a small role too — \nyounger me would've rage quit at the first error.\n\nSo I got the basics of VS Code. Learned how GitHub works. \nUnderstood how to host static sites on GitHub Pages. And started building.\n\nCoding actually started with Gemini. It just felt better for code than ChatGPT at the time — \nmore back and forth that actually worked. I remember building my first proper portfolio site \nand it felt *insane*. Nice design, cool animations. Unfortunately no screenshots, but it existed. \nIt was real. Trust.\n\nThe problem? AI hallucinating mid-project. Long chats would get broken, \nstarting a new one would break the code, and it became its own mess.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "antigravity-changed-things",
+            "label": "Antigravity Changed Things",
+            "content": "Cursor came along and was decent. But then Google dropped their IDE — Antigravity — \nand that was it for me. Something about it just felt right. \nSame concept as the others, but the experience clicked in a way the rest didn't.\n\nThat's when I genuinely realized: I actually love this.\n\nSince then I've built my own portfolio site (the one you're on right now), \nblog sites for friends, side project landing pages, and a bunch of personal mini apps. \nWhich brings me to the best part.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "build-things-that-make-your-life-easier",
+            "label": "Build Things That Make Your Life Easier",
+            "content": "Everyone talks about coding as this huge career move or startup opportunity. \nAnd yeah, sure. But the most underrated thing about learning to code? \n\nYou can build exactly what *you* need.\n\nTwo examples from my own life:\n\n**Invoice Tool** — At work, we managed invoices across 3-4 tabs in a Google Sheet. \nEvery single time, it was annoying. I built a dedicated tool for it. \nSaved nearly 2 hours of work. Just like that.\n\n**Custom CRM** — Every CRM out there is overcomplicated, bloated with features I don't need, \nand weirdly messy. So I built my own. Does exactly what I want, nothing more.\n\nThat's the real magic of coding. AI has made it more accessible than ever — \nand yeah, someone ships a new product every 10 minutes now — but the best use of it \nis still the same: build things that solve *your* problems.\n\nGenuinely excited to see where this goes.",
+            "type": "text",
+            "special": false
+          }
+        ]
+      }
     },
     {
-      "id": "i2",
-      "title": "Mechanical Keyboard Restoration",
-      "category": "Hardware / Craft",
-      "year": "2023",
-      "description": "Sourcing and restoring vintage Alps switches and custom PCB design for 60% layouts."
-    },
-    {
-      "id": "i3",
-      "title": "Ludic Narrative Studies",
-      "category": "Gaming / Research",
-      "year": "2023",
-      "description": "An ongoing investigation into non-linear storytelling and environmental narrative in immersive simulations."
+      "id": "i1777715751444",
+      "title": "Sim Racing",
+      "category": "Gaming",
+      "year": "2020",
+      "description": "From slow PCs and solo laps to endurance races with strangers across the world — this is the journey.",
+      "details": {
+        "plateNo": "001",
+        "type": "SIM RACING / JOURNEY",
+        "stickyTitle": "Sim Racing — The Journey",
+        "heroImage": {
+          "url": "https://images.steamusercontent.com/ugc/11040954075139841559/6C3EEE42AB5A7A0C78F8D639C6A0447167A0EE5D/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false"
+        },
+        "metadata": [
+          {
+            "label": "Current Game",
+            "value": "ACC — Assetto Corsa Competizione"
+          },
+          {
+            "label": "Platform",
+            "value": "PC"
+          }
+        ],
+        "sections": [
+          {
+            "id": "where-it-started",
+            "label": "Where It Started",
+            "content": "The love for sim racing started the day I got a system that could actually run a racing game. \n\nFirst one I ever played was *Copa Petrobras de Marcas* — and oh, what a game that was. Nothing technical, nothing complicated. Just take the car out and race. Perfect for a slow PC and zero experience. I finished the whole thing and immediately wanted more.\n\nAround the same time, F1 12 went on sale. I grabbed it, started a championship, and spent hours just putting in laps — beautifully sounding cars, no pressure, just vibes.\n\nThen solo racing got boring. Same thing every weekend. I stepped away for a bit.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "vroom-vroom",
+            "label": "vroom vroom",
+            "imageUrl": "https://images.steamusercontent.com/ugc/1655598293157979560/BE119FDD75958A95DA7C8BD4D03A47350311A10F/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+            "type": "image"
+          },
+          {
+            "id": "the-friend-that-changed-everything",
+            "label": "The Friend That Changed Everything",
+            "content": "Then I found a friend to race with — and that's when the *real* love for sim racing kicked in.\n\nWe jumped into F1 24 on Co-Op and honestly, the memories from that are unmatched. When I bought the game I was absolutely trash. He'd been playing for a while so it was always him first, me last. The dissing over Discord was constant. But that personal ego? It made me grind. Hours of solo practice without him knowing. Tactics. xD\n\nThat went on for nearly a year — until the game started crashing. And I mean *crashing*. EA really said let's make the experience painful. Out of ~130 hours on that game, at least 10 went into just trying to get it to work. \n\nWe stopped playing. Career break, basically. Too broke for F1 25, so we waited for a sale.",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "acc-&-a-whole-new-world",
+            "label": "ACC & A Whole New World",
+            "content": "During that break, I picked up *Assetto Corsa Competizione*.\n\nThis game changed things. Like, genuinely made life better.\n\nI was a hardcore F1 fan — not just playing but watching too (Rosberg & Max fan, Barcelona 2016 will never not be iconic) — but GT racing hit different. The cars, the tracks, the pace. I was terrible at first, obviously. Hours getting better, same old story.\n\nBut what *actually* changed things was multiplayer. Competitive racing with real people.\n\nI did my first endurance race at Monza — 6 hours — with a French guy and a Malaysian guy. Completely random people. Ended up having an absolute blast. Then I met more people from around the world, including a guy from Chennai who I've done a solid number of races with.\n\nNearly 320 hours on ACC now. Every single one worth it. Sitting at 102% of the top guys on controller, so yeah — controller gang represent. xD",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "what-sim-racing-actually-teaches-you",
+            "label": "What Sim Racing Actually Teaches You",
+            "content": "Competitive sim racing teaches you more than you'd expect.\n\nPatience. Aggression control. When to push and when to hold back. How to practice with actual intention. How to take a loss and come back smarter.\n\nIt's a genuinely beautiful hobby. The random people you meet, the races you share, the moments you replay in your head — that's what keeps you coming back.\n\n---\n\nIf you've read this far, you probably game. Come say hi on Discord, let's race.\n\n**Discord — 3riccx**",
+            "type": "text",
+            "special": false
+          },
+          {
+            "id": "beautiful-lexus",
+            "label": "Beautiful lexus",
+            "imageUrl": "https://images.steamusercontent.com/ugc/55840381411132947/3411C8FCBD1A5577C0AE1BD2A685FACDD759E564/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
+            "type": "image"
+          }
+        ]
+      }
     }
   ]
 }
